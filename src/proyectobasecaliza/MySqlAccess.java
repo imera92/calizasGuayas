@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectobasecaliza;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,10 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 
-/**
- *
- * @author imera
- */
 public class MySqlAccess {
     //URL's de JDBC y la base de datos
    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
