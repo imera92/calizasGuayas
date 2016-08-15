@@ -43,6 +43,11 @@ public class VLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,6 +139,10 @@ public class VLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
           
     }//GEN-LAST:event_txtNombreUsuarioActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Sistema.cerrar();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
