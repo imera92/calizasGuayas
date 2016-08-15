@@ -30,54 +30,54 @@ public class VLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         PInicio = new javax.swing.JPanel();
+        lbNombreEmpresa = new javax.swing.JLabel();
         lbIniciarSesion = new javax.swing.JLabel();
         lbNombreUsuario = new javax.swing.JLabel();
         lbContraseña = new javax.swing.JLabel();
         txtNombreUsuario = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
-        FondoPanel = new javax.swing.JLabel();
-        lbNombreEmpresa = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
-        lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 204, 204));
+        setForeground(java.awt.Color.white);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PInicio.setBackground(new java.awt.Color(255, 204, 51));
+        PInicio.setMinimumSize(new java.awt.Dimension(375, 300));
+        PInicio.setPreferredSize(new java.awt.Dimension(375, 300));
+
+        lbNombreEmpresa.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbNombreEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        lbNombreEmpresa.setText("Calizas S.A.");
 
         lbIniciarSesion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         lbIniciarSesion.setText("Iniciar Sesion:");
-        PInicio.add(lbIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         lbNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lbNombreUsuario.setText("Nombre de Usuario:");
-        PInicio.add(lbNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         lbContraseña.setForeground(new java.awt.Color(255, 255, 255));
         lbContraseña.setText("Contraseña:");
-        PInicio.add(lbContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         txtNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreUsuarioActionPerformed(evt);
             }
         });
-        PInicio.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 180, -1));
 
         txtContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContraseñaActionPerformed(evt);
             }
         });
-        PInicio.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 180, -1));
 
         btnLogin.setText("Iniciar Sesion");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -85,18 +85,6 @@ public class VLogin extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        PInicio.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
-
-        FondoPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/fondos-de-pantalla-papers.co_.jpg"))); // NOI18N
-        FondoPanel.setText("jLabel2");
-        PInicio.add(FondoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 310));
-
-        getContentPane().add(PInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 410, 310));
-
-        lbNombreEmpresa.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        lbNombreEmpresa.setForeground(new java.awt.Color(255, 255, 255));
-        lbNombreEmpresa.setText("Calizas S.A.");
-        getContentPane().add(lbNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 190, 40));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -104,11 +92,58 @@ public class VLogin extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 460, 70, -1));
 
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/LoginCompositeBackground.png"))); // NOI18N
-        lbFondo.setText("jLabel1");
-        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        javax.swing.GroupLayout PInicioLayout = new javax.swing.GroupLayout(PInicio);
+        PInicio.setLayout(PInicioLayout);
+        PInicioLayout.setHorizontalGroup(
+            PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PInicioLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogin)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbContraseña)
+                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNombreUsuario)
+                    .addComponent(lbIniciarSesion)
+                    .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PInicioLayout.setVerticalGroup(
+            PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PInicioLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbIniciarSesion)
+                .addGap(18, 18, 18)
+                .addComponent(lbNombreUsuario)
+                .addGap(6, 6, 6)
+                .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lbContraseña)
+                .addGap(6, 6, 6)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(btnLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalir)
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,12 +215,10 @@ public class VLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel FondoPanel;
     private javax.swing.JPanel PInicio;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel lbContraseña;
-    private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbIniciarSesion;
     private javax.swing.JLabel lbNombreEmpresa;
     private javax.swing.JLabel lbNombreUsuario;
