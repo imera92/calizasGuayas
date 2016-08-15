@@ -5,6 +5,8 @@
  */
 package proyectobasecaliza;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jorge García
@@ -40,6 +42,7 @@ public class VLogin extends javax.swing.JFrame {
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,18 +114,19 @@ public class VLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         
-        VPrincipal ventana= new VPrincipal();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-        
-        // String usuario=txtNombreUsuario.getText();
-        // String contrasena=txtContraseña.getText();
-         
-        
+        if(Sistema.validarUsuario(txtNombreUsuario, txtContraseña)){
+            VPrincipal ventana= new VPrincipal();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        }else{
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Usuario y/o contraseña incorrectos", "Log In error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        Sistema.cerrar();
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
