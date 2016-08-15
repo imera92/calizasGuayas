@@ -6,14 +6,9 @@ public class ProyectoBaseCaliza {
     
     public static void main(String[] args) {
         
-//        MySqlAccess newAccess = new MySqlAccess();
-//        newAccess.connection();
-        /*
-        VCrearCliente ventana = new VCrearCliente();
-        ventana.setVisible(true);
-        */
-//        VCrearProducto ventana = new VCrearProducto();
-//        ventana.setVisible(true);
+        MySqlAccess newAccess = new MySqlAccess();
+        newAccess.connection();
+        newAccess.closeConnection();
 
         VLogin ventana = new VLogin();
         ventana.setLocationRelativeTo(null);

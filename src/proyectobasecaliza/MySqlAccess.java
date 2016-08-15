@@ -13,28 +13,67 @@ public class MySqlAccess {
    static final String DB_URL = "jdbc:mysql://localhost/calizasguayas";
    //Credenciales
    static final String USER = "root";
-   static final String PASS = "11072011";
+   static final String PASS = "";
+   
+   private Connection conn = null;
+   private Statement stmt = null;
    
    public void connection(){
-   Connection conn = null;
-   Statement stmt = null;
    try{
-      //2: Registrar JDBC driver
+      //1: Registrar JDBC driver
       Class.forName("com.mysql.jdbc.Driver");
 
-      //3: Abrir coneccion
+      //2: Abrir coneccion
       System.out.println("Conectando a la base de datos...");
-      conn = DriverManager.getConnection(DB_URL,USER,PASS);
-      
+      this.conn = DriverManager.getConnection(DB_URL,USER,PASS);
+   }catch(SQLException se){
+      se.printStackTrace();
+   }catch(Exception e){
+      e.printStackTrace();
+   }
+}
+   
+   public void closeConnection(){
+       try{
+           if(this.conn != null) this.conn.close();
+           if(this.stmt != null) this.stmt.close();
+           System.out.println("Cerrando coneccion a la base de datos...");
+       }
+       catch(SQLException se){
+            se.printStackTrace();
+       }
+   }
+
+   public ResultSet query(String q) throws SQLException{
+       this.stmt = this.conn.createStatement();
+       ResultSet rs = stmt.executeQuery(q);
+       return rs;
+       /*
+      while(rs.next()){
+          //Obtenemos los datos del result set
+          String user = rs.getString("user");
+          String pass = rs.getString("pass");
+          
+         //Mostramos los valores obtenidos
+         System.out.print("Usuario: " + user);
+         System.out.print(", Contraseña: " + pass);
+      }*/
+   }
+   
+   public Connection getConn() {
+        return conn;
+    }
+   
+    
       /*
-      //4 (OPC): Ejecutamos un query de prueba
+      QUERIES
       System.out.println("Creando sentencia...");
       stmt = conn.createStatement();
       String sql;
       sql = "SELECT * FROM bote";
       ResultSet rs = stmt.executeQuery(sql);
 
-      //5: Extraemos los datos del result set
+      -Extraemos los datos del result set
       while(rs.next()){
          //Obtenemos los datos del result set
          int bid  = rs.getInt("bid");
@@ -47,54 +86,4 @@ public class MySqlAccess {
          System.out.println(", Last: " + color);
       }
       */
-      
-      
-      //4 (OPC): Ejecutamos un query de prueba
-      System.out.println("Creando sentencia...");
-      stmt = conn.createStatement();
-      String sql;
-      sql = "INSERT INTO producto (IdProducto, Stock, Nombre, Precio_Unitario) VALUES ('06', '1000', 'Sellador', '10.0')";
-      stmt.executeUpdate(sql);
-      
-      //5 (OPC): Creamos nuevo query y extraemos los datos del result set
-      sql = "SELECT * FROM producto";
-      ResultSet rs = stmt.executeQuery(sql);
-      
-      while(rs.next()){
-          //Obtenemos los datos del result set
-          int id = rs.getInt("IdProducto");
-          String stock = rs.getString("Stock");
-          String name = rs.getString("Nombre");
-          float price = rs.getFloat("Precio_Unitario");  
-          
-         //Mostramos los valores obtenidos
-         System.out.print("ID: " + id);
-         System.out.print(", Nombre: " + name);
-         System.out.println(", Stock: " + stock);
-         System.out.println(", Precio: " + price);
-      }
-      
-      //6: Limpiamos todo
-      rs.close();
-      stmt.close();
-      conn.close();
-   }catch(SQLException se){
-      se.printStackTrace();
-   }catch(Exception e){
-      e.printStackTrace();
-   }finally{
-      try{
-         if(stmt!=null)
-            stmt.close();
-      }catch(SQLException se2){
-      try{
-         if(conn!=null)
-            conn.close();
-      }catch(SQLException se){
-         se.printStackTrace();
-      }
-   }
-   System.out.println("Goodbye!");
-}
-}
 }
