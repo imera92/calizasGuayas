@@ -1,11 +1,9 @@
 package proyectobasecaliza;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 
 public class MySqlAccess {
     //URL's de JDBC y la base de datos
@@ -19,19 +17,20 @@ public class MySqlAccess {
    private Statement stmt = null;
    
    public void connection(){
-   try{
-      //1: Registrar JDBC driver
-      Class.forName("com.mysql.jdbc.Driver");
+        try{
+           //1: Registrar JDBC driver
+           Class.forName("com.mysql.jdbc.Driver");
 
-      //2: Abrir coneccion
-      System.out.println("Conectando a la base de datos...");
-      this.conn = DriverManager.getConnection(DB_URL,USER,PASS);
-   }catch(SQLException se){
-      se.printStackTrace();
-   }catch(Exception e){
-      e.printStackTrace();
+           //2: Abrir coneccion
+           System.out.println("Conectando a la base de datos...");
+           this.conn = DriverManager.getConnection(DB_URL,USER,PASS);
+           this.stmt = conn.createStatement();
+        }catch(SQLException se){
+           se.printStackTrace();
+        }catch(Exception e){
+           e.printStackTrace();
+        }
    }
-}
    
    public void closeConnection(){
        try{
@@ -45,32 +44,22 @@ public class MySqlAccess {
    }
 
    public ResultSet query(String q) throws SQLException{
-       this.stmt = this.conn.createStatement();
-       ResultSet rs = stmt.executeQuery(q);
+       ResultSet rs = this.stmt.executeQuery(q);
        return rs;
-       /*
-      while(rs.next()){
-          //Obtenemos los datos del result set
-          String user = rs.getString("user");
-          String pass = rs.getString("pass");
-          
-         //Mostramos los valores obtenidos
-         System.out.print("Usuario: " + user);
-         System.out.print(", Contraseña: " + pass);
-      }*/
    }
    
    public Connection getConn() {
-        return conn;
+        return this.conn;
     }
    
     
       /*
       QUERIES
-      System.out.println("Creando sentencia...");
-      stmt = conn.createStatement();
       String sql;
+      Statement stmt;
       sql = "SELECT * FROM bote";
+      stmt = conn.createStatement();
+      
       ResultSet rs = stmt.executeQuery(sql);
 
       -Extraemos los datos del result set
