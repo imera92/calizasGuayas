@@ -3,9 +3,18 @@ package proyectobasecaliza.sistema;
 import java.util.GregorianCalendar;
 
 public class Pago {
-    private GregorianCalendar   fechaPago;
+    private String comprobante;
+    private GregorianCalendar fechaPago;
     private double valorCancelado;
 
+    public String getComprobante() {
+        return comprobante;
+    }
+
+    public void setComprobante(String comprobante) {
+        this.comprobante = comprobante;
+    }
+    
     public GregorianCalendar getFechaPago() {
         return fechaPago;
     }
