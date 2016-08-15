@@ -6,6 +6,7 @@ public class Pago {
     private String comprobante;
     private GregorianCalendar fechaPago;
     private double valorCancelado;
+    private Factura factura;
 
     public String getComprobante() {
         return comprobante;
