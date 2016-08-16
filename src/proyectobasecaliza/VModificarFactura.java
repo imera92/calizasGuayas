@@ -47,6 +47,7 @@ public class VModificarFactura extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,6 +148,14 @@ public class VModificarFactura extends javax.swing.JFrame {
         jButton2.setText("Cancelar");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
 
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
         getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -165,6 +174,13 @@ public class VModificarFactura extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        VPrincipal ventana= new VPrincipal();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,6 +218,7 @@ public class VModificarFactura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
