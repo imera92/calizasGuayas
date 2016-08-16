@@ -156,7 +156,7 @@ public class VLogin extends javax.swing.JFrame {
         
         if(Sistema.validarUsuario(txtNombreUsuario, txtContraseña)){
             VPrincipal ventana= new VPrincipal();
-            ventana.setLocation(this.getLocation());
+            ventana.setLocationRelativeTo(null);
             this.dispose();
             ventana.setVisible(true);
         }else{
