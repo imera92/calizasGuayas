@@ -3,24 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VConsultarCliente.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VPrincipal.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VModificarPago.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/MySqlAccess.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VCrearCliente.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/Main.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VConsultarPago.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VLogin.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VModificarCliente.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VEliminarCliente.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VConsultarFactura.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/Sistema.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VEliminarProducto.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VEliminarFactura.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VConsultarProducto.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VEliminarPago.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VModificarFactura.java</file>
-            <file>file:/D:/Mis%20documentos/Calizas/src/proyectobasecaliza/VModificarProducto.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VCrearPago.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VConsultarPago.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VCrearProducto.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VEliminarCliente.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VModificarPago.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/Main.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VConsultarCliente.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VEliminarFactura.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VEliminarProducto.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VModificarFactura.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VLogin.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VEliminarPago.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VCrearFactura.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VConsultarProducto.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VConsultarFactura.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VCrearCliente.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VModificarCliente.java</file>
+            <file>file:/home/jorge18link/Documentos/src/proyectobasecaliza/VModificarProducto.java</file>
         </group>
     </open-files>
 </project-private>

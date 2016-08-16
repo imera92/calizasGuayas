@@ -29,7 +29,7 @@ public class VConsultarProducto extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbProducto = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -43,18 +43,114 @@ public class VConsultarProducto extends javax.swing.JFrame {
         jLabel2.setText("Productos Existentes");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Precio Unitario"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbProducto);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 390, 320));
 
@@ -120,6 +216,6 @@ public class VConsultarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbProducto;
     // End of variables declaration//GEN-END:variables
 }
