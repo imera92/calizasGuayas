@@ -4,6 +4,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MySqlAccess {
     //URL's de JDBC y la base de datos
@@ -46,6 +48,15 @@ public class MySqlAccess {
    public ResultSet query(String q) throws SQLException{
        ResultSet rs = this.stmt.executeQuery(q);
        return rs;
+   }
+   
+   public void write(String q){
+       try {
+            this.stmt.executeUpdate(q);
+            System.out.println("Cliente Creado en la base de datos");
+        } catch (SQLException ex) {
+            Logger.getLogger(VCrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
    }
    
    public Connection getConn() {

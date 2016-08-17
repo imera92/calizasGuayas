@@ -140,26 +140,7 @@ public class VCrearCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tfRUCActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        
-        String ruc = tfRUC.getText();
-        String nombre = tfNombre.getText();
-        String direccion = tfDireccion.getText();
-        String telefono = tfTelefono.getText();
-        String email = tfEmail.getText();
-        
-        Connection conn = Sistema.getNewAccess().getConn();
-        Statement stmt;
-        try {
-            stmt = conn.createStatement();
-            String sql = "INSERT INTO cliente " +
-                   "VALUES ("+ruc+", '"+nombre+"', '"+direccion+"', '"+telefono+"', '"+email+"')";
-            stmt.executeUpdate(sql);
-            System.out.println("Cliente Creado en la base de datos");
-        } catch (SQLException ex) {
-            Logger.getLogger(VCrearCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      
-        
+        Sistema.insertCliente(this.tfRUC, this.tfNombre, this.tfDireccion, this.tfTelefono, this.tfEmail);
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed

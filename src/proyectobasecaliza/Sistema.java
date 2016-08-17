@@ -52,4 +52,10 @@ public class Sistema {
         return false;
     }
     
+    public static void insertCliente(JTextField ruc, JTextField nombre, JTextField direccion, JTextField telefono, JTextField email){
+        String sql = "INSERT INTO cliente " +
+                   "VALUES ("+ruc.getText()+", '"+nombre.getText()+"', '"+direccion.getText()+"', '"+telefono.getText()+"', '"+email.getText()+"');";
+        Sistema.newAccess.write(sql);
+    }
+    
 }
