@@ -144,6 +144,11 @@ public class VCrearCliente extends javax.swing.JFrame {
         try{
             Sistema.insertCliente(this.tfRUC, this.tfNombre, this.tfDireccion, this.tfTelefono, this.tfEmail);
             JOptionPane notificacion = new JOptionPane();
+            this.tfRUC.setText("");
+            this.tfNombre.setText("");
+            this.tfDireccion.setText("");
+            this.tfTelefono.setText("");
+            this.tfEmail.setText("");
             notificacion.showMessageDialog(rootPane, "Cliente creado exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
         }catch(SQLException se){
             se.printStackTrace();
