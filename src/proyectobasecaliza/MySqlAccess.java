@@ -19,8 +19,10 @@ public class MySqlAccess {
    public void connection(){
         try{
            //1: Registrar JDBC driver
+           //CAMBIOS POR LUCRECIA
+           System.out.println("HELLOOOOO");
            Class.forName("com.mysql.jdbc.Driver");
-
+            
            //2: Abrir coneccion
            System.out.println("Conectando a la base de datos...");
            this.conn = DriverManager.getConnection(DB_URL,USER,PASS);
