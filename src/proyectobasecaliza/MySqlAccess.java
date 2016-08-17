@@ -50,12 +50,9 @@ public class MySqlAccess {
        return rs;
    }
    
-   public void write(String q){
-       try {
-            this.stmt.executeUpdate(q);
-        } catch (SQLException ex) {
-            Logger.getLogger(VCrearCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+   public void write(String q) throws SQLException{
+       this.stmt.executeUpdate(q);
    }
    
    public Connection getConn() {

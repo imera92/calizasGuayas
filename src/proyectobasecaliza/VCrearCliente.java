@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -140,7 +141,14 @@ public class VCrearCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tfRUCActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        Sistema.insertCliente(this.tfRUC, this.tfNombre, this.tfDireccion, this.tfTelefono, this.tfEmail);
+        try{
+            Sistema.insertCliente(this.tfRUC, this.tfNombre, this.tfDireccion, this.tfTelefono, this.tfEmail);
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Cliente creado exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
+        }catch(SQLException se){
+            se.printStackTrace();
+        }
+        
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed

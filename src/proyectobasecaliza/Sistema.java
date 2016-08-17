@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 import proyectobasecaliza.sistema.Usuario;
 
@@ -52,10 +54,9 @@ public class Sistema {
         return false;
     }
     
-    public static void insertCliente(JTextField ruc, JTextField nombre, JTextField direccion, JTextField telefono, JTextField email){
+    public static void insertCliente(JTextField ruc, JTextField nombre, JTextField direccion, JTextField telefono, JTextField email) throws SQLException{
         String sql = "INSERT INTO cliente " +
                    "VALUES ("+ruc.getText()+", '"+nombre.getText()+"', '"+direccion.getText()+"', '"+telefono.getText()+"', '"+email.getText()+"');";
         Sistema.newAccess.write(sql);
     }
-    
 }
