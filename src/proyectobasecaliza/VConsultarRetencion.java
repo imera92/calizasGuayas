@@ -150,7 +150,7 @@ public class VConsultarRetencion extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbRetencion);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 800, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 920, 350));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {

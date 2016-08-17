@@ -32,10 +32,22 @@ public class VCrearPago extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tfNumComprobante = new javax.swing.JTextField();
-        tfValorCancelado = new javax.swing.JTextField();
-        tfFechaPago = new javax.swing.JTextField();
-        btnCrear = new javax.swing.JButton();
+        tfFechaEmi = new javax.swing.JTextField();
+        tfNumCheque = new javax.swing.JTextField();
         btnAtras = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        tfBancoCheque = new javax.swing.JTextField();
+        tfBancoDeposito = new javax.swing.JTextField();
+        tfCuentaDeposito = new javax.swing.JTextField();
+        tfValorCancelado = new javax.swing.JTextField();
+        tfNumFactura = new javax.swing.JTextField();
+        tfIDFormaPago = new javax.swing.JTextField();
+        btnCrear = new javax.swing.JButton();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,34 +62,26 @@ public class VCrearPago extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Numero Comprobante:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Valor Cancelado:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        jLabel4.setText("Fecha de pago:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Fecha de Pago:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        getContentPane().add(tfNumComprobante, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 120, 20));
-        getContentPane().add(tfValorCancelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 120, -1));
+        jLabel5.setText("Num Cheque");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        getContentPane().add(tfNumComprobante, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 120, 20));
+        getContentPane().add(tfFechaEmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 120, -1));
 
-        tfFechaPago.addActionListener(new java.awt.event.ActionListener() {
+        tfNumCheque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFechaPagoActionPerformed(evt);
+                tfNumChequeActionPerformed(evt);
             }
         });
-        getContentPane().add(tfFechaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 120, -1));
-
-        btnCrear.setText("Crear");
-        btnCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
+        getContentPane().add(tfNumCheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 120, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +91,45 @@ public class VCrearPago extends javax.swing.JFrame {
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 460, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Banco Cheque");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Banco deposito");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Cuenta deposito");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Valor cancelado");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Num Factura");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Id forma de pago");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+        getContentPane().add(tfBancoCheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 120, -1));
+        getContentPane().add(tfBancoDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 120, -1));
+        getContentPane().add(tfCuentaDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 120, -1));
+        getContentPane().add(tfValorCancelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 120, -1));
+        getContentPane().add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 120, -1));
+        getContentPane().add(tfIDFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 120, -1));
+
+        btnCrear.setText("Crear");
+        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, -1, -1));
+
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
         getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -94,9 +137,9 @@ public class VCrearPago extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfFechaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaPagoActionPerformed
+    private void tfNumChequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNumChequeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfFechaPagoActionPerformed
+    }//GEN-LAST:event_tfNumChequeActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         VPrincipal ventana= new VPrincipal();
@@ -104,12 +147,6 @@ public class VCrearPago extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
-
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        String numComprobante= tfNumComprobante.getText();
-        String valorCancelado= tfValorCancelado.getText();
-        String fechaPago = tfFechaPago.getText();
-    }//GEN-LAST:event_btnCrearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,13 +186,25 @@ public class VCrearPago extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbFondo;
-    private javax.swing.JTextField tfFechaPago;
+    private javax.swing.JTextField tfBancoCheque;
+    private javax.swing.JTextField tfBancoDeposito;
+    private javax.swing.JTextField tfCuentaDeposito;
+    private javax.swing.JTextField tfFechaEmi;
+    private javax.swing.JTextField tfIDFormaPago;
+    private javax.swing.JTextField tfNumCheque;
     private javax.swing.JTextField tfNumComprobante;
+    private javax.swing.JTextField tfNumFactura;
     private javax.swing.JTextField tfValorCancelado;
     // End of variables declaration//GEN-END:variables
 }

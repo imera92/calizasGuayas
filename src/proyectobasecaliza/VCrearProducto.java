@@ -30,10 +30,14 @@ public class VCrearProducto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        txtPrecioUnitario = new javax.swing.JTextField();
+        tfNombre = new javax.swing.JTextField();
+        tfPrecioUni = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        tfIdProducto = new javax.swing.JTextField();
+        tfStock = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,15 +50,17 @@ public class VCrearProducto extends javax.swing.JFrame {
         jLabel1.setText("Crear Producto");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Precio Unitario:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 120, -1));
-        getContentPane().add(txtPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 120, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        getContentPane().add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 120, -1));
+        getContentPane().add(tfPrecioUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 120, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +68,7 @@ public class VCrearProducto extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
+        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +77,18 @@ public class VCrearProducto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 460, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Id Producto");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Stock");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        getContentPane().add(tfIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 120, -1));
+        getContentPane().add(tfStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 120, -1));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
@@ -87,8 +105,8 @@ public class VCrearProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        String nombre= txtNombre.getText();
-        String precioUni= txtPrecioUnitario.getText();
+        String nombre= tfNombre.getText();
+        String precioUni= tfPrecioUni.getText();
     }//GEN-LAST:event_btnCrearActionPerformed
 
     /**
@@ -132,8 +150,12 @@ public class VCrearProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lbFondo;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPrecioUnitario;
+    private javax.swing.JTextField tfIdProducto;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfPrecioUni;
+    private javax.swing.JTextField tfStock;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,6 +50,7 @@ public class MySqlAccess {
        return rs;
    }
    
+
    public void write(String q) throws SQLException{
        this.stmt.executeUpdate(q);
    }
