@@ -152,11 +152,11 @@ public class VEliminarRetencion extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbRetencion);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 420, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 930, 310));
 
         btEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btEliminar.setText("Eliminar");
-        getContentPane().add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 110, 50));
+        getContentPane().add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

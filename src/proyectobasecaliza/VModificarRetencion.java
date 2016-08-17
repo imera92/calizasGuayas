@@ -211,7 +211,7 @@ public class VModificarRetencion extends javax.swing.JFrame {
         ));
         jpRetencion.setViewportView(tbRetencion);
 
-        getContentPane().add(jpRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 480, 310));
+        getContentPane().add(jpRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 540, 360));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
