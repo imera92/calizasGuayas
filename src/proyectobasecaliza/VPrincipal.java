@@ -425,7 +425,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         VLogin ventana= new VLogin();
-        ventana.setLocation(this.getLocation());
+        ventana.setLocationRelativeTo(null);
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed

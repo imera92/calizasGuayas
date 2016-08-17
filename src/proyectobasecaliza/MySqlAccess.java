@@ -19,8 +19,6 @@ public class MySqlAccess {
    public void connection(){
         try{
            //1: Registrar JDBC driver
-           //CAMBIOS POR LUCRECIA
-           System.out.println("HELLOOOOO");
            Class.forName("com.mysql.jdbc.Driver");
             
            //2: Abrir coneccion
