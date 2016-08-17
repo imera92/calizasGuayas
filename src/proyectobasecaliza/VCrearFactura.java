@@ -7,6 +7,11 @@ package proyectobasecaliza;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,6 +52,10 @@ public class VCrearFactura extends javax.swing.JFrame {
         tfEstado = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tfIdProducto = new javax.swing.JTextField();
+        tfRucCliente = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,46 +84,46 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Precio Unitario:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Total Sacos Vendidos:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Total Factura:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Fecha Vencimiento:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Estado:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
         getContentPane().add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 110, -1));
         getContentPane().add(tfFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, 20));
-        getContentPane().add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 110, -1));
-        getContentPane().add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 110, -1));
+        getContentPane().add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 110, -1));
+        getContentPane().add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, -1));
 
         tfTotalFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfTotalFacturaActionPerformed(evt);
             }
         });
-        getContentPane().add(tfTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, -1));
+        getContentPane().add(tfTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 110, -1));
 
         tfFechaVencimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfFechaVencimientoActionPerformed(evt);
             }
         });
-        getContentPane().add(tfFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 110, -1));
-        getContentPane().add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 110, -1));
+        getContentPane().add(tfFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 110, -1));
+        getContentPane().add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 110, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +131,7 @@ public class VCrearFactura extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
+        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +140,24 @@ public class VCrearFactura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 460, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("ID Producto");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Ruc Cliente");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+        getContentPane().add(tfIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 110, -1));
+
+        tfRucCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfRucClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfRucCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 110, -1));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
@@ -147,7 +174,22 @@ public class VCrearFactura extends javax.swing.JFrame {
         String totalfactura= tfTotalFactura.getText();
         String fechaVenci= tfFechaVencimiento.getText();
         String estado= tfEstado.getText();
+        String idProducto= tfIdProducto.getText();
+        String rucCliente= tfRucCliente.getText();
         
+        /*
+        Connection conn = Sistema.getNewAccess().getConn();
+        Statement stmt;
+        try {
+            stmt = conn.createStatement();
+            String sql = "INSERT INTO factura(idFactura,estado,Total_Sacos_Vendidos,Precio_Unitario,Precio_Total,Producto_IdProducto,Cliente_RUC_Cliente) " +
+                   "VALUES ("+numFact+", '"+estado+"', "+totalSacos+", "+precioUni+", "+totalfactura+", "+idProducto+", "+rucCliente+")";
+            stmt.executeUpdate(sql);
+            System.out.println("Cliente Creado en la base de datos");
+        } catch (SQLException ex) {
+            Logger.getLogger(VCrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void tfTotalFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTotalFacturaActionPerformed
@@ -164,6 +206,10 @@ public class VCrearFactura extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tfRucClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfRucClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfRucClienteActionPerformed
     
     @Override
     public Image getIconImage() {
@@ -219,13 +265,17 @@ public class VCrearFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbNumFactura;
     private javax.swing.JTextField tfEstado;
     private javax.swing.JTextField tfFechaEmision;
     private javax.swing.JTextField tfFechaVencimiento;
+    private javax.swing.JTextField tfIdProducto;
     private javax.swing.JTextField tfNumFactura;
     private javax.swing.JTextField tfPrecioUnitario;
+    private javax.swing.JTextField tfRucCliente;
     private javax.swing.JTextField tfTotalFactura;
     private javax.swing.JTextField tfTotalSacosVendidos;
     // End of variables declaration//GEN-END:variables

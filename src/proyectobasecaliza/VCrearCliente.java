@@ -38,14 +38,18 @@ public class VCrearCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         lbTituloCrear = new javax.swing.JLabel();
-        lbNombres = new javax.swing.JLabel();
-        lbApellidos = new javax.swing.JLabel();
-        tfNombres = new javax.swing.JTextField();
-        tfApellidos = new javax.swing.JTextField();
+        lbRUC = new javax.swing.JLabel();
+        lbNombre = new javax.swing.JLabel();
+        tfRUC = new javax.swing.JTextField();
+        tfNombre = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
-        tfIDCliente = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        tfDireccion = new javax.swing.JTextField();
+        lbDirección = new javax.swing.JLabel();
+        lbTelefono = new javax.swing.JLabel();
+        lbEmail = new javax.swing.JLabel();
+        tfTelefono = new javax.swing.JTextField();
+        tfEmail = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,29 +64,29 @@ public class VCrearCliente extends javax.swing.JFrame {
         lbTituloCrear.setText("Crear Cliente");
         getContentPane().add(lbTituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 50));
 
-        lbNombres.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbNombres.setForeground(new java.awt.Color(255, 255, 255));
-        lbNombres.setText("Nombres:");
-        getContentPane().add(lbNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        lbRUC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbRUC.setForeground(new java.awt.Color(255, 255, 255));
+        lbRUC.setText("RUC:");
+        getContentPane().add(lbRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        lbApellidos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbApellidos.setForeground(new java.awt.Color(255, 255, 255));
-        lbApellidos.setText("Apellidos:");
-        getContentPane().add(lbApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        lbNombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lbNombre.setText("Nombre:");
+        getContentPane().add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
-        tfNombres.addActionListener(new java.awt.event.ActionListener() {
+        tfRUC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNombresActionPerformed(evt);
+                tfRUCActionPerformed(evt);
             }
         });
-        getContentPane().add(tfNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 190, -1));
+        getContentPane().add(tfRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 190, -1));
 
-        tfApellidos.addActionListener(new java.awt.event.ActionListener() {
+        tfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfApellidosActionPerformed(evt);
+                tfNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(tfApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 190, -1));
+        getContentPane().add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 190, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +94,7 @@ public class VCrearCliente extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
+        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -99,12 +103,24 @@ public class VCrearCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
-        getContentPane().add(tfIDCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 190, -1));
+        getContentPane().add(tfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 190, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cédula:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        lbDirección.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbDirección.setForeground(new java.awt.Color(255, 255, 255));
+        lbDirección.setText("Dirección:");
+        getContentPane().add(lbDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+
+        lbTelefono.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        lbTelefono.setText("Teléfono:");
+        getContentPane().add(lbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        lbEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lbEmail.setText("e-mail:");
+        getContentPane().add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        getContentPane().add(tfTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 190, -1));
+        getContentPane().add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 190, -1));
 
         lbFondo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbFondo.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,28 +131,29 @@ public class VCrearCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfApellidosActionPerformed
+    private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfApellidosActionPerformed
+    }//GEN-LAST:event_tfNombreActionPerformed
 
-    private void tfNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombresActionPerformed
+    private void tfRUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfRUCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfNombresActionPerformed
+    }//GEN-LAST:event_tfRUCActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         
-        String nombre=tfNombres.getText();
-        String apellido=tfApellidos.getText();
-        String idCliente=tfIDCliente.getText();
+        String ruc = tfRUC.getText();
+        String nombre = tfNombre.getText();
+        String direccion = tfDireccion.getText();
+        String telefono = tfTelefono.getText();
+        String email = tfEmail.getText();
         
         Connection conn = Sistema.getNewAccess().getConn();
         Statement stmt;
         try {
             stmt = conn.createStatement();
             String sql = "INSERT INTO cliente " +
-                   "VALUES (0926065715, 'Jorge', 'CDLA FAE MZ 41 Solar 4', '2392811', 'jorge_18link@hotmail.com')";
+                   "VALUES ("+ruc+", '"+nombre+"', '"+direccion+"', '"+telefono+"', '"+email+"')";
             stmt.executeUpdate(sql);
-            System.out.println("WIP");
             System.out.println("Cliente Creado en la base de datos");
         } catch (SQLException ex) {
             Logger.getLogger(VCrearCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -197,13 +214,17 @@ public class VCrearCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lbApellidos;
+    private javax.swing.JLabel lbDirección;
+    private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbFondo;
-    private javax.swing.JLabel lbNombres;
+    private javax.swing.JLabel lbNombre;
+    private javax.swing.JLabel lbRUC;
+    private javax.swing.JLabel lbTelefono;
     private javax.swing.JLabel lbTituloCrear;
-    private javax.swing.JTextField tfApellidos;
-    private javax.swing.JTextField tfIDCliente;
-    private javax.swing.JTextField tfNombres;
+    private javax.swing.JTextField tfDireccion;
+    private javax.swing.JTextField tfEmail;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfRUC;
+    private javax.swing.JTextField tfTelefono;
     // End of variables declaration//GEN-END:variables
 }
