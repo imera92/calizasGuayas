@@ -38,13 +38,13 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtNumFactura = new javax.swing.JTextField();
-        txtFechaEmision = new javax.swing.JTextField();
-        txtPrecioUnitario = new javax.swing.JTextField();
-        txtTotalSacosVendidos = new javax.swing.JTextField();
-        txtTotalFactura = new javax.swing.JTextField();
-        txtFechaVencimiento = new javax.swing.JTextField();
-        txtxEstado = new javax.swing.JTextField();
+        tfNumFactura = new javax.swing.JTextField();
+        tfFechaEmision = new javax.swing.JTextField();
+        tfPrecioUnitario = new javax.swing.JTextField();
+        tfTotalSacosVendidos = new javax.swing.JTextField();
+        tfTotalFactura = new javax.swing.JTextField();
+        tfFechaVencimiento = new javax.swing.JTextField();
+        tfEstado = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         lbFondo = new javax.swing.JLabel();
@@ -96,25 +96,25 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Estado:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
-        getContentPane().add(txtNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 110, -1));
-        getContentPane().add(txtFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, 20));
-        getContentPane().add(txtPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 110, -1));
-        getContentPane().add(txtTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 110, -1));
+        getContentPane().add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 110, -1));
+        getContentPane().add(tfFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, 20));
+        getContentPane().add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 110, -1));
+        getContentPane().add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 110, -1));
 
-        txtTotalFactura.addActionListener(new java.awt.event.ActionListener() {
+        tfTotalFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTotalFacturaActionPerformed(evt);
+                tfTotalFacturaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, -1));
+        getContentPane().add(tfTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, -1));
 
-        txtFechaVencimiento.addActionListener(new java.awt.event.ActionListener() {
+        tfFechaVencimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaVencimientoActionPerformed(evt);
+                tfFechaVencimientoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 110, -1));
-        getContentPane().add(txtxEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 110, -1));
+        getContentPane().add(tfFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 110, -1));
+        getContentPane().add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 110, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -140,16 +140,23 @@ public class VCrearFactura extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        // TODO add your handling code here:
+        String numFact = tfNumFactura.getText();
+        String fechaEmi= tfFechaEmision.getText();
+        String precioUni= tfPrecioUnitario.getText();
+        String totalSacos= tfTotalSacosVendidos.getText();
+        String totalfactura= tfTotalFactura.getText();
+        String fechaVenci= tfFechaVencimiento.getText();
+        String estado= tfEstado.getText();
+        
     }//GEN-LAST:event_btnCrearActionPerformed
 
-    private void txtTotalFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalFacturaActionPerformed
+    private void tfTotalFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTotalFacturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTotalFacturaActionPerformed
+    }//GEN-LAST:event_tfTotalFacturaActionPerformed
 
-    private void txtFechaVencimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaVencimientoActionPerformed
+    private void tfFechaVencimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaVencimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaVencimientoActionPerformed
+    }//GEN-LAST:event_tfFechaVencimientoActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         VPrincipal ventana= new VPrincipal();
@@ -214,12 +221,12 @@ public class VCrearFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbNumFactura;
-    private javax.swing.JTextField txtFechaEmision;
-    private javax.swing.JTextField txtFechaVencimiento;
-    private javax.swing.JTextField txtNumFactura;
-    private javax.swing.JTextField txtPrecioUnitario;
-    private javax.swing.JTextField txtTotalFactura;
-    private javax.swing.JTextField txtTotalSacosVendidos;
-    private javax.swing.JTextField txtxEstado;
+    private javax.swing.JTextField tfEstado;
+    private javax.swing.JTextField tfFechaEmision;
+    private javax.swing.JTextField tfFechaVencimiento;
+    private javax.swing.JTextField tfNumFactura;
+    private javax.swing.JTextField tfPrecioUnitario;
+    private javax.swing.JTextField tfTotalFactura;
+    private javax.swing.JTextField tfTotalSacosVendidos;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,8 +7,11 @@ package proyectobasecaliza;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,6 +44,8 @@ public class VCrearCliente extends javax.swing.JFrame {
         tfApellidos = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        tfIDCliente = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,7 +90,7 @@ public class VCrearCliente extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
+        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +99,15 @@ public class VCrearCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        getContentPane().add(tfIDCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 190, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Cédula:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+
+        lbFondo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbFondo.setForeground(new java.awt.Color(255, 255, 255));
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
         getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -111,9 +124,24 @@ public class VCrearCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNombresActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        // TODO add your handling code here:
+        
         String nombre=tfNombres.getText();
         String apellido=tfApellidos.getText();
+        String idCliente=tfIDCliente.getText();
+        
+        Connection conn = Sistema.getNewAccess().getConn();
+        Statement stmt;
+        try {
+            stmt = conn.createStatement();
+            String sql = "INSERT INTO cliente " +
+                   "VALUES (0926065715, 'Jorge', 'CDLA FAE MZ 41 Solar 4', '2392811', 'jorge_18link@hotmail.com')";
+            stmt.executeUpdate(sql);
+            System.out.println("WIP");
+            System.out.println("Cliente Creado en la base de datos");
+        } catch (SQLException ex) {
+            Logger.getLogger(VCrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         
     }//GEN-LAST:event_btnCrearActionPerformed
 
@@ -169,11 +197,13 @@ public class VCrearCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbApellidos;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbNombres;
     private javax.swing.JLabel lbTituloCrear;
     private javax.swing.JTextField tfApellidos;
+    private javax.swing.JTextField tfIDCliente;
     private javax.swing.JTextField tfNombres;
     // End of variables declaration//GEN-END:variables
 }

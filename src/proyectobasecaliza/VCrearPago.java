@@ -31,9 +31,9 @@ public class VCrearPago extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtNumComprobante = new javax.swing.JTextField();
-        txtValorCancelado = new javax.swing.JTextField();
-        txtFechaPago = new javax.swing.JTextField();
+        tfNumComprobante = new javax.swing.JTextField();
+        tfValorCancelado = new javax.swing.JTextField();
+        tfFechaPago = new javax.swing.JTextField();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         lbFondo = new javax.swing.JLabel();
@@ -61,17 +61,22 @@ public class VCrearPago extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Fecha de Pago:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        getContentPane().add(txtNumComprobante, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 120, 20));
-        getContentPane().add(txtValorCancelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 120, -1));
+        getContentPane().add(tfNumComprobante, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 120, 20));
+        getContentPane().add(tfValorCancelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 120, -1));
 
-        txtFechaPago.addActionListener(new java.awt.event.ActionListener() {
+        tfFechaPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaPagoActionPerformed(evt);
+                tfFechaPagoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtFechaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 120, -1));
+        getContentPane().add(tfFechaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 120, -1));
 
         btnCrear.setText("Crear");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, -1));
 
         btnAtras.setText("Atras");
@@ -89,9 +94,9 @@ public class VCrearPago extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFechaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaPagoActionPerformed
+    private void tfFechaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaPagoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaPagoActionPerformed
+    }//GEN-LAST:event_tfFechaPagoActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         VPrincipal ventana= new VPrincipal();
@@ -99,6 +104,12 @@ public class VCrearPago extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        String numComprobante= tfNumComprobante.getText();
+        String valorCancelado= tfValorCancelado.getText();
+        String fechaPago = tfFechaPago.getText();
+    }//GEN-LAST:event_btnCrearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,8 +154,8 @@ public class VCrearPago extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lbFondo;
-    private javax.swing.JTextField txtFechaPago;
-    private javax.swing.JTextField txtNumComprobante;
-    private javax.swing.JTextField txtValorCancelado;
+    private javax.swing.JTextField tfFechaPago;
+    private javax.swing.JTextField tfNumComprobante;
+    private javax.swing.JTextField tfValorCancelado;
     // End of variables declaration//GEN-END:variables
 }

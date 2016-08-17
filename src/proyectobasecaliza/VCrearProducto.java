@@ -57,6 +57,11 @@ public class VCrearProducto extends javax.swing.JFrame {
         getContentPane().add(txtPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 120, -1));
 
         btnCrear.setText("Crear");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
 
         btnAtras.setText("Atras");
@@ -80,6 +85,11 @@ public class VCrearProducto extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        String nombre= txtNombre.getText();
+        String precioUni= txtPrecioUnitario.getText();
+    }//GEN-LAST:event_btnCrearActionPerformed
 
     /**
      * @param args the command line arguments
