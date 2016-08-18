@@ -7,18 +7,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import proyectobasecaliza.sistema.FormaPago;
 import proyectobasecaliza.sistema.Usuario;
 
 public class Sistema {
     private static MySqlAccess newAccess;
     private static ArrayList<Usuario> usuarios;
+    private static ArrayList<FormaPago> formasPago;
         
     public static void incializarSistema(){
         Sistema.newAccess = new MySqlAccess();
         Sistema.newAccess.connection();
         Sistema.usuarios = new ArrayList<Usuario>();
+        Sistema.formasPago = new ArrayList<FormaPago>();
         Sistema.cargarUsuarios();
+        Sistema.cargarFormasPago();
     }
     
     public static void cerrar(){
@@ -27,6 +32,10 @@ public class Sistema {
     
     public static MySqlAccess getNewAccess(){
         return Sistema.newAccess;
+    }
+
+    public static ArrayList<FormaPago> getFormasPago() {
+        return formasPago;
     }
     
     private static void cargarUsuarios(){
@@ -38,6 +47,21 @@ public class Sistema {
                 u.setUser(rs.getString("Cedula_Empleados"));
                 u.setPass(rs.getString("pass"));
                 Sistema.usuarios.add(u);
+            }
+        }catch(SQLException se){
+            se.printStackTrace();
+        }
+    }
+    
+    private static void cargarFormasPago(){
+        ResultSet rs;
+        try{
+            rs = Sistema.newAccess.query("SELECT * FROM forma_pago");
+            while(rs.next()){
+                FormaPago p = new FormaPago();
+                p.setId(rs.getString("Idforma_pago"));
+                p.setDescripcion(rs.getString("Descripcion"));
+                Sistema.formasPago.add(p);
             }
         }catch(SQLException se){
             se.printStackTrace();
@@ -78,9 +102,15 @@ public class Sistema {
         Sistema.newAccess.write(sql);
     }
     
-    public static void insertPago(JTextField numComprb,JTextField fechaPago,JTextField numCheque,JTextField bancoCheque,JTextField bancoDepo,JTextField cuentaDepo,JTextField valorCancel,JTextField idFact,JTextField idFormaPago) throws SQLException{
+    public static void insertPagoCheque(JTextField numComprb,JTextField fechaPago,JTextField numCheque,JTextField bancoCheque,JTextField valorCancel,JTextField idFact, JComboBox idFormaPago) throws SQLException{
         String sql = "INSERT INTO pago " +
-                   "VALUES ('"+numComprb.getText()+"', '"+fechaPago.getText()+"', '"+numCheque.getText()+"', '"+bancoCheque.getText()+"', '"+bancoDepo.getText()+"', '"+cuentaDepo.getText()+"', "+valorCancel.getText()+", '"+idFact.getText()+"', '"+idFormaPago.getText()+"');";
+                   "VALUES ('"+numComprb.getText()+"', '"+fechaPago.getText()+"', '"+numCheque.getText()+"', '"+bancoCheque.getText()+"', null, null, "+valorCancel.getText()+", '"+idFact.getText()+"', "+idFormaPago.getSelectedItem().toString().charAt(0)+");";
+        Sistema.newAccess.write(sql);
+    }
+    
+    public static void insertPagoDeposito(JTextField numComprb,JTextField fechaPago,JTextField bancoDeposito,JTextField ctaDeposito,JTextField valorCancel,JTextField idFact,JComboBox idFormaPago) throws SQLException{
+        String sql = "INSERT INTO pago " +
+                   "VALUES ('"+numComprb.getText()+"', '"+fechaPago.getText()+"', null, null, '"+bancoDeposito.getText()+"', '"+ctaDeposito.getText()+"', "+valorCancel.getText()+", '"+idFact.getText()+"', '"+idFormaPago.getSelectedItem().toString().charAt(0)+"');";
         Sistema.newAccess.write(sql);
     }
     

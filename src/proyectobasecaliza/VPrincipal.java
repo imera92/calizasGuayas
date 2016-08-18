@@ -263,6 +263,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jmCrear.setText("Crear...");
 
         jmiPagoCheque.setText("Pago con cheque");
+        jmiPagoCheque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPagoChequeActionPerformed(evt);
+            }
+        });
         jmCrear.add(jmiPagoCheque);
 
         jmiPagoDeposito.setText("Pago con deposito");
@@ -444,7 +449,10 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiModificarActionPerformed
 
     private void jmiPagoDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPagoDepositoActionPerformed
-        // TODO add your handling code here:
+        VCrearPagoDeposito ventana = new VCrearPagoDeposito();
+        ventana.setLocationRelativeTo(null);
+        this.dispose();
+        ventana.setVisible(true);
     }//GEN-LAST:event_jmiPagoDepositoActionPerformed
 
     private void jmiEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarActionPerformed
@@ -460,6 +468,13 @@ public class VPrincipal extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_jmiLogOutActionPerformed
+
+    private void jmiPagoChequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPagoChequeActionPerformed
+        VCrearPagoCheque ventana = new VCrearPagoCheque();
+        ventana.setLocationRelativeTo(null);
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiPagoChequeActionPerformed
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
         Sistema.cerrar();
