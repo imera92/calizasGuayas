@@ -5,6 +5,10 @@
  */
 package proyectobasecaliza;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jorge García
@@ -344,7 +348,12 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearProductoActionPerformed
 
     private void btnConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarClienteActionPerformed
-        VConsultarCliente ventana =new VConsultarCliente();
+        VConsultarCliente ventana = null;
+        try {
+            ventana = new VConsultarCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(VPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ventana.setLocation(this.getLocation());
         this.dispose();
         ventana.setVisible(true);
