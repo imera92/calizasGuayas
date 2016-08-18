@@ -4,6 +4,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MySqlAccess {
     //URL's de JDBC y la base de datos
@@ -19,7 +21,6 @@ public class MySqlAccess {
    public void connection(){
         try{
            //1: Registrar JDBC driver
-           
            Class.forName("com.mysql.jdbc.Driver");
             
            //2: Abrir coneccion
@@ -47,6 +48,11 @@ public class MySqlAccess {
    public ResultSet query(String q) throws SQLException{
        ResultSet rs = this.stmt.executeQuery(q);
        return rs;
+   }
+   
+
+   public void write(String q) throws SQLException{
+       this.stmt.executeUpdate(q);
    }
    
    public Connection getConn() {

@@ -49,6 +49,11 @@ public class VPrincipal extends javax.swing.JFrame {
         btnModificarCliente = new javax.swing.JButton();
         btnEliminarCliente = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnCrearRetencion = new javax.swing.JButton();
+        btnConsultarRetencion = new javax.swing.JButton();
+        btnModificarRetencion = new javax.swing.JButton();
+        btnEliminarRetencion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -58,7 +63,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
         lbClientes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbClientes.setText("Cliente");
-        jPanel1.add(lbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+        jPanel1.add(lbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         btnCrearProducto.setText("Crear Producto");
         btnCrearProducto.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -69,7 +74,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnCrearProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
+        jPanel1.add(btnCrearProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
 
         btnConsultarProducto.setText("Consultar Producto");
         btnConsultarProducto.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -80,7 +85,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnConsultarProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
+        jPanel1.add(btnConsultarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
 
         btnModificarProducto.setText("Modificar Producto");
         btnModificarProducto.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -91,7 +96,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnModificarProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
+        jPanel1.add(btnModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, -1, -1));
 
         btnEliminarProducto.setText("Eliminar producto");
         btnEliminarProducto.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -102,19 +107,19 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnEliminarProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, -1, -1));
+        jPanel1.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, -1, -1));
 
         lbFactura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbFactura.setText("Factura");
-        jPanel1.add(lbFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
+        jPanel1.add(lbFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         lbPago.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbPago.setText("Pago");
-        jPanel1.add(lbPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, -1, -1));
+        jPanel1.add(lbPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         lbProducto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbProducto.setText("Producto");
-        jPanel1.add(lbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, -1, -1));
+        jPanel1.add(lbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
         btnCrearFactura.setText("Crear Factura");
         btnCrearFactura.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -125,7 +130,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnCrearFacturaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        jPanel1.add(btnCrearFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         btnConsultarFactura.setText("Consultar Factura");
         btnConsultarFactura.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -136,7 +141,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnConsultarFacturaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
+        jPanel1.add(btnConsultarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
 
         btnModificarFactura.setText("Modificar Factura");
         btnModificarFactura.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -147,7 +152,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnModificarFacturaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, -1, -1));
+        jPanel1.add(btnModificarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
 
         btnEliminarFactura.setText("Eliminar Factura");
         btnEliminarFactura.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -158,7 +163,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnEliminarFacturaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, -1, -1));
+        jPanel1.add(btnEliminarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
 
         btnCrearPago.setText("Crear Pago");
         btnCrearPago.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -169,7 +174,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnCrearPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 150, -1));
+        jPanel1.add(btnCrearPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 150, -1));
 
         btnConsultarPago.setText("Consultar Pago");
         btnConsultarPago.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -180,7 +185,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnConsultarPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, -1, -1));
+        jPanel1.add(btnConsultarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
 
         btnModificarPago.setText("Modificar Pago");
         btnModificarPago.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -191,7 +196,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnModificarPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
+        jPanel1.add(btnModificarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
 
         btnEliminarPago.setText("Eliminar Pago");
         btnEliminarPago.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -202,7 +207,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnEliminarPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, -1, -1));
+        jPanel1.add(btnEliminarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, -1, -1));
 
         btnCrearCliente.setText("Crear Cliente");
         btnCrearCliente.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -213,7 +218,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnCrearClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
+        jPanel1.add(btnCrearCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         btnConsultarCliente.setText("Consultar Cliente");
         btnConsultarCliente.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -224,7 +229,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnConsultarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
+        jPanel1.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
 
         btnModificarCliente.setText("Modificar Cliente");
         btnModificarCliente.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -235,7 +240,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnModificarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, -1));
+        jPanel1.add(btnModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
 
         btnEliminarCliente.setText("Eliminar Cliente");
         btnEliminarCliente.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -246,7 +251,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnEliminarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, -1, -1));
+        jPanel1.add(btnEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, -1, -1));
 
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -255,6 +260,42 @@ public class VPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 460, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Retencion");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+
+        btnCrearRetencion.setText("Crear Retención");
+        btnCrearRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearRetencionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCrearRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 150, -1));
+
+        btnConsultarRetencion.setText("Consultar Retención");
+        btnConsultarRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarRetencionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConsultarRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 150, -1));
+
+        btnModificarRetencion.setText("Modificar Retención");
+        btnModificarRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarRetencionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificarRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, 150, -1));
+
+        btnEliminarRetencion.setText("Eliminar Retención");
+        btnEliminarRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarRetencionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminarRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, 150, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -384,10 +425,38 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         VLogin ventana= new VLogin();
-        ventana.setLocation(this.getLocation());
+        ventana.setLocationRelativeTo(null);
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnCrearRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRetencionActionPerformed
+        VCrearRetencion ventana =new VCrearRetencion();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnCrearRetencionActionPerformed
+
+    private void btnConsultarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarRetencionActionPerformed
+        VConsultarRetencion ventana =new VConsultarRetencion();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnConsultarRetencionActionPerformed
+
+    private void btnModificarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRetencionActionPerformed
+        VModificarRetencion ventana =new VModificarRetencion();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnModificarRetencionActionPerformed
+
+    private void btnEliminarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarRetencionActionPerformed
+        VEliminarRetencion ventana =new VEliminarRetencion();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnEliminarRetencionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -430,18 +499,23 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultarFactura;
     private javax.swing.JButton btnConsultarPago;
     private javax.swing.JButton btnConsultarProducto;
+    private javax.swing.JButton btnConsultarRetencion;
     private javax.swing.JButton btnCrearCliente;
     private javax.swing.JButton btnCrearFactura;
     private javax.swing.JButton btnCrearPago;
     private javax.swing.JButton btnCrearProducto;
+    private javax.swing.JButton btnCrearRetencion;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarFactura;
     private javax.swing.JButton btnEliminarPago;
     private javax.swing.JButton btnEliminarProducto;
+    private javax.swing.JButton btnEliminarRetencion;
     private javax.swing.JButton btnModificarCliente;
     private javax.swing.JButton btnModificarFactura;
     private javax.swing.JButton btnModificarPago;
     private javax.swing.JButton btnModificarProducto;
+    private javax.swing.JButton btnModificarRetencion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbClientes;
     private javax.swing.JLabel lbFactura;

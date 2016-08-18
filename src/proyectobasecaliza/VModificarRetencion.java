@@ -7,14 +7,14 @@ package proyectobasecaliza;
 
 /**
  *
- * @author Monica
+ * @author Jorge García
  */
-public class VConsultarProducto extends javax.swing.JFrame {
+public class VModificarRetencion extends javax.swing.JFrame {
 
     /**
-     * Creates new form VConsultarProducto
+     * Creates new form VModificarRetencion
      */
-    public VConsultarProducto() {
+    public VModificarRetencion() {
         initComponents();
     }
 
@@ -27,23 +27,82 @@ public class VConsultarProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbProducto = new javax.swing.JTable();
-        btnAtras = new javax.swing.JButton();
+        lbTituloModificar = new javax.swing.JLabel();
+        lbIdRetencion = new javax.swing.JLabel();
+        Porcentaje = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        tfNombres = new javax.swing.JTextField();
+        tfApellidos = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
+        jpRetencion = new javax.swing.JScrollPane();
+        tbRetencion = new javax.swing.JTable();
+        lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Consultar Producto");
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Productos Existentes");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        lbTituloModificar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbTituloModificar.setForeground(new java.awt.Color(255, 255, 255));
+        lbTituloModificar.setText("Modificar Retención");
+        getContentPane().add(lbTituloModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 50));
 
-        tbProducto.setModel(new javax.swing.table.DefaultTableModel(
+        lbIdRetencion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbIdRetencion.setForeground(new java.awt.Color(255, 255, 255));
+        lbIdRetencion.setText("Id Retención");
+        getContentPane().add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, -1));
+
+        Porcentaje.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Porcentaje.setForeground(new java.awt.Color(255, 255, 255));
+        Porcentaje.setText("Porcentaje");
+        getContentPane().add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Valor Retenido");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Id Factura");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, -1, -1));
+
+        tfNombres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNombresActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 190, -1));
+
+        tfApellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfApellidosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 190, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 230, 190, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 270, 190, -1));
+
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 330, -1, -1));
+
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+
+        tbRetencion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -147,27 +206,33 @@ public class VConsultarProducto extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Id Producto", "Stock", "Nombre", "Precio Unitario"
+                "ID retención", "ID Factura", "Porcentaje", "Valor Retenido"
             }
         ));
-        jScrollPane1.setViewportView(tbProducto);
+        jpRetencion.setViewportView(tbRetencion);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 930, 350));
+        getContentPane().add(jpRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 540, 360));
 
-        btnAtras.setText("Atras");
-        btnAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtrasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
+        lbFondo.setText("jLabel1");
+        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tfNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNombresActionPerformed
+
+    private void tfApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfApellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfApellidosActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        String nombre=tfNombres.getText();
+        String apellido=tfApellidos.getText();
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         VPrincipal ventana= new VPrincipal();
@@ -193,29 +258,38 @@ public class VConsultarProducto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VConsultarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VModificarRetencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VConsultarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VModificarRetencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VConsultarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VModificarRetencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VConsultarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VModificarRetencion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VConsultarProducto().setVisible(true);
+                new VModificarRetencion().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Porcentaje;
     private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbProducto;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JScrollPane jpRetencion;
+    private javax.swing.JLabel lbFondo;
+    private javax.swing.JLabel lbIdRetencion;
+    private javax.swing.JLabel lbTituloModificar;
+    private javax.swing.JTable tbRetencion;
+    private javax.swing.JTextField tfApellidos;
+    private javax.swing.JTextField tfNombres;
     // End of variables declaration//GEN-END:variables
 }
