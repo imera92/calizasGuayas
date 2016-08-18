@@ -7,18 +7,56 @@ package proyectobasecaliza;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Jorge García
  */
 public class VConsultarCliente extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form VConsultarCliente
      */
-    public VConsultarCliente() {
+    public VConsultarCliente() throws SQLException {
         initComponents();
+        cargarTabla();
+    }
+    
+    public void cargarTabla() throws SQLException{
+        
+        Connection cn = Sistema.getNewAccess().getConn();
+        Statement st;
+        ResultSet rs;
+        st=cn.createStatement();
+        rs=st.executeQuery("SELECT * FROM cliente");
+        
+        
+        DefaultTableModel dfm = new DefaultTableModel();
+        this.tbCliente.setModel(dfm);
+        
+        dfm.setColumnIdentifiers(new Object[]{"Ruc","Nombre","Dirección","Teléfono","E-mail"});
+        
+//        try{
+            while(rs.next()){
+                dfm.addRow(new Object[]{rs.getString("RUC_Cliente"),rs.getString("Nombre"),rs.getString("Direccion"),rs.getString("Telefonos"),rs.getString("Email")});
+            }
+//        }catch(Exception e){
+//            System.out.println("Entramos a la excepcion al tratar de añadir filas");
+//            
+//        }
+        
+        
+        
+        
+        
     }
 
     /**
@@ -218,7 +256,11 @@ public class VConsultarCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VConsultarCliente().setVisible(true);
+                try {
+                    new VConsultarCliente().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(VConsultarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
