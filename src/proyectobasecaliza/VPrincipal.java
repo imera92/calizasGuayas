@@ -36,12 +36,7 @@ public class VPrincipal extends javax.swing.JFrame {
         btnConsultarProducto = new javax.swing.JButton();
         btnModificarProducto = new javax.swing.JButton();
         btnEliminarProducto = new javax.swing.JButton();
-        lbFactura = new javax.swing.JLabel();
         lbProducto = new javax.swing.JLabel();
-        btnCrearFactura = new javax.swing.JButton();
-        btnConsultarFactura = new javax.swing.JButton();
-        btnModificarFactura = new javax.swing.JButton();
-        btnEliminarFactura = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnCrearRetencion = new javax.swing.JButton();
         btnConsultarRetencion = new javax.swing.JButton();
@@ -55,6 +50,16 @@ public class VPrincipal extends javax.swing.JFrame {
         jmiConsultarCliente = new javax.swing.JMenuItem();
         jmiModificarCliente = new javax.swing.JMenuItem();
         jmiEliminarCliente = new javax.swing.JMenuItem();
+        jmFactura = new javax.swing.JMenu();
+        jmiCrearFactura = new javax.swing.JMenuItem();
+        jmiConsultarFactura = new javax.swing.JMenuItem();
+        jmiModificarFactura = new javax.swing.JMenuItem();
+        jmiEliminarFactura = new javax.swing.JMenuItem();
+        jmRetencion = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jmPago = new javax.swing.JMenu();
         jmCrear = new javax.swing.JMenu();
         jmiPagoCheque = new javax.swing.JMenuItem();
@@ -62,6 +67,13 @@ public class VPrincipal extends javax.swing.JFrame {
         jmiConsultar = new javax.swing.JMenuItem();
         jmiModificar = new javax.swing.JMenuItem();
         jmiEliminar = new javax.swing.JMenuItem();
+        jmProducto = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jmAyuda = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -114,57 +126,9 @@ public class VPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, -1, -1));
 
-        lbFactura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lbFactura.setText("Factura");
-        jPanel1.add(lbFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
         lbProducto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbProducto.setText("Producto");
         jPanel1.add(lbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
-
-        btnCrearFactura.setText("Crear Factura");
-        btnCrearFactura.setMaximumSize(new java.awt.Dimension(150, 30));
-        btnCrearFactura.setMinimumSize(new java.awt.Dimension(150, 30));
-        btnCrearFactura.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnCrearFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearFacturaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCrearFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
-
-        btnConsultarFactura.setText("Consultar Factura");
-        btnConsultarFactura.setMaximumSize(new java.awt.Dimension(150, 30));
-        btnConsultarFactura.setMinimumSize(new java.awt.Dimension(150, 30));
-        btnConsultarFactura.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnConsultarFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarFacturaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnConsultarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
-
-        btnModificarFactura.setText("Modificar Factura");
-        btnModificarFactura.setMaximumSize(new java.awt.Dimension(150, 30));
-        btnModificarFactura.setMinimumSize(new java.awt.Dimension(150, 30));
-        btnModificarFactura.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnModificarFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarFacturaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
-
-        btnEliminarFactura.setText("Eliminar Factura");
-        btnEliminarFactura.setMaximumSize(new java.awt.Dimension(150, 30));
-        btnEliminarFactura.setMinimumSize(new java.awt.Dimension(150, 30));
-        btnEliminarFactura.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnEliminarFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarFacturaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEliminarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Retencion");
@@ -250,6 +214,58 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmCliente);
 
+        jmFactura.setText("Factura");
+
+        jmiCrearFactura.setText("Crear");
+        jmiCrearFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCrearFacturaActionPerformed(evt);
+            }
+        });
+        jmFactura.add(jmiCrearFactura);
+
+        jmiConsultarFactura.setText("Consultar");
+        jmiConsultarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiConsultarFacturaActionPerformed(evt);
+            }
+        });
+        jmFactura.add(jmiConsultarFactura);
+
+        jmiModificarFactura.setText("Modificar");
+        jmiModificarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiModificarFacturaActionPerformed(evt);
+            }
+        });
+        jmFactura.add(jmiModificarFactura);
+
+        jmiEliminarFactura.setText("Eliminar");
+        jmiEliminarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiEliminarFacturaActionPerformed(evt);
+            }
+        });
+        jmFactura.add(jmiEliminarFactura);
+
+        jMenuBar1.add(jmFactura);
+
+        jmRetencion.setText("Retencion");
+
+        jMenuItem1.setText("jMenuItem1");
+        jmRetencion.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        jmRetencion.add(jMenuItem2);
+
+        jMenuItem3.setText("jMenuItem3");
+        jmRetencion.add(jMenuItem3);
+
+        jMenuItem4.setText("jMenuItem4");
+        jmRetencion.add(jMenuItem4);
+
+        jMenuBar1.add(jmRetencion);
+
         jmPago.setText("Pago");
 
         jmCrear.setText("Crear...");
@@ -298,6 +314,29 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmPago);
 
+        jmProducto.setText("Producto");
+
+        jMenuItem5.setText("jMenuItem5");
+        jmProducto.add(jMenuItem5);
+
+        jMenuItem6.setText("jMenuItem6");
+        jmProducto.add(jMenuItem6);
+
+        jMenuItem7.setText("jMenuItem7");
+        jmProducto.add(jMenuItem7);
+
+        jMenuItem8.setText("jMenuItem8");
+        jmProducto.add(jMenuItem8);
+
+        jMenuBar1.add(jmProducto);
+
+        jmAyuda.setText("Ayuda");
+
+        jMenuItem9.setText("jMenuItem9");
+        jmAyuda.add(jMenuItem9);
+
+        jMenuBar1.add(jmAyuda);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -314,26 +353,12 @@ public class VPrincipal extends javax.swing.JFrame {
         setBounds(0, 0, 816, 489);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFacturaActionPerformed
-        VCrearFactura ventana =new VCrearFactura();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnCrearFacturaActionPerformed
-
     private void btnCrearProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProductoActionPerformed
         VCrearProducto ventana =new VCrearProducto();
         ventana.setLocation(this.getLocation());
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnCrearProductoActionPerformed
-
-    private void btnConsultarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarFacturaActionPerformed
-        VConsultarFactura ventana =new VConsultarFactura();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnConsultarFacturaActionPerformed
 
     private void btnConsultarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarProductoActionPerformed
         VConsultarProducto ventana =new VConsultarProducto();
@@ -342,26 +367,12 @@ public class VPrincipal extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_btnConsultarProductoActionPerformed
 
-    private void btnModificarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarFacturaActionPerformed
-        VModificarFactura ventana =new VModificarFactura();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnModificarFacturaActionPerformed
-
     private void btnModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProductoActionPerformed
         VModificarProducto ventana =new VModificarProducto();
         ventana.setLocation(this.getLocation());
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnModificarProductoActionPerformed
-
-    private void btnEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFacturaActionPerformed
-        VEliminarFactura ventana =new VEliminarFactura();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnEliminarFacturaActionPerformed
 
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
         VEliminarProducto ventana =new VEliminarProducto();
@@ -472,6 +483,34 @@ public class VPrincipal extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_jmiEliminarClienteActionPerformed
+
+    private void jmiCrearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCrearFacturaActionPerformed
+        VCrearFactura ventana =new VCrearFactura();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiCrearFacturaActionPerformed
+
+    private void jmiConsultarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarFacturaActionPerformed
+        VConsultarFactura ventana =new VConsultarFactura();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiConsultarFacturaActionPerformed
+
+    private void jmiModificarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModificarFacturaActionPerformed
+        VModificarFactura ventana =new VModificarFactura();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiModificarFacturaActionPerformed
+
+    private void jmiEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarFacturaActionPerformed
+        VModificarFactura ventana =new VModificarFactura();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiEliminarFacturaActionPerformed
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
         Sistema.cerrar();
@@ -513,36 +552,48 @@ public class VPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConsultarFactura;
     private javax.swing.JButton btnConsultarProducto;
     private javax.swing.JButton btnConsultarRetencion;
-    private javax.swing.JButton btnCrearFactura;
     private javax.swing.JButton btnCrearProducto;
     private javax.swing.JButton btnCrearRetencion;
-    private javax.swing.JButton btnEliminarFactura;
     private javax.swing.JButton btnEliminarProducto;
     private javax.swing.JButton btnEliminarRetencion;
-    private javax.swing.JButton btnModificarFactura;
     private javax.swing.JButton btnModificarProducto;
     private javax.swing.JButton btnModificarRetencion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu jmArchivo;
+    private javax.swing.JMenu jmAyuda;
     private javax.swing.JMenu jmCliente;
     private javax.swing.JMenu jmCrear;
+    private javax.swing.JMenu jmFactura;
     private javax.swing.JMenu jmPago;
+    private javax.swing.JMenu jmProducto;
+    private javax.swing.JMenu jmRetencion;
     private javax.swing.JMenuItem jmiConsultar;
     private javax.swing.JMenuItem jmiConsultarCliente;
+    private javax.swing.JMenuItem jmiConsultarFactura;
     private javax.swing.JMenuItem jmiCrearCliente;
+    private javax.swing.JMenuItem jmiCrearFactura;
     private javax.swing.JMenuItem jmiEliminar;
     private javax.swing.JMenuItem jmiEliminarCliente;
+    private javax.swing.JMenuItem jmiEliminarFactura;
     private javax.swing.JMenuItem jmiLogOut;
     private javax.swing.JMenuItem jmiModificar;
     private javax.swing.JMenuItem jmiModificarCliente;
+    private javax.swing.JMenuItem jmiModificarFactura;
     private javax.swing.JMenuItem jmiPagoCheque;
     private javax.swing.JMenuItem jmiPagoDeposito;
-    private javax.swing.JLabel lbFactura;
     private javax.swing.JLabel lbProducto;
     // End of variables declaration//GEN-END:variables
 }
