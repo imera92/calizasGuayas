@@ -5,6 +5,11 @@
  */
 package proyectobasecaliza;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Monica
@@ -105,8 +110,17 @@ public class VCrearProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        String nombre= tfNombre.getText();
-        String precioUni= tfPrecioUni.getText();
+        try {
+            Sistema.insertProducto(this.tfIdProducto, this.tfStock, this.tfNombre, this.tfPrecioUni);
+            JOptionPane notificacion = new JOptionPane();
+            this.tfIdProducto.setText("");
+            this.tfStock.setText("");
+            this.tfNombre.setText("");
+            this.tfPrecioUni.setText("");
+            notificacion.showMessageDialog(rootPane, "Producto creado exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
     }//GEN-LAST:event_btnCrearActionPerformed
 
     /**
