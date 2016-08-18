@@ -38,6 +38,7 @@ public class VLogin extends javax.swing.JFrame {
         txtContraseña = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 204));
@@ -49,9 +50,10 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
 
-        PInicio.setBackground(new java.awt.Color(255, 204, 51));
-        PInicio.setMinimumSize(new java.awt.Dimension(375, 300));
-        PInicio.setPreferredSize(new java.awt.Dimension(375, 300));
+        PInicio.setBackground(new java.awt.Color(102, 153, 255));
+        PInicio.setDoubleBuffered(false);
+        PInicio.setMinimumSize(new java.awt.Dimension(375, 525));
+        PInicio.setPreferredSize(new java.awt.Dimension(375, 525));
 
         lbNombreEmpresa.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbNombreEmpresa.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,29 +95,34 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/imagenes/login.png"))); // NOI18N
+
         javax.swing.GroupLayout PInicioLayout = new javax.swing.GroupLayout(PInicio);
         PInicio.setLayout(PInicioLayout);
         PInicioLayout.setHorizontalGroup(
             PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PInicioLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(58, 58, 58)
                 .addGroup(PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogin)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbContraseña)
-                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNombreUsuario)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbIniciarSesion)
+                    .addComponent(lbNombreUsuario)
+                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbContraseña)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogin)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PInicioLayout.setVerticalGroup(
             PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PInicioLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(20, 20, 20)
                 .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addComponent(lbIniciarSesion)
                 .addGap(18, 18, 18)
                 .addComponent(lbNombreUsuario)
@@ -129,7 +136,7 @@ public class VLogin extends javax.swing.JFrame {
                 .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalir)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,7 +149,9 @@ public class VLogin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,6 +227,7 @@ public class VLogin extends javax.swing.JFrame {
     private javax.swing.JPanel PInicio;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbContraseña;
     private javax.swing.JLabel lbIniciarSesion;
     private javax.swing.JLabel lbNombreEmpresa;
