@@ -367,7 +367,7 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultarFacturaActionPerformed
 
     private void btnConsultarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarProductoActionPerformed
-        VConsultarPago ventana =new VConsultarPago();
+        VConsultarProducto ventana =new VConsultarProducto();
         ventana.setLocation(this.getLocation());
         this.dispose();
         ventana.setVisible(true);

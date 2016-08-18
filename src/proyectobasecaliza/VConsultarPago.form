@@ -53,23 +53,14 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tbPago">
           <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="9" rowCount="100">
-                <Column editable="true" title="Num Comprobante" type="java.lang.Object"/>
-                <Column editable="true" title="Fecha de Pago" type="java.lang.Object"/>
-                <Column editable="true" title="Num Cheque" type="java.lang.Object"/>
-                <Column editable="true" title="Banco Cheque" type="java.lang.Object"/>
-                <Column editable="true" title="Banco Deposito" type="java.lang.Object"/>
-                <Column editable="true" title="Cuenta deposito" type="java.lang.Object"/>
-                <Column editable="true" title="Valor Cancelado" type="java.lang.Object"/>
-                <Column editable="true" title="Num Factura" type="java.lang.Object"/>
-                <Column editable="true" title="Id forma de pago" type="java.lang.Object"/>
-              </Table>
-            </Property>
-            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="dfm" type="code"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="dfm.setColumnIdentifiers(new Object[]{&quot;Num comprobante&quot;,&quot;Feccha Pago&quot;,&quot;Num Cheque&quot;,&quot;Banco Cheque&quot;,&quot;Banco Deposito&quot;,&quot;Cuenta Deposito&quot;,&quot;Valor Cancelado&quot;,&quot;Id factura&quot;, &quot;Id Forma pago&quot;});&#xa;    try{&#xa;        while(rs.next()){&#xa;            dfm.addRow(new Object[]{rs.getString(1),rs.getDate(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getFloat(7),rs.getString(8),rs.getInt(9)});&#xa;        }&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Connection cn = Sistema.getNewAccess().getConn();&#xa;    Statement st=null;&#xa;    ResultSet rs=null;&#xa;    try{&#xa;        st=cn.createStatement();&#xa;        rs=st.executeQuery(&quot;SELECT * FROM pago&quot;);&#xa;    }catch(Exception e){&#xa;&#xa;    }&#xa;    DefaultTableModel dfm = new DefaultTableModel();"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
