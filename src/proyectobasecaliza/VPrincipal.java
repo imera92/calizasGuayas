@@ -32,7 +32,6 @@ public class VPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lbClientes = new javax.swing.JLabel();
         btnCrearProducto = new javax.swing.JButton();
         btnConsultarProducto = new javax.swing.JButton();
         btnModificarProducto = new javax.swing.JButton();
@@ -43,10 +42,6 @@ public class VPrincipal extends javax.swing.JFrame {
         btnConsultarFactura = new javax.swing.JButton();
         btnModificarFactura = new javax.swing.JButton();
         btnEliminarFactura = new javax.swing.JButton();
-        btnCrearCliente = new javax.swing.JButton();
-        btnConsultarCliente = new javax.swing.JButton();
-        btnModificarCliente = new javax.swing.JButton();
-        btnEliminarCliente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnCrearRetencion = new javax.swing.JButton();
         btnConsultarRetencion = new javax.swing.JButton();
@@ -55,6 +50,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
         jmiLogOut = new javax.swing.JMenuItem();
+        jmCliente = new javax.swing.JMenu();
+        jmiCrearCliente = new javax.swing.JMenuItem();
+        jmiConsultarCliente = new javax.swing.JMenuItem();
+        jmiModificarCliente = new javax.swing.JMenuItem();
+        jmiEliminarCliente = new javax.swing.JMenuItem();
         jmPago = new javax.swing.JMenu();
         jmCrear = new javax.swing.JMenu();
         jmiPagoCheque = new javax.swing.JMenuItem();
@@ -69,10 +69,6 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbClientes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lbClientes.setText("Cliente");
-        jPanel1.add(lbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         btnCrearProducto.setText("Crear Producto");
         btnCrearProducto.setMaximumSize(new java.awt.Dimension(150, 30));
@@ -170,50 +166,6 @@ public class VPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(btnEliminarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
 
-        btnCrearCliente.setText("Crear Cliente");
-        btnCrearCliente.setMaximumSize(new java.awt.Dimension(150, 30));
-        btnCrearCliente.setMinimumSize(new java.awt.Dimension(150, 30));
-        btnCrearCliente.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearClienteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCrearCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
-
-        btnConsultarCliente.setText("Consultar Cliente");
-        btnConsultarCliente.setMaximumSize(new java.awt.Dimension(150, 30));
-        btnConsultarCliente.setMinimumSize(new java.awt.Dimension(150, 30));
-        btnConsultarCliente.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarClienteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
-
-        btnModificarCliente.setText("Modificar Cliente");
-        btnModificarCliente.setMaximumSize(new java.awt.Dimension(150, 30));
-        btnModificarCliente.setMinimumSize(new java.awt.Dimension(150, 30));
-        btnModificarCliente.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnModificarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarClienteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
-
-        btnEliminarCliente.setText("Eliminar Cliente");
-        btnEliminarCliente.setMaximumSize(new java.awt.Dimension(150, 30));
-        btnEliminarCliente.setMinimumSize(new java.awt.Dimension(150, 30));
-        btnEliminarCliente.setPreferredSize(new java.awt.Dimension(150, 30));
-        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarClienteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Retencion");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
@@ -261,6 +213,42 @@ public class VPrincipal extends javax.swing.JFrame {
         jmArchivo.add(jmiLogOut);
 
         jMenuBar1.add(jmArchivo);
+
+        jmCliente.setText("Cliente");
+
+        jmiCrearCliente.setText("Crear");
+        jmiCrearCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCrearClienteActionPerformed(evt);
+            }
+        });
+        jmCliente.add(jmiCrearCliente);
+
+        jmiConsultarCliente.setText("Consultar");
+        jmiConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiConsultarClienteActionPerformed(evt);
+            }
+        });
+        jmCliente.add(jmiConsultarCliente);
+
+        jmiModificarCliente.setText("Modifcar");
+        jmiModificarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiModificarClienteActionPerformed(evt);
+            }
+        });
+        jmCliente.add(jmiModificarCliente);
+
+        jmiEliminarCliente.setText("Eliminar");
+        jmiEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiEliminarClienteActionPerformed(evt);
+            }
+        });
+        jmCliente.add(jmiEliminarCliente);
+
+        jMenuBar1.add(jmCliente);
 
         jmPago.setText("Pago");
 
@@ -326,13 +314,6 @@ public class VPrincipal extends javax.swing.JFrame {
         setBounds(0, 0, 816, 489);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
-        VCrearCliente ventana =new VCrearCliente();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnCrearClienteActionPerformed
-
     private void btnCrearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFacturaActionPerformed
         VCrearFactura ventana =new VCrearFactura();
         ventana.setLocation(this.getLocation());
@@ -346,18 +327,6 @@ public class VPrincipal extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnCrearProductoActionPerformed
-
-    private void btnConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarClienteActionPerformed
-        VConsultarCliente ventana = null;
-        try {
-            ventana = new VConsultarCliente();
-        } catch (SQLException ex) {
-            Logger.getLogger(VPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnConsultarClienteActionPerformed
 
     private void btnConsultarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarFacturaActionPerformed
         VConsultarFactura ventana =new VConsultarFactura();
@@ -373,13 +342,6 @@ public class VPrincipal extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_btnConsultarProductoActionPerformed
 
-    private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
-        VModificarCliente ventana =new VModificarCliente();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnModificarClienteActionPerformed
-
     private void btnModificarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarFacturaActionPerformed
         VModificarFactura ventana =new VModificarFactura();
         ventana.setLocation(this.getLocation());
@@ -393,13 +355,6 @@ public class VPrincipal extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnModificarProductoActionPerformed
-
-    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
-        VEliminarCliente ventana =new VEliminarCliente();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
     private void btnEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFacturaActionPerformed
         VEliminarFactura ventana =new VEliminarFactura();
@@ -484,6 +439,39 @@ public class VPrincipal extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_jmiPagoChequeActionPerformed
+
+    private void jmiCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCrearClienteActionPerformed
+        VCrearCliente ventana =new VCrearCliente();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiCrearClienteActionPerformed
+
+    private void jmiConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarClienteActionPerformed
+        VConsultarCliente ventana = null;
+        try {
+            ventana = new VConsultarCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(VPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiConsultarClienteActionPerformed
+
+    private void jmiModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModificarClienteActionPerformed
+        VModificarCliente ventana =new VModificarCliente();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiModificarClienteActionPerformed
+
+    private void jmiEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarClienteActionPerformed
+        VEliminarCliente ventana =new VEliminarCliente();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiEliminarClienteActionPerformed
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
         Sistema.cerrar();
@@ -525,19 +513,15 @@ public class VPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConsultarCliente;
     private javax.swing.JButton btnConsultarFactura;
     private javax.swing.JButton btnConsultarProducto;
     private javax.swing.JButton btnConsultarRetencion;
-    private javax.swing.JButton btnCrearCliente;
     private javax.swing.JButton btnCrearFactura;
     private javax.swing.JButton btnCrearProducto;
     private javax.swing.JButton btnCrearRetencion;
-    private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarFactura;
     private javax.swing.JButton btnEliminarProducto;
     private javax.swing.JButton btnEliminarRetencion;
-    private javax.swing.JButton btnModificarCliente;
     private javax.swing.JButton btnModificarFactura;
     private javax.swing.JButton btnModificarProducto;
     private javax.swing.JButton btnModificarRetencion;
@@ -545,15 +529,19 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu jmArchivo;
+    private javax.swing.JMenu jmCliente;
     private javax.swing.JMenu jmCrear;
     private javax.swing.JMenu jmPago;
     private javax.swing.JMenuItem jmiConsultar;
+    private javax.swing.JMenuItem jmiConsultarCliente;
+    private javax.swing.JMenuItem jmiCrearCliente;
     private javax.swing.JMenuItem jmiEliminar;
+    private javax.swing.JMenuItem jmiEliminarCliente;
     private javax.swing.JMenuItem jmiLogOut;
     private javax.swing.JMenuItem jmiModificar;
+    private javax.swing.JMenuItem jmiModificarCliente;
     private javax.swing.JMenuItem jmiPagoCheque;
     private javax.swing.JMenuItem jmiPagoDeposito;
-    private javax.swing.JLabel lbClientes;
     private javax.swing.JLabel lbFactura;
     private javax.swing.JLabel lbProducto;
     // End of variables declaration//GEN-END:variables
