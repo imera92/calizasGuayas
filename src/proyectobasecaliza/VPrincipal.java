@@ -37,11 +37,6 @@ public class VPrincipal extends javax.swing.JFrame {
         btnModificarProducto = new javax.swing.JButton();
         btnEliminarProducto = new javax.swing.JButton();
         lbProducto = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        btnCrearRetencion = new javax.swing.JButton();
-        btnConsultarRetencion = new javax.swing.JButton();
-        btnModificarRetencion = new javax.swing.JButton();
-        btnEliminarRetencion = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
         jmiLogOut = new javax.swing.JMenuItem();
@@ -56,10 +51,10 @@ public class VPrincipal extends javax.swing.JFrame {
         jmiModificarFactura = new javax.swing.JMenuItem();
         jmiEliminarFactura = new javax.swing.JMenuItem();
         jmRetencion = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jmiCrearRetencion = new javax.swing.JMenuItem();
+        jmiConsultarRetencion = new javax.swing.JMenuItem();
+        jmiModificarRetencion = new javax.swing.JMenuItem();
+        jmiEliminarRetencion = new javax.swing.JMenuItem();
         jmPago = new javax.swing.JMenu();
         jmCrear = new javax.swing.JMenu();
         jmiPagoCheque = new javax.swing.JMenuItem();
@@ -129,42 +124,6 @@ public class VPrincipal extends javax.swing.JFrame {
         lbProducto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbProducto.setText("Producto");
         jPanel1.add(lbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Retencion");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
-
-        btnCrearRetencion.setText("Crear Retención");
-        btnCrearRetencion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearRetencionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCrearRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 150, -1));
-
-        btnConsultarRetencion.setText("Consultar Retención");
-        btnConsultarRetencion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarRetencionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnConsultarRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 150, -1));
-
-        btnModificarRetencion.setText("Modificar Retención");
-        btnModificarRetencion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarRetencionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 150, -1));
-
-        btnEliminarRetencion.setText("Eliminar Retención");
-        btnEliminarRetencion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarRetencionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEliminarRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 150, -1));
 
         jmArchivo.setText("Archivo");
 
@@ -252,17 +211,37 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jmRetencion.setText("Retencion");
 
-        jMenuItem1.setText("jMenuItem1");
-        jmRetencion.add(jMenuItem1);
+        jmiCrearRetencion.setText("Crear");
+        jmiCrearRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCrearRetencionActionPerformed(evt);
+            }
+        });
+        jmRetencion.add(jmiCrearRetencion);
 
-        jMenuItem2.setText("jMenuItem2");
-        jmRetencion.add(jMenuItem2);
+        jmiConsultarRetencion.setText("Consultar");
+        jmiConsultarRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiConsultarRetencionActionPerformed(evt);
+            }
+        });
+        jmRetencion.add(jmiConsultarRetencion);
 
-        jMenuItem3.setText("jMenuItem3");
-        jmRetencion.add(jMenuItem3);
+        jmiModificarRetencion.setText("Modificar");
+        jmiModificarRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiModificarRetencionActionPerformed(evt);
+            }
+        });
+        jmRetencion.add(jmiModificarRetencion);
 
-        jMenuItem4.setText("jMenuItem4");
-        jmRetencion.add(jMenuItem4);
+        jmiEliminarRetencion.setText("Eliminar");
+        jmiEliminarRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiEliminarRetencionActionPerformed(evt);
+            }
+        });
+        jmRetencion.add(jmiEliminarRetencion);
 
         jMenuBar1.add(jmRetencion);
 
@@ -381,34 +360,6 @@ public class VPrincipal extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_btnEliminarProductoActionPerformed
 
-    private void btnCrearRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRetencionActionPerformed
-        VCrearRetencion ventana =new VCrearRetencion();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnCrearRetencionActionPerformed
-
-    private void btnConsultarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarRetencionActionPerformed
-        VConsultarRetencion ventana =new VConsultarRetencion();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnConsultarRetencionActionPerformed
-
-    private void btnModificarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRetencionActionPerformed
-        VModificarRetencion ventana =new VModificarRetencion();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnModificarRetencionActionPerformed
-
-    private void btnEliminarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarRetencionActionPerformed
-        VEliminarRetencion ventana =new VEliminarRetencion();
-        ventana.setLocation(this.getLocation());
-        this.dispose();
-        ventana.setVisible(true);
-    }//GEN-LAST:event_btnEliminarRetencionActionPerformed
-
     private void jmiConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarActionPerformed
         VConsultarPago ventana =new VConsultarPago();
         ventana.setLocation(this.getLocation());
@@ -511,6 +462,34 @@ public class VPrincipal extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_jmiEliminarFacturaActionPerformed
+
+    private void jmiCrearRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCrearRetencionActionPerformed
+        VCrearRetencion ventana =new VCrearRetencion();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiCrearRetencionActionPerformed
+
+    private void jmiConsultarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarRetencionActionPerformed
+        VConsultarRetencion ventana =new VConsultarRetencion();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiConsultarRetencionActionPerformed
+
+    private void jmiModificarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiModificarRetencionActionPerformed
+        VModificarRetencion ventana =new VModificarRetencion();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiModificarRetencionActionPerformed
+
+    private void jmiEliminarRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarRetencionActionPerformed
+        VEliminarRetencion ventana =new VEliminarRetencion();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiEliminarRetencionActionPerformed
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
         Sistema.cerrar();
@@ -553,19 +532,10 @@ public class VPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultarProducto;
-    private javax.swing.JButton btnConsultarRetencion;
     private javax.swing.JButton btnCrearProducto;
-    private javax.swing.JButton btnCrearRetencion;
     private javax.swing.JButton btnEliminarProducto;
-    private javax.swing.JButton btnEliminarRetencion;
     private javax.swing.JButton btnModificarProducto;
-    private javax.swing.JButton btnModificarRetencion;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
@@ -583,15 +553,19 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiConsultar;
     private javax.swing.JMenuItem jmiConsultarCliente;
     private javax.swing.JMenuItem jmiConsultarFactura;
+    private javax.swing.JMenuItem jmiConsultarRetencion;
     private javax.swing.JMenuItem jmiCrearCliente;
     private javax.swing.JMenuItem jmiCrearFactura;
+    private javax.swing.JMenuItem jmiCrearRetencion;
     private javax.swing.JMenuItem jmiEliminar;
     private javax.swing.JMenuItem jmiEliminarCliente;
     private javax.swing.JMenuItem jmiEliminarFactura;
+    private javax.swing.JMenuItem jmiEliminarRetencion;
     private javax.swing.JMenuItem jmiLogOut;
     private javax.swing.JMenuItem jmiModificar;
     private javax.swing.JMenuItem jmiModificarCliente;
     private javax.swing.JMenuItem jmiModificarFactura;
+    private javax.swing.JMenuItem jmiModificarRetencion;
     private javax.swing.JMenuItem jmiPagoCheque;
     private javax.swing.JMenuItem jmiPagoDeposito;
     private javax.swing.JLabel lbProducto;
