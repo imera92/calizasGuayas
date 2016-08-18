@@ -279,6 +279,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jmAyuda.setText("Ayuda");
 
         jmiAcercaDe.setText("Acerca de...");
+        jmiAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAcercaDeActionPerformed(evt);
+            }
+        });
         jmAyuda.add(jmiAcercaDe);
 
         jMenuBar1.add(jmAyuda);
@@ -457,6 +462,12 @@ public class VPrincipal extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_jmiEliminarProductoActionPerformed
+
+    private void jmiAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAcercaDeActionPerformed
+        VAcercaDe ventana =new VAcercaDe();
+        ventana.setLocation(this.getLocation());
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jmiAcercaDeActionPerformed
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
         Sistema.cerrar();
