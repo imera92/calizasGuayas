@@ -55,9 +55,9 @@ public class VLogin extends javax.swing.JFrame {
         PInicio.setMinimumSize(new java.awt.Dimension(375, 525));
         PInicio.setPreferredSize(new java.awt.Dimension(375, 525));
 
-        lbNombreEmpresa.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbNombreEmpresa.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbNombreEmpresa.setForeground(new java.awt.Color(255, 255, 255));
-        lbNombreEmpresa.setText("Calizas S.A.");
+        lbNombreEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/imagenes/logo.png"))); // NOI18N
 
         lbIniciarSesion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,7 +102,7 @@ public class VLogin extends javax.swing.JFrame {
         PInicioLayout.setHorizontalGroup(
             PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PInicioLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(52, 52, 52)
                 .addGroup(PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbIniciarSesion)
@@ -112,15 +112,15 @@ public class VLogin extends javax.swing.JFrame {
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogin)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PInicioLayout.setVerticalGroup(
             PInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PInicioLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(lbIniciarSesion)
@@ -128,13 +128,13 @@ public class VLogin extends javax.swing.JFrame {
                 .addComponent(lbNombreUsuario)
                 .addGap(6, 6, 6)
                 .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(20, 20, 20)
                 .addComponent(lbContraseña)
                 .addGap(6, 6, 6)
                 .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(20, 20, 20)
                 .addComponent(btnLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addComponent(btnSalir)
                 .addGap(37, 37, 37))
         );
