@@ -67,7 +67,7 @@ public class VPrincipal extends javax.swing.JFrame {
         setTitle("Menu Principal");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 51));
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCrearProducto.setText("Crear Producto");
