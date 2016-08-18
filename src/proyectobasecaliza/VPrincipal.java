@@ -63,7 +63,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jmiModificarProducto = new javax.swing.JMenuItem();
         jmiEliminarProducto = new javax.swing.JMenuItem();
         jmAyuda = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        jmiAcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -278,8 +278,8 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jmAyuda.setText("Ayuda");
 
-        jMenuItem9.setText("jMenuItem9");
-        jmAyuda.add(jMenuItem9);
+        jmiAcercaDe.setText("Acerca de...");
+        jmAyuda.add(jmiAcercaDe);
 
         jMenuBar1.add(jmAyuda);
 
@@ -499,7 +499,6 @@ public class VPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu jmArchivo;
     private javax.swing.JMenu jmAyuda;
@@ -509,6 +508,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jmPago;
     private javax.swing.JMenu jmProducto;
     private javax.swing.JMenu jmRetencion;
+    private javax.swing.JMenuItem jmiAcercaDe;
     private javax.swing.JMenuItem jmiConsultar;
     private javax.swing.JMenuItem jmiConsultarCliente;
     private javax.swing.JMenuItem jmiConsultarFactura;
