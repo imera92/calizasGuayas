@@ -35,15 +35,12 @@ public class VAcercaDe extends javax.swing.JFrame {
         jlIntegrantes1 = new javax.swing.JLabel();
         jlIntegrantes2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Acerca de...");
         setName("jframe0"); // NOI18N
         setResizable(false);
 
         jlEspol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/imagenes/espol.png"))); // NOI18N
-        jlEspol.setMaximumSize(new java.awt.Dimension(100, 100));
-        jlEspol.setMinimumSize(new java.awt.Dimension(100, 100));
-        jlEspol.setPreferredSize(new java.awt.Dimension(100, 100));
 
         jlTexto.setText("Software desarrollado en la Escuela Superior Politecnica del Litoral por:");
 
@@ -94,7 +91,7 @@ public class VAcercaDe extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(122, 122, 122)
-                        .addComponent(jlEspol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jlEspol))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -104,7 +101,7 @@ public class VAcercaDe extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jlEspol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlEspol)
                 .addGap(28, 28, 28)
                 .addComponent(jlTexto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

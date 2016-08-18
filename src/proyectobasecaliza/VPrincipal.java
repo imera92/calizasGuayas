@@ -465,7 +465,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void jmiAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAcercaDeActionPerformed
         VAcercaDe ventana =new VAcercaDe();
-        ventana.setLocation(this.getLocation());
+        ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
     }//GEN-LAST:event_jmiAcercaDeActionPerformed
     
