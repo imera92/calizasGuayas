@@ -187,7 +187,7 @@ public class VCrearFactura extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         try{
-            Sistema.insertFactura(this.tfNumFactura, this.tfFechaVencimiento, this.tfEstado, this.tfTotalSacosVendidos, this.tfPrecioUnitario, this.tfTotalFactura,this.tfIdProducto,this.tfRucCliente,this.tfRucEmple);
+            Sistema.insertFactura(this.tfNumFactura, this.tfFechaEmision, this.tfFechaVencimiento, this.tfEstado, this.tfTotalSacosVendidos, this.tfPrecioUnitario, this.tfTotalFactura,this.tfIdProducto,this.tfRucCliente,this.tfRucEmple);
             JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Factura creada exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
         }catch(SQLException se){

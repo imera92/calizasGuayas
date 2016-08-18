@@ -60,9 +60,9 @@ public class Sistema {
         Sistema.newAccess.write(sql);
     }
     
-    public static void insertFactura(JTextField idFactura, JTextField fechaVenci, JTextField estado, JTextField sacosVen, JTextField precioUni, JTextField total, JTextField idProd, JTextField rucClie, JTextField ceduEmpl) throws SQLException{
+    public static void insertFactura(JTextField idFactura, JTextField fechaEmi, JTextField fechaVenci, JTextField estado, JTextField sacosVen, JTextField precioUni, JTextField total, JTextField idProd, JTextField rucClie, JTextField ceduEmpl) throws SQLException{
         String sql = "INSERT INTO factura " +
-                   "VALUES ('"+idFactura.getText()+"', CURDATE(), '"+fechaVenci.getText()+"', '"+estado.getText()+"', "+sacosVen.getText()+", "+precioUni.getText()+", "+total.getText()+", '"+idProd.getText()+"', '"+rucClie.getText()+"', '"+ceduEmpl.getText()+"');";
+                   "VALUES ('"+idFactura.getText()+"', '"+fechaEmi.getText()+"', '"+fechaVenci.getText()+"', '"+estado.getText()+"', "+sacosVen.getText()+", "+precioUni.getText()+", "+total.getText()+", '"+idProd.getText()+"', '"+rucClie.getText()+"', '"+ceduEmpl.getText()+"');";
         Sistema.newAccess.write(sql);
     }
     
