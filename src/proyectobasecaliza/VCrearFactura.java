@@ -98,7 +98,7 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Total Factura:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,8 +111,12 @@ public class VCrearFactura extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
         getContentPane().add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 110, -1));
 
-        tfFechaEmision.setText("Se ingresará la fecha Actual");
-        getContentPane().add(tfFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 160, 20));
+        tfFechaEmision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFechaEmisionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, 20));
         getContentPane().add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 110, -1));
         getContentPane().add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, -1));
 
@@ -121,7 +125,7 @@ public class VCrearFactura extends javax.swing.JFrame {
                 tfTotalFacturaActionPerformed(evt);
             }
         });
-        getContentPane().add(tfTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 110, -1));
+        getContentPane().add(tfTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 110, -1));
 
         tfFechaVencimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +227,10 @@ public class VCrearFactura extends javax.swing.JFrame {
     private void tfRucClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfRucClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfRucClienteActionPerformed
+
+    private void tfFechaEmisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaEmisionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfFechaEmisionActionPerformed
     
     @Override
     public Image getIconImage() {
