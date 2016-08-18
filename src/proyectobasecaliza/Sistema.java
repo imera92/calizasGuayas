@@ -32,10 +32,10 @@ public class Sistema {
     private static void cargarUsuarios(){
         ResultSet rs;
         try{
-            rs = Sistema.newAccess.query("SELECT * FROM usuarios");
+            rs = Sistema.newAccess.query("SELECT * FROM empleados");
             while(rs.next()){
                 Usuario u = new Usuario();
-                u.setUser(rs.getString("user"));
+                u.setUser(rs.getString("Cedula_Empleados"));
                 u.setPass(rs.getString("pass"));
                 Sistema.usuarios.add(u);
             }
