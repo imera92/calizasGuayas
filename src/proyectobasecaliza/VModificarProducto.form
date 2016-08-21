@@ -70,6 +70,9 @@
               <Connection code="dfm" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbProductoMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="dfm.setColumnIdentifiers(new Object[]{&quot;Id producto&quot;,&quot;Stock&quot;,&quot;Nombre&quot;,&quot;Precio&quot;});&#xa;    try{&#xa;        while(rs.next()){&#xa;            dfm.addRow(new Object[]{rs.getString(1),rs.getInt(2),rs.getString(3),rs.getFloat(4)});&#xa;        }&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Connection cn = Sistema.getNewAccess().getConn();&#xa;    Statement st=null;&#xa;    ResultSet rs=null;&#xa;    try{&#xa;        st=cn.createStatement();&#xa;        rs=st.executeQuery(&quot;SELECT * FROM producto&quot;);&#xa;    }catch(Exception e){&#xa;&#xa;    }&#xa;    DefaultTableModel dfm = new DefaultTableModel();"/>

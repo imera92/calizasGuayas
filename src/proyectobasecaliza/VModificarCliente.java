@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,7 +38,7 @@ public class VModificarCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbFactura = new javax.swing.JTable();
+        tbCliente = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         lbRUC = new javax.swing.JLabel();
@@ -79,7 +80,7 @@ public class VModificarCliente extends javax.swing.JFrame {
 
         }
         DefaultTableModel dfm = new DefaultTableModel();
-        tbFactura.setModel(dfm);
+        tbCliente.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Ruc","Nombre","Dirección","Teléfono","E-mail"});
         try{
             while(rs.next()){
@@ -88,7 +89,12 @@ public class VModificarCliente extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        jScrollPane1.setViewportView(tbFactura);
+        tbCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbClienteMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbCliente);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 640, 330));
 
@@ -166,6 +172,15 @@ public class VModificarCliente extends javax.swing.JFrame {
     private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNombreActionPerformed
+
+    private void tbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClienteMouseClicked
+        int fila = tbCliente.rowAtPoint(evt.getPoint());
+        tfRUC.setText(tbCliente.getValueAt(fila,0).toString());  
+        tfNombre.setText(tbCliente.getValueAt(fila,1).toString()); 
+        tfDireccion.setText(tbCliente.getValueAt(fila,2).toString()); 
+        tfTelefono.setText(tbCliente.getValueAt(fila,3).toString()); 
+        tfEmail.setText(tbCliente.getValueAt(fila,4).toString()); 
+    }//GEN-LAST:event_tbClienteMouseClicked
     
     @Override
     public Image getIconImage() {
@@ -221,7 +236,7 @@ public class VModificarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lbNombre;
     private javax.swing.JLabel lbRUC;
     private javax.swing.JLabel lbTelefono;
-    private javax.swing.JTable tbFactura;
+    private javax.swing.JTable tbCliente;
     private javax.swing.JTextField tfDireccion;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfNombre;

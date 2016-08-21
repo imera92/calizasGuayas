@@ -80,6 +80,11 @@ public class VModificarProducto extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
+        tbProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbProductoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbProducto);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 670, 330));
@@ -132,6 +137,14 @@ public class VModificarProducto extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tbProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductoMouseClicked
+        int fila = tbProducto.rowAtPoint(evt.getPoint());
+        tfIdProducto.setText(tbProducto.getValueAt(fila,0).toString());
+        tfStock.setText(tbProducto.getValueAt(fila,1).toString());
+        tfNombre.setText(tbProducto.getValueAt(fila,2).toString());
+        tfPrecioUni.setText(tbProducto.getValueAt(fila,3).toString());
+    }//GEN-LAST:event_tbProductoMouseClicked
 
     /**
      * @param args the command line arguments

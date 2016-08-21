@@ -90,6 +90,11 @@ public class VModificarPago extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
+        tbPago.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbPagoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbPago);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 630, 320));
@@ -182,6 +187,19 @@ public class VModificarPago extends javax.swing.JFrame {
     private void tfNumChequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNumChequeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNumChequeActionPerformed
+
+    private void tbPagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPagoMouseClicked
+        int fila = tbPago.rowAtPoint(evt.getPoint());
+        tfNumComprobante.setText(tbPago.getValueAt(fila,0).toString());
+        tfFechaEmi.setText(tbPago.getValueAt(fila,1).toString());
+        tfNumCheque.setText(tbPago.getValueAt(fila,2).toString());
+        tfBancoCheque.setText(tbPago.getValueAt(fila,3).toString());
+        tfBancoDeposito.setText(tbPago.getValueAt(fila,4).toString());
+        tfCuentaDeposito.setText(tbPago.getValueAt(fila,5).toString());
+        tfValorCancelado.setText(tbPago.getValueAt(fila,6).toString());
+        tfNumFactura.setText(tbPago.getValueAt(fila,7).toString());
+        tfIDFormaPago.setText(tbPago.getValueAt(fila,8).toString());
+    }//GEN-LAST:event_tbPagoMouseClicked
 
     /**
      * @param args the command line arguments

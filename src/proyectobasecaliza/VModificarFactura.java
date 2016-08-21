@@ -35,7 +35,7 @@ public class VModificarFactura extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbCliente = new javax.swing.JTable();
+        tbFactura = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
@@ -84,7 +84,7 @@ public class VModificarFactura extends javax.swing.JFrame {
 
         }
         DefaultTableModel dfm = new DefaultTableModel();
-        tbCliente.setModel(dfm);
+        tbFactura.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Num Factura","Fecha Emision","Fecha Vencimiento","Estado","Sacos Vendidos","Precio unitario","Precio total","Id Producto","Ruc Cliente","Cedula empleado"});
         try{
             while(rs.next()){
@@ -93,7 +93,12 @@ public class VModificarFactura extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        jScrollPane1.setViewportView(tbCliente);
+        tbFactura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbFacturaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbFactura);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 630, 360));
 
@@ -215,6 +220,22 @@ public class VModificarFactura extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfTotalFacturaActionPerformed
 
+    private void tbFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFacturaMouseClicked
+        int fila = tbFactura.rowAtPoint(evt.getPoint());
+        tfNumFactura.setText(tbFactura.getValueAt(fila,0).toString());  
+        tfFechaEmision.setText(tbFactura.getValueAt(fila,1).toString()); 
+        tfFechaVencimiento.setText(tbFactura.getValueAt(fila,2).toString()); 
+        tfEstado.setText(tbFactura.getValueAt(fila,3).toString()); 
+        tfTotalSacosVendidos.setText(tbFactura.getValueAt(fila,4).toString());
+        tfPrecioUnitario.setText(tbFactura.getValueAt(fila,5).toString());
+        tfTotalFactura.setText(tbFactura.getValueAt(fila,6).toString());
+        tfIdProducto.setText(tbFactura.getValueAt(fila,7).toString());
+        tfRucCliente.setText(tbFactura.getValueAt(fila,8).toString());
+        jTextField8.setText(tbFactura.getValueAt(fila,9).toString());
+        
+        
+    }//GEN-LAST:event_tbFacturaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -269,7 +290,7 @@ public class VModificarFactura extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbNumFactura;
-    private javax.swing.JTable tbCliente;
+    private javax.swing.JTable tbFactura;
     private javax.swing.JTextField tfEstado;
     private javax.swing.JTextField tfFechaEmision;
     private javax.swing.JTextField tfFechaVencimiento;
