@@ -5,9 +5,9 @@
  */
 package proyectobasecaliza;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -35,7 +35,7 @@ public class VEliminarFactura extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbCliente = new javax.swing.JTable();
+        tbFactura = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         lbFondo = new javax.swing.JLabel();
@@ -55,16 +55,17 @@ public class VEliminarFactura extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         Connection cn = Sistema.getNewAccess().getConn();
-        Statement st=null;
         ResultSet rs=null;
+        CallableStatement mycall= null;
         try{
-            st=cn.createStatement();
-            rs=st.executeQuery("SELECT * FROM factura");
+            mycall = cn.prepareCall("{call allFact ()}");
+            mycall.execute();
+            rs=mycall.getResultSet();
         }catch(Exception e){
 
         }
         DefaultTableModel dfm = new DefaultTableModel();
-        tbCliente.setModel(dfm);
+        tbFactura.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Num Factura","Fecha Emision","Fecha Vencimiento","Estado","Sacos Vendidos","Precio unitario","Precio total","Id Producto","Ruc Cliente","Cedula empleado"});
         try{
             while(rs.next()){
@@ -73,7 +74,7 @@ public class VEliminarFactura extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        jScrollPane1.setViewportView(tbCliente);
+        jScrollPane1.setViewportView(tbFactura);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 930, 320));
 
@@ -147,6 +148,6 @@ public class VEliminarFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbFondo;
-    private javax.swing.JTable tbCliente;
+    private javax.swing.JTable tbFactura;
     // End of variables declaration//GEN-END:variables
 }

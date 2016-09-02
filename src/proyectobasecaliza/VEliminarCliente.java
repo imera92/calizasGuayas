@@ -7,9 +7,9 @@ package proyectobasecaliza;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,7 +36,7 @@ public class VEliminarCliente extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbFactura = new javax.swing.JTable();
+        tbCliente = new javax.swing.JTable();
         btEliminar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
@@ -55,16 +55,17 @@ public class VEliminarCliente extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         Connection cn = Sistema.getNewAccess().getConn();
-        Statement st=null;
         ResultSet rs=null;
+        CallableStatement mycall= null;
         try{
-            st=cn.createStatement();
-            rs=st.executeQuery("SELECT * FROM cliente");
+            mycall = cn.prepareCall("{call allClients ()}");
+            mycall.execute();
+            rs=mycall.getResultSet();
         }catch(Exception e){
 
         }
         DefaultTableModel dfm = new DefaultTableModel();
-        tbFactura.setModel(dfm);
+        tbCliente.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Ruc","Nombre","Dirección","Teléfono","E-mail"});
         try{
             while(rs.next()){
@@ -73,7 +74,7 @@ public class VEliminarCliente extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        jScrollPane1.setViewportView(tbFactura);
+        jScrollPane1.setViewportView(tbCliente);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 930, 310));
 
@@ -156,6 +157,6 @@ public class VEliminarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbFondo;
-    private javax.swing.JTable tbFactura;
+    private javax.swing.JTable tbCliente;
     // End of variables declaration//GEN-END:variables
 }

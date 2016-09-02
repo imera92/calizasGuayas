@@ -401,7 +401,7 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiModificarFacturaActionPerformed
 
     private void jmiEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarFacturaActionPerformed
-        VModificarFactura ventana =new VModificarFactura();
+        VEliminarFactura ventana =new VEliminarFactura();
         ventana.setLocation(this.getLocation());
         this.dispose();
         ventana.setVisible(true);

@@ -5,9 +5,9 @@
  */
 package proyectobasecaliza;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -49,11 +49,12 @@ public class VEliminarRetencion extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         Connection cn = Sistema.getNewAccess().getConn();
-        Statement st=null;
         ResultSet rs=null;
+        CallableStatement mycall= null;
         try{
-            st=cn.createStatement();
-            rs=st.executeQuery("SELECT * FROM retencion");
+            mycall = cn.prepareCall("{call allReten ()}");
+            mycall.execute();
+            rs=mycall.getResultSet();
         }catch(Exception e){
 
         }

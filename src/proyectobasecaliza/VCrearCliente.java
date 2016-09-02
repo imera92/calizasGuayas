@@ -5,15 +5,10 @@
  */
 package proyectobasecaliza;
 
+import java.sql.CallableStatement;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -141,8 +136,13 @@ public class VCrearCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tfRUCActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        Connection cn= Sistema.getNewAccess().getConn();
+        CallableStatement mycall;
+        
         try{
-            Sistema.insertCliente(this.tfRUC, this.tfNombre, this.tfDireccion, this.tfTelefono, this.tfEmail);
+            mycall =cn.prepareCall("{call insertClient('"+tfRUC.getText()+"', '"+tfNombre.getText()+"', '"+tfDireccion.getText()+"', '"+tfTelefono.getText()+"', '"+tfEmail.getText()+"')}");
+            mycall.execute();
+//            Sistema.insertCliente(this.tfRUC, this.tfNombre, this.tfDireccion, this.tfTelefono, this.tfEmail);
             JOptionPane notificacion = new JOptionPane();
             this.tfRUC.setText("");
             this.tfNombre.setText("");
@@ -150,8 +150,9 @@ public class VCrearCliente extends javax.swing.JFrame {
             this.tfTelefono.setText("");
             this.tfEmail.setText("");
             notificacion.showMessageDialog(rootPane, "Cliente creado exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
-        }catch(SQLException se){
-            se.printStackTrace();
+        }catch(Exception e){
+            System.out.println("se produjo una excepcion");
+//            se.printStackTrace();
         }
         
     }//GEN-LAST:event_btnCrearActionPerformed
