@@ -5,9 +5,10 @@
  */
 package proyectobasecaliza;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -108,11 +109,12 @@ public class VModificarRetencion extends javax.swing.JFrame {
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
         Connection cn = Sistema.getNewAccess().getConn();
-        Statement st=null;
         ResultSet rs=null;
+        CallableStatement mycall= null;
         try{
-            st=cn.createStatement();
-            rs=st.executeQuery("SELECT * FROM retencion");
+            mycall = cn.prepareCall("{call allReten ()}");
+            mycall.execute();
+            rs=mycall.getResultSet();
         }catch(Exception e){
 
         }

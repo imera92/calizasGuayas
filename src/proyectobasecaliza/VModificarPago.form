@@ -75,7 +75,7 @@
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="dfm.setColumnIdentifiers(new Object[]{&quot;Num comprobante&quot;,&quot;Feccha Pago&quot;,&quot;Num Cheque&quot;,&quot;Banco Cheque&quot;,&quot;Banco Deposito&quot;,&quot;Cuenta Deposito&quot;,&quot;Valor Cancelado&quot;,&quot;Id factura&quot;, &quot;Id Forma pago&quot;});&#xa;    try{&#xa;        while(rs.next()){&#xa;            dfm.addRow(new Object[]{rs.getString(1),rs.getDate(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getFloat(7),rs.getString(8),rs.getInt(9)});&#xa;        }&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Connection cn = Sistema.getNewAccess().getConn();&#xa;    Statement st=null;&#xa;    ResultSet rs=null;&#xa;    try{&#xa;        st=cn.createStatement();&#xa;        rs=st.executeQuery(&quot;SELECT * FROM pago&quot;);&#xa;    }catch(Exception e){&#xa;&#xa;    }&#xa;    DefaultTableModel dfm = new DefaultTableModel();"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Connection cn = Sistema.getNewAccess().getConn();&#xa;ResultSet rs=null;&#xa;CallableStatement mycall= null;&#xa;    try{&#xa;        mycall = cn.prepareCall(&quot;{call allPayme ()}&quot;); &#xa;        mycall.execute();&#xa;        rs=mycall.getResultSet();&#xa;    }catch(Exception e){&#xa;&#xa;    }&#xa;    DefaultTableModel dfm = new DefaultTableModel();"/>
           </AuxValues>
         </Component>
       </SubComponents>

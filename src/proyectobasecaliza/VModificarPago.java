@@ -5,9 +5,9 @@
  */
 package proyectobasecaliza;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -72,11 +72,12 @@ public class VModificarPago extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         Connection cn = Sistema.getNewAccess().getConn();
-        Statement st=null;
         ResultSet rs=null;
+        CallableStatement mycall= null;
         try{
-            st=cn.createStatement();
-            rs=st.executeQuery("SELECT * FROM pago");
+            mycall = cn.prepareCall("{call allPayme ()}");
+            mycall.execute();
+            rs=mycall.getResultSet();
         }catch(Exception e){
 
         }
