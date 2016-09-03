@@ -190,8 +190,7 @@ public class VCrearFactura extends javax.swing.JFrame {
        Connection cn = Sistema.getNewAccess().getConn();
        CallableStatement mycall;
         try{
-           mycall =cn.prepareCall("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+tfRucCliente.getText()+"', '"+tfRucEmple.getText()+"')}");
-           mycall.execute();
+           Sistema.getNewAccess().write2("{call insertClient('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+tfRucCliente.getText()+"', '"+tfRucEmple.getText()+"')}");
            JOptionPane notificacion = new JOptionPane();
            notificacion.showMessageDialog(rootPane, "Factura creada exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
         }catch(SQLException se){
