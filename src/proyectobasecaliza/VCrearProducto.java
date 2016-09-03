@@ -5,6 +5,8 @@
  */
 package proyectobasecaliza;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -110,8 +112,14 @@ public class VCrearProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+
+         Connection cn = Sistema.getNewAccess().getConn();
+       CallableStatement mycall;
         try {
-            Sistema.insertProducto(this.tfIdProducto, this.tfStock, this.tfNombre, this.tfPrecioUni);
+            
+             mycall =cn.prepareCall("{call insertProduct('"+tfIdProducto.getText()+"', "+tfStock.getText()+", '"+tfNombre.getText()+"', "+tfPrecioUni.getText()+")}");
+            mycall.execute();
+           // Sistema.insertProducto(this.tfIdProducto, this.tfStock, this.tfNombre, this.tfPrecioUni);
             JOptionPane notificacion = new JOptionPane();
             this.tfIdProducto.setText("");
             this.tfStock.setText("");

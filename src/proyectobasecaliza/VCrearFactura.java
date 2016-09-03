@@ -7,6 +7,7 @@ package proyectobasecaliza;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -186,8 +187,12 @@ public class VCrearFactura extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+       Connection cn = Sistema.getNewAccess().getConn();
+       CallableStatement mycall;
         try{
-            Sistema.insertFactura(this.tfNumFactura, this.tfFechaEmision, this.tfFechaVencimiento, this.tfEstado, this.tfTotalSacosVendidos, this.tfPrecioUnitario, this.tfTotalFactura,this.tfIdProducto,this.tfRucCliente,this.tfRucEmple);
+           mycall =cn.prepareCall("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+tfRucCliente.getText()+"', '"+tfRucEmple.getText()+"')}");
+           mycall.execute();
+           // Sistema.insertFactura(this.tfNumFactura, this.tfFechaEmision, this.tfFechaVencimiento, this.tfEstado, this.tfTotalSacosVendidos, this.tfPrecioUnitario, this.tfTotalFactura,this.tfIdProducto,this.tfRucCliente,this.tfRucEmple);
             JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Factura creada exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
         }catch(SQLException se){

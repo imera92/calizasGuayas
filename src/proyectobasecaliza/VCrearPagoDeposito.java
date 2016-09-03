@@ -5,6 +5,8 @@
  */
 package proyectobasecaliza;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -224,8 +226,14 @@ public class VCrearPagoDeposito extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+
+        Connection cn = Sistema.getNewAccess().getConn();
+       CallableStatement mycall;
         try {
-            Sistema.insertPagoDeposito(this.tfNumComprobante, this.tfFechaEmi, this.tfbcoDeposito, this.tfCtaDeposito, this.tfValorCancelado, this.tfNumFactura, this.jcFormasPago);
+            
+            mycall =cn.prepareCall("{call insertPaymeDeposito('"+tfNumComprobante.getText()+"', '"+tfFechaEmi.getText()+"', '"+tfbcoDeposito.getText()+"', '"+tfCtaDeposito.getText()+"', "+tfValorCancelado.getText()+", '"+tfNumFactura.getText()+"','"+jcFormasPago.getSelectedIndex()+"')}");
+            mycall.execute();
+            //Sistema.insertPagoDeposito(this.tfNumComprobante, this.tfFechaEmi, this.tfbcoDeposito, this.tfCtaDeposito, this.tfValorCancelado, this.tfNumFactura, this.jcFormasPago);
             JOptionPane notificacion = new JOptionPane();
             this.tfNumComprobante.setText("");
             this.tfFechaEmi.setText("");
