@@ -117,12 +117,8 @@ public class VEliminarFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_tbFacturaMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Connection cn= Sistema.getNewAccess().getConn();
-        CallableStatement mycall;
-        
         try{
-            mycall =cn.prepareCall("{call EliminarFactura('"+factId+"')}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call EliminarFactura('"+factId+"')}");
             JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Facttura eliminada exitosamente", "Eliminar factura", JOptionPane.INFORMATION_MESSAGE);
             VEliminarFactura ventana = new VEliminarFactura();
