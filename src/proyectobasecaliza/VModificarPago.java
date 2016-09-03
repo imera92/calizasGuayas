@@ -71,13 +71,9 @@ public class VModificarPago extends javax.swing.JFrame {
         jLabel3.setText("Seleccione el pago a modificar:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
-        Connection cn = Sistema.getNewAccess().getConn();
         ResultSet rs=null;
-        CallableStatement mycall= null;
         try{
-            mycall = cn.prepareCall("{call allPayme ()}");
-            mycall.execute();
-            rs=mycall.getResultSet();
+            rs=Sistema.getNewAccess().query2("{call allPayme ()}");
         }catch(Exception e){
 
         }
