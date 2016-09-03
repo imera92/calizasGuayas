@@ -61,13 +61,9 @@ public class VModificarProducto extends javax.swing.JFrame {
         jLabel3.setText("Seleccione producto a modificar:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
-        Connection cn = Sistema.getNewAccess().getConn();
         ResultSet rs=null;
-        CallableStatement mycall= null;
         try{
-            mycall = cn.prepareCall("{call allProduct ()}");
-            mycall.execute();
-            rs=mycall.getResultSet();
+            rs=Sistema.getNewAccess().query2("{call allProduct ()}");
         }catch(Exception e){
 
         }
