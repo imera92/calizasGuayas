@@ -53,13 +53,9 @@ public class VEliminarPago extends javax.swing.JFrame {
         jLabel3.setText("Seleccione el pago a eliminar:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
-        Connection cn = Sistema.getNewAccess().getConn();
         ResultSet rs=null;
-        CallableStatement mycall= null;
         try{
-            mycall = cn.prepareCall("{call allPayme ()}");
-            mycall.execute();
-            rs=mycall.getResultSet();
+            rs=Sistema.getNewAccess().query2("{call allPayme ()}");
         }catch(Exception e){
 
         }
