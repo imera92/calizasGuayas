@@ -53,15 +53,13 @@ public class VCrearPagoCheque extends javax.swing.JFrame {
         jcFormasPago = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 525));
-        setPreferredSize(new java.awt.Dimension(800, 525));
+        setMinimumSize(new java.awt.Dimension(380, 525));
         setResizable(false);
-        setSize(new java.awt.Dimension(800, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 51));
-        jPanel1.setMinimumSize(new java.awt.Dimension(800, 525));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 525));
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(380, 525));
+        jPanel1.setPreferredSize(new java.awt.Dimension(380, 525));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,9 +162,9 @@ public class VCrearPagoCheque extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(202, 202, 202)
                         .addComponent(btnCrear)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAtras)))
-                .addGap(462, 462, 462))
+                .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +206,7 @@ public class VCrearPagoCheque extends javax.swing.JFrame {
                 .addGap(175, 175, 175))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
