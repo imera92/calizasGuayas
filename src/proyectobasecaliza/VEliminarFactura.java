@@ -54,13 +54,9 @@ public class VEliminarFactura extends javax.swing.JFrame {
         jLabel2.setText("Seleccione la factura a Eliminar");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
-        Connection cn = Sistema.getNewAccess().getConn();
         ResultSet rs=null;
-        CallableStatement mycall= null;
         try{
-            mycall = cn.prepareCall("{call allFact ()}");
-            mycall.execute();
-            rs=mycall.getResultSet();
+            rs=Sistema.getNewAccess().query2("{call allFact ()}");
         }catch(Exception e){
 
         }
