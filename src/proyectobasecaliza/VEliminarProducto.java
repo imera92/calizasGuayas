@@ -53,13 +53,9 @@ public class VEliminarProducto extends javax.swing.JFrame {
         jLabel1.setText("Seleccione el Producto a eliminar:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
-        Connection cn = Sistema.getNewAccess().getConn();
         ResultSet rs=null;
-        CallableStatement mycall= null;
         try{
-            mycall = cn.prepareCall("{call allProduct ()}");
-            mycall.execute();
-            rs=mycall.getResultSet();
+            rs=Sistema.getNewAccess().query2("{call allProduct ()}");
         }catch(Exception e){
 
         }
