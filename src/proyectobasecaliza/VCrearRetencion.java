@@ -122,11 +122,8 @@ public class VCrearRetencion extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPorcentajeActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        Connection cn = Sistema.getNewAccess().getConn();
-        CallableStatement mycall;
         try {
-            mycall =cn.prepareCall("{call insertReten('"+tfIdRetencion.getText()+"', "+tfPorcentaje.getText()+", "+tfValorRetenido.getText()+", '"+tfIdFactura.getText()+"')}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call insertReten('"+tfIdRetencion.getText()+"', "+tfPorcentaje.getText()+", "+tfValorRetenido.getText()+", '"+tfIdFactura.getText()+"')}");
             JOptionPane notificacion = new JOptionPane();
             this.tfIdRetencion.setText("");
             this.tfPorcentaje.setText("");
