@@ -62,6 +62,11 @@ public class MySqlAccess {
        this.stmt.executeUpdate(q);
    }
    
+   public void write2(String call) throws SQLException{
+       this.stmt2 = this.conn.prepareCall(call); 
+       this.stmt2.execute();
+   }
+   
    public Connection getConn() {
         return this.conn;
     }
