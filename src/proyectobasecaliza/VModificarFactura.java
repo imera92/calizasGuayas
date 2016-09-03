@@ -74,13 +74,9 @@ public class VModificarFactura extends javax.swing.JFrame {
         jLabel1.setText("Seleccione la factura a modificar:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
-        Connection cn = Sistema.getNewAccess().getConn();
         ResultSet rs=null;
-        CallableStatement mycall= null;
         try{
-            mycall = cn.prepareCall("{call allFact ()}");
-            mycall.execute();
-            rs=mycall.getResultSet();
+            rs=Sistema.getNewAccess().query2("{call allFact ()}");
         }catch(Exception e){
 
         }
