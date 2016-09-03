@@ -1,13 +1,8 @@
 package proyectobasecaliza;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import proyectobasecaliza.sistema.FormaPago;
 import proyectobasecaliza.sistema.Usuario;
@@ -35,7 +30,7 @@ public class Sistema {
     }
 
     public static ArrayList<FormaPago> getFormasPago() {
-        return formasPago;
+        return Sistema.formasPago;
     }
     
     private static void cargarUsuarios(){
