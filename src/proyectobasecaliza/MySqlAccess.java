@@ -1,4 +1,5 @@
 package proyectobasecaliza;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,6 +18,7 @@ public class MySqlAccess {
    
    private Connection conn = null;
    private Statement stmt = null;
+   private CallableStatement stmt2 = null;
    
    public void connection(){
         try{
@@ -50,6 +52,11 @@ public class MySqlAccess {
        return rs;
    }
    
+   public ResultSet query2(String call) throws SQLException{
+       this.stmt2 = this.conn.prepareCall(call); 
+       this.stmt2.execute();
+       return this.stmt2.getResultSet();
+   }
 
    public void write(String q) throws SQLException{
        this.stmt.executeUpdate(q);
@@ -59,6 +66,20 @@ public class MySqlAccess {
         return this.conn;
     }
    
+   /*
+   
+    Connection cn = Sistema.getNewAccess().getConn();
+    ResultSet rs=null;
+    CallableStatement mycall= null;
+    try{
+        mycall = cn.prepareCall("{call allClients ()}"); 
+        mycall.execute();
+        rs=mycall.getResultSet();
+    }catch(Exception e){
+
+    }
+   
+   */
     
       /*
       QUERIES
