@@ -122,19 +122,17 @@ public class VCrearRetencion extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPorcentajeActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
- Connection cn = Sistema.getNewAccess().getConn();
-       CallableStatement mycall;
+        Connection cn = Sistema.getNewAccess().getConn();
+        CallableStatement mycall;
         try {
-            
             mycall =cn.prepareCall("{call insertReten('"+tfIdRetencion.getText()+"', "+tfPorcentaje.getText()+", "+tfValorRetenido.getText()+", '"+tfIdFactura.getText()+"')}");
             mycall.execute();
-            //Sistema.insertPagoDeposito(this.tfNumComprobante, this.tfFechaEmi, this.tfbcoDeposito, this.tfCtaDeposito, this.tfValorCancelado, this.tfNumFactura, this.jcFormasPago);
             JOptionPane notificacion = new JOptionPane();
             this.tfIdRetencion.setText("");
             this.tfPorcentaje.setText("");
             this.tfValorRetenido.setText("");
             this.tfIdFactura.setText("");
-            notificacion.showMessageDialog(rootPane, "Retencion ingresada exitosamente", "Pago con deposito", JOptionPane.INFORMATION_MESSAGE);
+            notificacion.showMessageDialog(rootPane, "Retencion ingresada exitosamente", "Crear Retencion", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException se) {
             se.printStackTrace();
         }

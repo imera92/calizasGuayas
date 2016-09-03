@@ -8,6 +8,7 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,9 +17,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VEliminarRetencion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VEliminarRetencion
-     */
+    String retenId;
+    
     public VEliminarRetencion() {
         initComponents();
     }
@@ -68,12 +68,22 @@ public class VEliminarRetencion extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
+        tbRetencion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbRetencionMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbRetencion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 930, 310));
 
         btEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btEliminar.setText("Eliminar");
+        btEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEliminarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -102,6 +112,29 @@ public class VEliminarRetencion extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tbRetencionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRetencionMouseClicked
+        int fila = tbRetencion.rowAtPoint(evt.getPoint());
+        retenId = tbRetencion.getValueAt(fila,0).toString();
+    }//GEN-LAST:event_tbRetencionMouseClicked
+
+    private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
+        Connection cn= Sistema.getNewAccess().getConn();
+        CallableStatement mycall;
+        
+        try{
+            mycall =cn.prepareCall("{call EliminarRetencion('"+retenId+"')}");
+            mycall.execute();
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Retencion eliminada exitosamente", "Eliminar retencion", JOptionPane.INFORMATION_MESSAGE);
+            VEliminarRetencion ventana = new VEliminarRetencion();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        }catch(Exception e){
+            System.out.println("se produjo una excepcion");
+        }
+    }//GEN-LAST:event_btEliminarActionPerformed
 
     /**
      * @param args the command line arguments

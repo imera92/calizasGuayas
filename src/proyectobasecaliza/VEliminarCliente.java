@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,9 +19,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VEliminarCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VEliminarCliente
-     */
+    String rucCLiente;
+    
     public VEliminarCliente() {
         initComponents();
     }
@@ -74,12 +74,22 @@ public class VEliminarCliente extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
+        tbCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbClienteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbCliente);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 930, 310));
 
         btEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btEliminar.setText("Eliminar");
+        btEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEliminarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 110, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -108,6 +118,29 @@ public class VEliminarCliente extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClienteMouseClicked
+        int fila = tbCliente.rowAtPoint(evt.getPoint());
+        rucCLiente = tbCliente.getValueAt(fila,0).toString(); 
+    }//GEN-LAST:event_tbClienteMouseClicked
+
+    private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
+        Connection cn= Sistema.getNewAccess().getConn();
+        CallableStatement mycall;
+        
+        try{
+            mycall =cn.prepareCall("{call EliminarCliente('"+rucCLiente+"')}");
+            mycall.execute();
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Cliente Eliminado exitosamente", "Eliminar cliente", JOptionPane.INFORMATION_MESSAGE);
+            VEliminarCliente ventana = new VEliminarCliente();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        }catch(Exception e){
+            System.out.println("se produjo una excepcion");
+        }
+    }//GEN-LAST:event_btEliminarActionPerformed
     
     @Override
     public Image getIconImage() {

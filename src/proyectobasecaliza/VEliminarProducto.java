@@ -8,17 +8,17 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Monica
+ * @author Jorge García
  */
 public class VEliminarProducto extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VEliminarProducto
-     */
+    String productId;
+    
     public VEliminarProducto() {
         initComponents();
     }
@@ -73,11 +73,21 @@ public class VEliminarProducto extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
+        tbProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbProductoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbProducto);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 930, 310));
 
         jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 90, 30));
 
         btnAtras.setText("Atras");
@@ -101,6 +111,29 @@ public class VEliminarProducto extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tbProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductoMouseClicked
+        int fila = tbProducto.rowAtPoint(evt.getPoint());
+        productId = tbProducto.getValueAt(fila,0).toString();
+    }//GEN-LAST:event_tbProductoMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Connection cn= Sistema.getNewAccess().getConn();
+        CallableStatement mycall;
+        
+        try{
+            mycall =cn.prepareCall("{call EliminarProducto('"+productId+"')}");
+            mycall.execute();
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Producto eliminado exitosamente", "Eliminar producto", JOptionPane.INFORMATION_MESSAGE);
+            VEliminarProducto ventana = new VEliminarProducto();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        }catch(Exception e){
+            System.out.println("se produjo una excepcion");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

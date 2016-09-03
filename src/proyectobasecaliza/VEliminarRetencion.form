@@ -56,6 +56,9 @@
               <Connection code="dfm" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbRetencionMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="dfm.setColumnIdentifiers(new Object[]{&quot;Id Retencion&quot;,&quot;Porcentaje&quot;,&quot;Valor Retenido&quot;,&quot;Id Factura&quot;});&#xa;    try{&#xa;        while(rs.next()){&#xa;            dfm.addRow(new Object[]{rs.getString(1),rs.getFloat(2),rs.getFloat(3),rs.getString(4)});&#xa;        }&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Connection cn = Sistema.getNewAccess().getConn();&#xa;ResultSet rs=null;&#xa;CallableStatement mycall= null;&#xa;    try{&#xa;        mycall = cn.prepareCall(&quot;{call allReten ()}&quot;); &#xa;        mycall.execute();&#xa;        rs=mycall.getResultSet();&#xa;    }catch(Exception e){&#xa;&#xa;    }&#xa;    DefaultTableModel dfm = new DefaultTableModel();"/>
@@ -70,6 +73,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEliminarActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="430" y="460" width="120" height="-1"/>

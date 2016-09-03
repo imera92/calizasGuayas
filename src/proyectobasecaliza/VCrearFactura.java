@@ -192,26 +192,11 @@ public class VCrearFactura extends javax.swing.JFrame {
         try{
            mycall =cn.prepareCall("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+tfRucCliente.getText()+"', '"+tfRucEmple.getText()+"')}");
            mycall.execute();
-           // Sistema.insertFactura(this.tfNumFactura, this.tfFechaEmision, this.tfFechaVencimiento, this.tfEstado, this.tfTotalSacosVendidos, this.tfPrecioUnitario, this.tfTotalFactura,this.tfIdProducto,this.tfRucCliente,this.tfRucEmple);
-            JOptionPane notificacion = new JOptionPane();
-            notificacion.showMessageDialog(rootPane, "Factura creada exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
+           JOptionPane notificacion = new JOptionPane();
+           notificacion.showMessageDialog(rootPane, "Factura creada exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
         }catch(SQLException se){
             se.printStackTrace();
         }
-        
-        /*
-        Connection conn = Sistema.getNewAccess().getConn();
-        Statement stmt;
-        try {
-            stmt = conn.createStatement();
-            String sql = "INSERT INTO factura(idFactura,estado,Total_Sacos_Vendidos,Precio_Unitario,Precio_Total,Producto_IdProducto,Cliente_RUC_Cliente) " +
-                   "VALUES ("+numFact+", '"+estado+"', "+totalSacos+", "+precioUni+", "+totalfactura+", "+idProducto+", "+rucCliente+")";
-            stmt.executeUpdate(sql);
-            System.out.println("Cliente Creado en la base de datos");
-        } catch (SQLException ex) {
-            Logger.getLogger(VCrearCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void tfTotalFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTotalFacturaActionPerformed

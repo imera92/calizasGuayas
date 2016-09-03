@@ -8,6 +8,7 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,9 +17,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VEliminarFactura extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VFacturaEliminar
-     */
+    String factId;
+    
     public VEliminarFactura() {
         initComponents();
     }
@@ -74,11 +74,21 @@ public class VEliminarFactura extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
+        tbFactura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbFacturaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbFactura);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 930, 320));
 
         jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, -1, -1));
 
         btnAtras.setText("Atras");
@@ -104,6 +114,29 @@ public class VEliminarFactura extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tbFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFacturaMouseClicked
+        int fila = tbFactura.rowAtPoint(evt.getPoint());
+        factId = tbFactura.getValueAt(fila,0).toString(); 
+    }//GEN-LAST:event_tbFacturaMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Connection cn= Sistema.getNewAccess().getConn();
+        CallableStatement mycall;
+        
+        try{
+            mycall =cn.prepareCall("{call EliminarFactura('"+factId+"')}");
+            mycall.execute();
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Facttura eliminada exitosamente", "Eliminar factura", JOptionPane.INFORMATION_MESSAGE);
+            VEliminarFactura ventana = new VEliminarFactura();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        }catch(Exception e){
+            System.out.println("se produjo una excepcion");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

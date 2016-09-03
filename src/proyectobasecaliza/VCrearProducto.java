@@ -8,13 +8,11 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Monica
+ * @author Jorge García
  */
 public class VCrearProducto extends javax.swing.JFrame {
 
@@ -112,20 +110,17 @@ public class VCrearProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-
-         Connection cn = Sistema.getNewAccess().getConn();
-       CallableStatement mycall;
+        Connection cn = Sistema.getNewAccess().getConn();
+        CallableStatement mycall;
         try {
-            
-             mycall =cn.prepareCall("{call insertProduct('"+tfIdProducto.getText()+"', "+tfStock.getText()+", '"+tfNombre.getText()+"', "+tfPrecioUni.getText()+")}");
+            mycall =cn.prepareCall("{call insertProduct('"+tfIdProducto.getText()+"', "+tfStock.getText()+", '"+tfNombre.getText()+"', "+tfPrecioUni.getText()+")}");
             mycall.execute();
-           // Sistema.insertProducto(this.tfIdProducto, this.tfStock, this.tfNombre, this.tfPrecioUni);
             JOptionPane notificacion = new JOptionPane();
             this.tfIdProducto.setText("");
             this.tfStock.setText("");
             this.tfNombre.setText("");
             this.tfPrecioUni.setText("");
-            notificacion.showMessageDialog(rootPane, "Producto creado exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
+            notificacion.showMessageDialog(rootPane, "Producto creado exitosamente", "Crear Producto", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException se) {
             se.printStackTrace();
         }
