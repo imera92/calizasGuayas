@@ -115,12 +115,8 @@ public class VEliminarRetencion extends javax.swing.JFrame {
     }//GEN-LAST:event_tbRetencionMouseClicked
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
-        Connection cn= Sistema.getNewAccess().getConn();
-        CallableStatement mycall;
-        
         try{
-            mycall =cn.prepareCall("{call EliminarRetencion('"+retenId+"')}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call EliminarRetencion('"+retenId+"')}");
             JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Retencion eliminada exitosamente", "Eliminar retencion", JOptionPane.INFORMATION_MESSAGE);
             VEliminarRetencion ventana = new VEliminarRetencion();
