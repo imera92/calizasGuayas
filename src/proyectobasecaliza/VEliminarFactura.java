@@ -126,7 +126,7 @@ public class VEliminarFactura extends javax.swing.JFrame {
             this.dispose();
             ventana.setVisible(true);
         }catch(Exception e){
-            System.out.println("se produjo una excepcion");
+            e.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
