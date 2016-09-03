@@ -121,12 +121,8 @@ public class VEliminarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tbClienteMouseClicked
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
-        Connection cn= Sistema.getNewAccess().getConn();
-        CallableStatement mycall;
-        
         try{
-            mycall =cn.prepareCall("{call EliminarCliente('"+rucCLiente+"')}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call EliminarCliente('"+rucCLiente+"')}");
             JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Cliente Eliminado exitosamente", "Eliminar cliente", JOptionPane.INFORMATION_MESSAGE);
             VEliminarCliente ventana = new VEliminarCliente();
