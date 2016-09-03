@@ -136,11 +136,8 @@ public class VCrearCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tfRUCActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        Connection cn= Sistema.getNewAccess().getConn();
-        CallableStatement mycall;
         try{
-            mycall =cn.prepareCall("{call insertClient('"+tfRUC.getText()+"', '"+tfNombre.getText()+"', '"+tfDireccion.getText()+"', '"+tfTelefono.getText()+"', '"+tfEmail.getText()+"')}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call insertClient('"+tfRUC.getText()+"', '"+tfNombre.getText()+"', '"+tfDireccion.getText()+"', '"+tfTelefono.getText()+"', '"+tfEmail.getText()+"')}");
             JOptionPane notificacion = new JOptionPane();
             this.tfRUC.setText("");
             this.tfNombre.setText("");
