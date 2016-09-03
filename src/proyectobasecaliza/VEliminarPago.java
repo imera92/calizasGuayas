@@ -114,12 +114,8 @@ public class VEliminarPago extends javax.swing.JFrame {
     }//GEN-LAST:event_tbPagoMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Connection cn= Sistema.getNewAccess().getConn();
-        CallableStatement mycall;
-        
         try{
-            mycall =cn.prepareCall("{call EliminarPago('"+pagoId+"')}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call EliminarPago('"+pagoId+"')}");
             JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Pago eliminado exitosamente", "Eliminar pago", JOptionPane.INFORMATION_MESSAGE);
             VEliminarPago ventana = new VEliminarPago();
@@ -127,7 +123,7 @@ public class VEliminarPago extends javax.swing.JFrame {
             this.dispose();
             ventana.setVisible(true);
         }catch(Exception e){
-            System.out.println("se produjo una excepcion");
+            e.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
