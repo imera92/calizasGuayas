@@ -85,7 +85,7 @@
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="dfm.setColumnIdentifiers(new Object[]{&quot;Ruc&quot;,&quot;Nombre&quot;,&quot;Direcci&#xf3;n&quot;,&quot;Tel&#xe9;fono&quot;,&quot;E-mail&quot;});&#xa;    try{&#xa;        while(rs.next()){&#xa;            dfm.addRow(new Object[]{rs.getString(&quot;RUC_Cliente&quot;),rs.getString(&quot;Nombre&quot;),rs.getString(&quot;Direccion&quot;),rs.getString(&quot;Telefonos&quot;),rs.getString(&quot;Email&quot;)});&#xa;        }&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Connection cn = Sistema.getNewAccess().getConn();&#xa;ResultSet rs=null;&#xa;CallableStatement mycall= null;&#xa;    try{&#xa;        mycall = cn.prepareCall(&quot;{call allClients ()}&quot;); &#xa;        mycall.execute();&#xa;        rs=mycall.getResultSet();&#xa;    }catch(Exception e){&#xa;&#xa;    }&#xa;    DefaultTableModel dfm = new DefaultTableModel();"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ResultSet rs=null;&#xa;    try{&#xa;        rs=Sistema.getNewAccess().query2(&quot;{call allClients ()}&quot;);&#xa;    }catch(Exception e){&#xa;&#xa;    }&#xa;    DefaultTableModel dfm = new DefaultTableModel();"/>
           </AuxValues>
         </Component>
       </SubComponents>
