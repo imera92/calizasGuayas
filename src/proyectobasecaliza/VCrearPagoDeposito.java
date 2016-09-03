@@ -224,13 +224,8 @@ public class VCrearPagoDeposito extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-
-        Connection cn = Sistema.getNewAccess().getConn();
-       CallableStatement mycall;
         try {
-            
-            mycall =cn.prepareCall("{call insertPaymeDeposito('"+tfNumComprobante.getText()+"', '"+tfFechaEmi.getText()+"', '"+tfbcoDeposito.getText()+"', '"+tfCtaDeposito.getText()+"', "+tfValorCancelado.getText()+", '"+tfNumFactura.getText()+"','"+jcFormasPago.getSelectedIndex()+"')}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call insertPaymeDeposito('"+tfNumComprobante.getText()+"', '"+tfFechaEmi.getText()+"', '"+tfbcoDeposito.getText()+"', '"+tfCtaDeposito.getText()+"', "+tfValorCancelado.getText()+", '"+tfNumFactura.getText()+"','"+jcFormasPago.getSelectedIndex()+"')}");
             JOptionPane notificacion = new JOptionPane();
             this.tfNumComprobante.setText("");
             this.tfFechaEmi.setText("");
