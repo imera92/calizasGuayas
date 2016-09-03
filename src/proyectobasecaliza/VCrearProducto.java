@@ -110,11 +110,8 @@ public class VCrearProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        Connection cn = Sistema.getNewAccess().getConn();
-        CallableStatement mycall;
         try {
-            mycall =cn.prepareCall("{call insertProduct('"+tfIdProducto.getText()+"', "+tfStock.getText()+", '"+tfNombre.getText()+"', "+tfPrecioUni.getText()+")}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call insertProduct('"+tfIdProducto.getText()+"', "+tfStock.getText()+", '"+tfNombre.getText()+"', "+tfPrecioUni.getText()+")}");
             JOptionPane notificacion = new JOptionPane();
             this.tfIdProducto.setText("");
             this.tfStock.setText("");
