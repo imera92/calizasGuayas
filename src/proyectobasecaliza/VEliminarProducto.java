@@ -114,12 +114,8 @@ public class VEliminarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_tbProductoMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Connection cn= Sistema.getNewAccess().getConn();
-        CallableStatement mycall;
-        
         try{
-            mycall =cn.prepareCall("{call EliminarProducto('"+productId+"')}");
-            mycall.execute();
+            Sistema.getNewAccess().write2("{call EliminarProducto('"+productId+"')}");
             JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Producto eliminado exitosamente", "Eliminar producto", JOptionPane.INFORMATION_MESSAGE);
             VEliminarProducto ventana = new VEliminarProducto();
