@@ -489,6 +489,10 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void jmiConsultarCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarCxCActionPerformed
         // TODO add your handling code here:
+        VConsultarCxC ventana =new VConsultarCxC();
+        ventana.setLocation(this.getLocation());
+        this.dispose();
+        ventana.setVisible(true);
     }//GEN-LAST:event_jmiConsultarCxCActionPerformed
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
