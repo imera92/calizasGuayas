@@ -96,6 +96,11 @@ public class VModificarCliente extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 640, 330));
 
         jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 400, -1, -1));
 
         btnAtras.setText("Atras");
@@ -178,6 +183,20 @@ public class VModificarCliente extends javax.swing.JFrame {
         tfTelefono.setText(tbCliente.getValueAt(fila,3).toString()); 
         tfEmail.setText(tbCliente.getValueAt(fila,4).toString()); 
     }//GEN-LAST:event_tbClienteMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+            Sistema.getNewAccess().write2("{call ModificarCliente('"+tfRUC.getText()+"', '"+tfNombre.getText()+"', '"+tfDireccion.getText()+"', '"+tfTelefono.getText()+"', '"+tfEmail.getText()+"')}");
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Cliente modificado exitosamente", "Modificar cliente", JOptionPane.INFORMATION_MESSAGE);
+            VModificarCliente ventana = new VModificarCliente();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        }catch(Exception e){
+            System.out.println("se produjo una excepcion");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     @Override
     public Image getIconImage() {

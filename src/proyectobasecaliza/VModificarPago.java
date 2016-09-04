@@ -8,6 +8,8 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -97,6 +99,11 @@ public class VModificarPago extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 630, 320));
 
         jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, -1, -1));
 
         btnAtras.setText("Atras");
@@ -197,6 +204,20 @@ public class VModificarPago extends javax.swing.JFrame {
         tfNumFactura.setText(tbPago.getValueAt(fila,7).toString());
         tfIDFormaPago.setText(tbPago.getValueAt(fila,8).toString());
     }//GEN-LAST:event_tbPagoMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            Sistema.getNewAccess().write2("{call ModificarPago('"+tfNumComprobante.getText()+"', '"+tfFechaEmi.getText()+"', '"+tfNumCheque.getText()+"', '"+tfBancoCheque.getText()+"', '"+tfBancoDeposito.getText()+"', '"+tfCuentaDeposito.getText()+"', "+tfValorCancelado.getText()+", '"+tfNumFactura.getText()+"', "+tfIDFormaPago.getText()+")}");
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Pago modificado exitosamente", "Modificar Pago", JOptionPane.INFORMATION_MESSAGE);
+            VModificarPago ventana = new VModificarPago();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

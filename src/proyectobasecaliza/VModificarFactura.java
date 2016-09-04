@@ -8,6 +8,7 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -58,7 +59,7 @@ public class VModificarFactura extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         tfTotalFactura = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        tfRucEmple = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,6 +101,11 @@ public class VModificarFactura extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 630, 360));
 
         jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 400, -1, -1));
 
         jButton2.setText("Cancelar");
@@ -189,7 +195,7 @@ public class VModificarFactura extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Ruc Empleado");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 110, -1));
+        getContentPane().add(tfRucEmple, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 110, -1));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
@@ -228,10 +234,25 @@ public class VModificarFactura extends javax.swing.JFrame {
         tfTotalFactura.setText(tbFactura.getValueAt(fila,6).toString());
         tfIdProducto.setText(tbFactura.getValueAt(fila,7).toString());
         tfRucCliente.setText(tbFactura.getValueAt(fila,8).toString());
-        jTextField8.setText(tbFactura.getValueAt(fila,9).toString());
+        tfRucEmple.setText(tbFactura.getValueAt(fila,9).toString());
         
         
     }//GEN-LAST:event_tbFacturaMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        try{
+            Sistema.getNewAccess().write2("{call insertClient('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+tfRucCliente.getText()+"', '"+tfRucEmple.getText()+"')}");
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Cliente modificado exitosamente", "Modificar cliente", JOptionPane.INFORMATION_MESSAGE);
+            VModificarFactura ventana = new VModificarFactura();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        }catch(Exception e){
+            System.out.println("se produjo una excepcion");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,7 +305,6 @@ public class VModificarFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbNumFactura;
     private javax.swing.JTable tbFactura;
@@ -295,6 +315,7 @@ public class VModificarFactura extends javax.swing.JFrame {
     private javax.swing.JTextField tfNumFactura;
     private javax.swing.JTextField tfPrecioUnitario;
     private javax.swing.JTextField tfRucCliente;
+    private javax.swing.JTextField tfRucEmple;
     private javax.swing.JTextField tfTotalFactura;
     private javax.swing.JTextField tfTotalSacosVendidos;
     // End of variables declaration//GEN-END:variables

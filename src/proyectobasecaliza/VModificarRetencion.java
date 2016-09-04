@@ -8,6 +8,8 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -149,9 +151,17 @@ public class VModificarRetencion extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPorcentajeActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
-        String nombre=tfIdRetencion.getText();
-        String apellido=tfPorcentaje.getText();
+         try {
+            Sistema.getNewAccess().write2("{call ModificarRetencion('"+tfIdRetencion.getText()+"', "+tfPorcentaje.getText()+", "+tfValorRetenido.getText()+", '"+tfIdFactura.getText()+"')}");
+            JOptionPane notificacion = new JOptionPane();
+            notificacion.showMessageDialog(rootPane, "Retencion modificada exitosamente", "Modificar Retencion", JOptionPane.INFORMATION_MESSAGE);
+            VModificarRetencion ventana = new VModificarRetencion();
+            ventana.setLocation(this.getLocation());
+            this.dispose();
+            ventana.setVisible(true);
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
