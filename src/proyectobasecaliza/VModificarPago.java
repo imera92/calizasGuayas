@@ -194,13 +194,27 @@ public class VModificarPago extends javax.swing.JFrame {
 
     private void tbPagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPagoMouseClicked
         int fila = tbPago.rowAtPoint(evt.getPoint());
+        
         tfNumComprobante.setText(tbPago.getValueAt(fila,0).toString());
         tfNumComprobante.setEnabled(false);
         tfFechaEmi.setText(tbPago.getValueAt(fila,1).toString());
-        tfNumCheque.setText(tbPago.getValueAt(fila,2).toString());
-        tfBancoCheque.setText(tbPago.getValueAt(fila,3).toString());
-        tfBancoDeposito.setText(tbPago.getValueAt(fila,4).toString());
-        tfCuentaDeposito.setText(tbPago.getValueAt(fila,5).toString());
+        if(tbPago.getValueAt(fila, 2)==null){
+         
+            tfNumCheque.setText("");
+            tfBancoCheque.setText("");
+        }else{
+            tfNumCheque.setText(tbPago.getValueAt(fila,2).toString());
+            tfBancoCheque.setText(tbPago.getValueAt(fila,3).toString());
+        }
+        if(tbPago.getValueAt(fila,4)==null){
+            tfBancoDeposito.setText("");
+            tfCuentaDeposito.setText("");
+        }else{
+            tfBancoDeposito.setText(tbPago.getValueAt(fila,4).toString());
+            tfCuentaDeposito.setText(tbPago.getValueAt(fila,5).toString());
+        }
+        
+        
         tfValorCancelado.setText(tbPago.getValueAt(fila,6).toString());
         tfNumFactura.setText(tbPago.getValueAt(fila,7).toString());
         tfIDFormaPago.setText(tbPago.getValueAt(fila,8).toString());
