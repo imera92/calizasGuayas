@@ -292,6 +292,9 @@ for each row begin
 delete from asociacion_descuento
 where IdProducto = old.IdProducto;
 
+delete from factura
+where IdProducto = old.IdProducto;
+
 end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -759,4 +762,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-04  0:25:56
+-- Dump completed on 2016-09-04  0:36:18
