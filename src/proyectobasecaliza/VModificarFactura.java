@@ -243,7 +243,7 @@ public class VModificarFactura extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         try{
-            Sistema.getNewAccess().write2("{call insertClient('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+tfRucCliente.getText()+"', '"+tfRucEmple.getText()+"')}");
+            Sistema.getNewAccess().write2("{call modificarFactura('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+tfRucCliente.getText()+"', '"+tfRucEmple.getText()+"')}");
             JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Cliente modificado exitosamente", "Modificar cliente", JOptionPane.INFORMATION_MESSAGE);
             VModificarFactura ventana = new VModificarFactura();
