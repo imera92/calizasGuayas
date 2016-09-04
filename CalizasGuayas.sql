@@ -74,6 +74,28 @@ LOCK TABLES `cliente` WRITE;
 INSERT INTO `cliente` VALUES ('0100093814001','JORGE MOSCOSO BUSTAMANTE','AV MANUEL DE JESUS VARGA - SANTA ROSA','032823041','@'),('0201179512001','MARCO VINICIO VARGAS MORETA','PRINCIPAL S/N FRENTE CASA BARRIAL, SAN ANTONIO DE CALAPICHA - LATACUNGA','072927339','@'),('0258963214565','Emilia','Re:zero','no existen','tampoco existen'),('0700664006001','ALFONSO ORTEGA','DIRECCION: PICHINCHA Y COLON ESQUINA','2984577','@'),('0700975378001','NILO PONTON VARGAS','DIRECCION:COLON Y 15 DE OCTUBRE','072510302','@'),('0701006751001','JOSE RIVERA LUZURIAGA','COLON Y MACHALA ESQ.','944698','@'),('0701619702001','EMPERATRIZ CAPA CORDOVA','PASAJE ENTRE VELA Y PALMERAS','072943352','@'),('0701812729001','ROMEL CORONEL M. ','SITIO LA PITAHAYA - NARANJAL','072929939','@'),('0702621970001','OLGA MARLENE ERAS ROBLES','DIRECCION: 14AVA NORTE S/N CALLEJON PEATONAL CIUDAD: MACHALA','2284010','@'),('0702982752001','VICTOR OCHOA ALEJANDRO','PUERTO PITAHAYA - ARENILLAS','072932819','@'),('0702996422001','IRMA LEONOR QUEZADA ABAD','DIRECCION:BARRIO PRIMERO DE ABRIL CIUDAD: MACHALA','0995761334','@'),('0703144972001','YADIRA JINEZ RAMIREZ','PEDRO RODRIGUEZ S/N Y CALLEJON - HUALTACO','072148693','@'),('0703339317001','MARISOL RIOFRIO VIVANCO','JUNTO AL RETEN DE ARENILLAS - LA PITAHAYA','072797200','@'),('0703992933001','MAYRA QUEZADA ABAD','DIRECCION: 2° DIAGONAL VIA SANTA ROSA -CIUDAD: MACHALA','072797012','@'),('0790048830001','EXPORTADORA FAFRA S.A','CDLA. CIUDAD COLON S/N - GUAYAQUIL','072148654','@'),('0790074076001','COOPERATIVA DE PRODUCCION PESQUERA HUALTACO','JOSE ESCALANTE Y CANAL INTERNACIONAL - HUALTACO','3092185','@'),('0791728797001','ROCORMIN CIA LTDA','VIA BELLAVISTA - SANTA ROSA','2928334','@'),('0900471715001','CARLOS RIVAS MENA','ESTERO HUAYLA - MACHALA','2284010','@'),('0911451326001','IVAN RODRIGUEZ','CDLA. SAMANEZ 7 MZ 2203 V 2','072937579','@'),('0920350014001','DIGNA PAREDES VELECELA','SOLAR 26 DURAN','0988172716','@'),('0985539960','jorge','no','no','no'),('0990553793001','CALADEMAR S.A','CARLOS LUIS PLAZA DAÑIN Y AV. DEMOCRACIA - GUAYAQUIL','22','@'),('0992593016001','LUTHORCORP S.A','CARLOS LUIS PLAZA DAÑIN Y AV. DEMOCRACIA','0991082145','@'),('0992593040001','PROMUSTERRA S.A','Coop Techo para Todos, Av VicenteTrujillo Solar 4 Manzana E entre Los Rios y Tulcan','22430','@'),('0992593083001','TERRAQUIL S.A','CARLOS LUIS PLAZA DAÑIN Y AV. DEMOCRACIA - GUAYAQUIL','555','@'),('0992619384001','CIPRON C. LTDA.','SEDALANA 1704 Y JOSE MASCOTE - GUAYAQUIL','2470025','s@p'),('0992619422001','CULCAE CIA LTDA','CDLA. VILLAMIL SOLAR 1 MZ F - GUAYAQUIL','2343986','@'),('0992619457001','PROCAE C. LTDA','Coop Techo para Todos, Av VicenteTrujillo Solar 4 Manzana E entre Los Rios y Tulcan','2288437','H@H'),('1100591682001','JOSE MARIA CELI CELI','PUERTO JELI','2288437','@'),('1101793980001','JOSE RODRIGUEZ SALGADO  ','NAPOLEON MERA Y SAN MARTIN','072943238','@'),('1105810939001','ARIANA PAOLA CASTRO ELIZALDE','ESMERALDAS S/N Y AZUAY - HUALTACO','072148667','@'),('1307010809001','JENNY VELEZ','BALAO - NARANJAL','0994464380','@'),('15641','46415641','564464','56646',''),('1714192646001','JOSE LUIS RODRIGUEZ','NAPOLEON MERA Y SAN MARTIN','0995101150','@'),('1891725198001','AGROHERDEZ EL HUERTO CIA LTDA','AV. 12 DE NOVIEMBRE 09-55 Y TOMAS SEVILLA - AMBATO','0991709261','@'),('2564','664','696','96464','9797'),('5446556','54156465','3415645','5645646','565656');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger ElimineClient before delete on cliente
+for each row begin
+delete from factura
+where RUC_Cliente = old.RUC_Cliente;
+
+delete from asociacion_descuento
+where RUC_Cliente =RUC_Cliente;
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `descuento`
@@ -304,6 +326,27 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `allClients`()
 begin 
 SELECT * FROM cliente;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `allCxC` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `allCxC`()
+begin 
+SELECT C.Nombre, F.IdFactura, F.Fecha_Emision, F.Fecha_Vencimiento, F.Sacos_Vendidos, P.Nombre, F.Precio_Total, R.Valor_retenido, F.Precio_Total - R.Valor_retenido
+FROM cliente C, factura F, producto P, retencion R
+WHERE c.RUC_Cliente=F.RUC_Cliente and F.IdProducto=P.IdProducto and F.IdFactura=R.IdFactura and F.Fecha_Vencimiento<=(select curdate())and F.Estado='no pagado';
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -701,31 +744,6 @@ update retencion set Porcentaje = porc, Valor_retenido= valorRet, IdFactura = id
 where IdRetencion = idReten;
 end ;;
 DELIMITER ;
-
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `allCxC` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `allCxC`()
-begin 
-SELECT C.Nombre, F.IdFactura, F.Fecha_Emision, F.Fecha_Vencimiento, F.Sacos_Vendidos, P.Nombre, F.Precio_Total, R.Valor_retenido, F.Precio_Total - R.Valor_retenido
-FROM cliente C, factura F, producto P, retencion R
-WHERE c.RUC_Cliente=F.RUC_Cliente and F.IdProducto=P.IdProducto and F.IdFactura=R.IdFactura and F.Fecha_Vencimiento<=(select curdate())and F.Estado='no pagado';
-end ;;
-DELIMITER ;
-
-
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
@@ -740,10 +758,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-04 14:20:06
-
-
-
-
-
-
+-- Dump completed on 2016-09-04 18:31:04
