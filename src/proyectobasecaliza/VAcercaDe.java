@@ -50,7 +50,7 @@ public class VAcercaDe extends javax.swing.JFrame {
 
         jlIntegrantes1.setText("Jorge García");
 
-        jlIntegrantes2.setText("Lucrecia Veintimilla");
+        jlIntegrantes2.setText("Lucrecia Vintimilla");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

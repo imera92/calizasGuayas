@@ -124,7 +124,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jlIntegrantes2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lucrecia Veintimilla"/>
+            <Property name="text" type="java.lang.String" value="Lucrecia Vintimilla"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -31,6 +31,7 @@ public class VPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
@@ -64,6 +65,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jmiEliminarProducto = new javax.swing.JMenuItem();
         jmAyuda = new javax.swing.JMenu();
         jmiAcercaDe = new javax.swing.JMenuItem();
+        jmCxC = new javax.swing.JMenu();
+        jmiConsultarCxC = new javax.swing.JMenuItem();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -72,7 +78,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jmArchivo.setText("Archivo");
+        jmArchivo.setText("Cuenta");
 
         jmiLogOut.setText("Log out");
         jmiLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -288,6 +294,18 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmAyuda);
 
+        jmCxC.setText("Cuentas por Cobrar");
+
+        jmiConsultarCxC.setText("Consultar");
+        jmiConsultarCxC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiConsultarCxCActionPerformed(evt);
+            }
+        });
+        jmCxC.add(jmiConsultarCxC);
+
+        jMenuBar1.add(jmCxC);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -468,6 +486,10 @@ public class VPrincipal extends javax.swing.JFrame {
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
     }//GEN-LAST:event_jmiAcercaDeActionPerformed
+
+    private void jmiConsultarCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarCxCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiConsultarCxCActionPerformed
     
     private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
         Sistema.cerrar();
@@ -509,12 +531,14 @@ public class VPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu jmArchivo;
     private javax.swing.JMenu jmAyuda;
     private javax.swing.JMenu jmCliente;
     private javax.swing.JMenu jmCrear;
+    private javax.swing.JMenu jmCxC;
     private javax.swing.JMenu jmFactura;
     private javax.swing.JMenu jmPago;
     private javax.swing.JMenu jmProducto;
@@ -522,6 +546,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiAcercaDe;
     private javax.swing.JMenuItem jmiConsultar;
     private javax.swing.JMenuItem jmiConsultarCliente;
+    private javax.swing.JMenuItem jmiConsultarCxC;
     private javax.swing.JMenuItem jmiConsultarFactura;
     private javax.swing.JMenuItem jmiConsultarProducto;
     private javax.swing.JMenuItem jmiConsultarRetencion;
