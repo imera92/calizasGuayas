@@ -145,6 +145,7 @@ public class VModificarProducto extends javax.swing.JFrame {
     private void tbProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductoMouseClicked
         int fila = tbProducto.rowAtPoint(evt.getPoint());
         tfIdProducto.setText(tbProducto.getValueAt(fila,0).toString());
+        tfIdProducto.setEnabled(false); 
         tfStock.setText(tbProducto.getValueAt(fila,1).toString());
         tfNombre.setText(tbProducto.getValueAt(fila,2).toString());
         tfPrecioUni.setText(tbProducto.getValueAt(fila,3).toString());

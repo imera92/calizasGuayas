@@ -177,7 +177,8 @@ public class VModificarCliente extends javax.swing.JFrame {
 
     private void tbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClienteMouseClicked
         int fila = tbCliente.rowAtPoint(evt.getPoint());
-        tfRUC.setText(tbCliente.getValueAt(fila,0).toString());  
+        tfRUC.setText(tbCliente.getValueAt(fila,0).toString());
+        tfRUC.setEnabled(false);
         tfNombre.setText(tbCliente.getValueAt(fila,1).toString()); 
         tfDireccion.setText(tbCliente.getValueAt(fila,2).toString()); 
         tfTelefono.setText(tbCliente.getValueAt(fila,3).toString()); 

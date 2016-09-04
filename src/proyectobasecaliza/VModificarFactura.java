@@ -225,7 +225,8 @@ public class VModificarFactura extends javax.swing.JFrame {
 
     private void tbFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFacturaMouseClicked
         int fila = tbFactura.rowAtPoint(evt.getPoint());
-        tfNumFactura.setText(tbFactura.getValueAt(fila,0).toString());  
+        tfNumFactura.setText(tbFactura.getValueAt(fila,0).toString());
+        tfNumFactura.setEnabled(false);
         tfFechaEmision.setText(tbFactura.getValueAt(fila,1).toString()); 
         tfFechaVencimiento.setText(tbFactura.getValueAt(fila,2).toString()); 
         tfEstado.setText(tbFactura.getValueAt(fila,3).toString()); 

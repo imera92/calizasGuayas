@@ -5,8 +5,6 @@
  */
 package proyectobasecaliza;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -174,6 +172,7 @@ public class VModificarRetencion extends javax.swing.JFrame {
     private void tbRetencionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRetencionMouseClicked
         int fila = tbRetencion.rowAtPoint(evt.getPoint());
         tfIdRetencion.setText(tbRetencion.getValueAt(fila,0).toString());
+        tfIdRetencion.setEnabled(false);
         tfPorcentaje.setText(tbRetencion.getValueAt(fila,1).toString());
         tfValorRetenido.setText(tbRetencion.getValueAt(fila,2).toString());
         tfIdFactura.setText(tbRetencion.getValueAt(fila,3).toString());        
