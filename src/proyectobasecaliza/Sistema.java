@@ -17,6 +17,7 @@ public class Sistema {
     private static ArrayList<Usuario> usuarios;
     private static ArrayList<FormaPago> formasPago;
     private static ArrayList<Cliente> clientes;
+    private static Usuario session;
         
     public static void incializarSistema(){
         Sistema.newAccess = new MySqlAccess();
@@ -43,6 +44,10 @@ public class Sistema {
 
     public static ArrayList<Cliente> getClientes() {
         return Sistema.clientes;
+    }
+    
+    public static Usuario getSession(){
+        return Sistema.session;
     }
     
     private static void cargarUsuarios(){
@@ -95,7 +100,10 @@ public class Sistema {
         uTemp.setUser(user.getText());
         uTemp.setPass(pass.getText());
         for(Usuario u : Sistema.usuarios){
-            if(u.compareTo(uTemp) == 1) return true;
+            if(u.compareTo(uTemp) == 1){
+                Sistema.session=u;
+                return true;
+            }
         }
         return false;
     } 

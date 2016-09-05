@@ -70,6 +70,11 @@ public class VCrearFactura extends javax.swing.JFrame {
         setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(420, 420));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(420, 420));
@@ -162,6 +167,8 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Ruc Empleado");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+
+        tfRucEmple.setEditable(false);
         jPanel1.add(tfRucEmple, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 110, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,6 +226,10 @@ public class VCrearFactura extends javax.swing.JFrame {
             this.tfTotalFactura.setText(Float.toString(total));
         }
     }//GEN-LAST:event_tfPrecioUnitarioFocusLost
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        this.tfRucEmple.setText(Sistema.getSession().getUser());
+    }//GEN-LAST:event_formWindowActivated
     
     @Override
     public Image getIconImage() {
