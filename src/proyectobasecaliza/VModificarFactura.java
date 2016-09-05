@@ -31,6 +31,7 @@ public class VModificarFactura extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,20 +60,21 @@ public class VModificarFactura extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         tfRucEmple = new javax.swing.JTextField();
         tfFilter = new javax.swing.JTextField();
-        lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Modificar Factura");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione la factura a modificar:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         ResultSet rs=null;
         try{
@@ -96,7 +98,7 @@ public class VModificarFactura extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbFactura);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 630, 360));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 630, 360));
 
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,10 +106,10 @@ public class VModificarFactura extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 400, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 400, -1, -1));
 
         jButton2.setText("Cancelar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 400, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 400, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -115,98 +117,96 @@ public class VModificarFactura extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
         lbNumFactura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbNumFactura.setForeground(new java.awt.Color(255, 255, 255));
         lbNumFactura.setText("Numero de Factura:");
-        getContentPane().add(lbNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
-        getContentPane().add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 70, 110, -1));
+        jPanel1.add(lbNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
+        jPanel1.add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 70, 110, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Fecha Emision:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, -1, -1));
-        getContentPane().add(tfFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 110, 20));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, -1, -1));
+        jPanel1.add(tfFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 110, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Fecha Vencimiento:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 130, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 130, -1, -1));
 
         tfFechaVencimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfFechaVencimientoActionPerformed(evt);
             }
         });
-        getContentPane().add(tfFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 130, 110, -1));
+        jPanel1.add(tfFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 130, 110, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Estado:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, -1, -1));
-        getContentPane().add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 160, 110, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, -1, -1));
+        jPanel1.add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 160, 110, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Total Sacos Vendidos:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, -1, -1));
-        getContentPane().add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 190, 110, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, -1, -1));
+        jPanel1.add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 190, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Precio Unitario:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 220, -1, -1));
-        getContentPane().add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, 110, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 220, -1, -1));
+        jPanel1.add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, 110, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("ID Producto");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, -1, -1));
-        getContentPane().add(tfIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 110, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, -1, -1));
+        jPanel1.add(tfIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 110, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Ruc Cliente");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, -1, -1));
 
         tfRucCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfRucClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(tfRucCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, 110, -1));
+        jPanel1.add(tfRucCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Total Factura:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 340, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, -1));
 
         tfTotalFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfTotalFacturaActionPerformed(evt);
             }
         });
-        getContentPane().add(tfTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 340, 110, -1));
+        jPanel1.add(tfTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 350, 110, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Ruc Empleado");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
-        getContentPane().add(tfRucEmple, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 110, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
+        jPanel1.add(tfRucEmple, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 110, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 90, 170, -1));
+        jPanel1.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 90, 170, -1));
 
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
-        lbFondo.setText("jLabel1");
-        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 1036, 539);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
@@ -315,8 +315,8 @@ public class VModificarFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbNumFactura;
     private javax.swing.JTable tbFactura;
     private javax.swing.JTextField tfEstado;

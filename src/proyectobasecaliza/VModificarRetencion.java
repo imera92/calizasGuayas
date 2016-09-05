@@ -31,6 +31,7 @@ public class VModificarRetencion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         lbTituloModificar = new javax.swing.JLabel();
         lbIdRetencion = new javax.swing.JLabel();
         Porcentaje = new javax.swing.JLabel();
@@ -45,51 +46,52 @@ public class VModificarRetencion extends javax.swing.JFrame {
         jpRetencion = new javax.swing.JScrollPane();
         tbRetencion = new javax.swing.JTable();
         tfFilter = new javax.swing.JTextField();
-        lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTituloModificar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbTituloModificar.setForeground(new java.awt.Color(255, 255, 255));
         lbTituloModificar.setText("Modificar Retención");
-        getContentPane().add(lbTituloModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 50));
+        jPanel1.add(lbTituloModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 50));
 
-        lbIdRetencion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbIdRetencion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbIdRetencion.setForeground(new java.awt.Color(255, 255, 255));
-        lbIdRetencion.setText("Id Retención");
-        getContentPane().add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, -1));
+        lbIdRetencion.setText("Id Retención:");
+        jPanel1.add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, -1));
 
-        Porcentaje.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Porcentaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Porcentaje.setForeground(new java.awt.Color(255, 255, 255));
-        Porcentaje.setText("Porcentaje");
-        getContentPane().add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, -1));
+        Porcentaje.setText("Porcentaje:");
+        jPanel1.add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Valor Retenido");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, -1, -1));
+        jLabel1.setText("Valor Retenido:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Id Factura");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, -1, -1));
+        jLabel2.setText("Id. Factura:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, -1, -1));
 
         tfIdRetencion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIdRetencionActionPerformed(evt);
             }
         });
-        getContentPane().add(tfIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 190, -1));
+        jPanel1.add(tfIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 190, -1));
 
         tfPorcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPorcentajeActionPerformed(evt);
             }
         });
-        getContentPane().add(tfPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 190, -1));
-        getContentPane().add(tfValorRetenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 230, 190, -1));
-        getContentPane().add(tfIdFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 270, 190, -1));
+        jPanel1.add(tfPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 190, -1));
+        jPanel1.add(tfValorRetenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 190, -1));
+        jPanel1.add(tfIdFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 190, -1));
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +99,7 @@ public class VModificarRetencion extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 330, -1, -1));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +107,7 @@ public class VModificarRetencion extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 300, -1, -1));
 
         ResultSet rs=null;
         try{
@@ -129,20 +131,18 @@ public class VModificarRetencion extends javax.swing.JFrame {
         });
         jpRetencion.setViewportView(tbRetencion);
 
-        getContentPane().add(jpRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 540, 360));
+        jPanel1.add(jpRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 540, 360));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 80, 170, -1));
+        jPanel1.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 80, 170, -1));
 
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
-        lbFondo.setText("jLabel1");
-        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 986, 539);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfIdRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdRetencionActionPerformed
@@ -229,8 +229,8 @@ public class VModificarRetencion extends javax.swing.JFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jpRetencion;
-    private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbIdRetencion;
     private javax.swing.JLabel lbTituloModificar;
     private javax.swing.JTable tbRetencion;

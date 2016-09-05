@@ -40,7 +40,7 @@ public class Sistema {
     private static void cargarUsuarios(){
         ResultSet rs;
         try{
-            rs = Sistema.newAccess.query("SELECT * FROM empleados");
+            rs = Sistema.newAccess.query2("{call allEmpl ()}");
             while(rs.next()){
                 Usuario u = new Usuario();
                 u.setUser(rs.getString("Cedula_Empleados"));
@@ -55,7 +55,7 @@ public class Sistema {
     private static void cargarFormasPago(){
         ResultSet rs;
         try{
-            rs = Sistema.newAccess.query("SELECT * FROM forma_pago");
+            rs = Sistema.newAccess.query2("{call allPayForm ()}");
             while(rs.next()){
                 FormaPago p = new FormaPago();
                 p.setId(rs.getString("Idforma_pago"));

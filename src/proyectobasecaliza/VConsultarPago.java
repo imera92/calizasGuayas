@@ -29,21 +29,24 @@ public class VConsultarPago extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpContent = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbPago = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
         tfFilter = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jpContent.setBackground(new java.awt.Color(102, 153, 255));
+        jpContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pagos Existentes:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         ResultSet rs=null;
         try{
@@ -62,7 +65,7 @@ public class VConsultarPago extends javax.swing.JFrame {
         }
         jScrollPane1.setViewportView(tbPago);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 930, 330));
+        jpContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 930, 330));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -70,18 +73,16 @@ public class VConsultarPago extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 130, -1));
+        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 130, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        getContentPane().add(jpContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -135,9 +136,9 @@ public class VConsultarPago extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpContent;
     private javax.swing.JTable tbPago;
     private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables

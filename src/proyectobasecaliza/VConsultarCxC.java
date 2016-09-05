@@ -31,23 +31,29 @@ public class VConsultarCxC extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpContent = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbFactura = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
         tfFilter = new javax.swing.JTextField();
-        lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(1040, 520));
+        setMinimumSize(new java.awt.Dimension(1040, 500));
+        setPreferredSize(new java.awt.Dimension(1040, 500));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jpContent.setBackground(new java.awt.Color(102, 153, 255));
+        jpContent.setMinimumSize(new java.awt.Dimension(1040, 500));
+        jpContent.setPreferredSize(new java.awt.Dimension(1040, 500));
+        jpContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cuentas por Cobrar");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 60, -1, -1));
+        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         ResultSet rs=null;
         CallableStatement mycall= null;
@@ -67,7 +73,7 @@ public class VConsultarCxC extends javax.swing.JFrame {
         }
         jScrollPane1.setViewportView(tbFactura);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 117, 945, 319));
+        jpContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 945, 319));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -75,18 +81,16 @@ public class VConsultarCxC extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(939, 466, -1, -1));
+        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 430, -1, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 80, 180, -1));
+        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 40, 180, -1));
 
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
-        lbFondo.setText("jLabel1");
-        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
+        getContentPane().add(jpContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,7 +146,7 @@ public class VConsultarCxC extends javax.swing.JFrame {
     private javax.swing.JButton btnAtras;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbFondo;
+    private javax.swing.JPanel jpContent;
     private javax.swing.JTable tbFactura;
     private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables
