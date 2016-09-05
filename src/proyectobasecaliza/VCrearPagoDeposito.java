@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import proyectobasecaliza.sistema.FormaPago;
 
 /**
  *
@@ -155,8 +156,12 @@ public class VCrearPagoDeposito extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        FormaPago fp = null;
         try {
-            Sistema.getNewAccess().write2("{call insertPaymeDeposito('"+tfNumComprobante.getText()+"', '"+tfFechaEmi.getText()+"', '"+tfbcoDeposito.getText()+"', '"+tfCtaDeposito.getText()+"', "+tfValorCancelado.getText()+", '"+tfNumFactura.getText()+"','"+jcFormasPago.getSelectedIndex()+"')}");
+            for(FormaPago f : Sistema.getFormasPago()){
+                if(f.toString().equals(jcFormasPago.getSelectedItem().toString())) fp=f;
+            }
+            Sistema.getNewAccess().write2("{call insertPaymeDeposito('"+tfNumComprobante.getText()+"', '"+tfFechaEmi.getText()+"', '"+tfbcoDeposito.getText()+"', '"+tfCtaDeposito.getText()+"', "+tfValorCancelado.getText()+", '"+tfNumFactura.getText()+"','"+fp.getId()+"')}");
             JOptionPane notificacion = new JOptionPane();
             this.tfNumComprobante.setText("");
             this.tfFechaEmi.setText("");
