@@ -47,8 +47,9 @@ public class VCrearRetencion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crear Retención");
+        setMinimumSize(new java.awt.Dimension(400, 260));
+        setPreferredSize(new java.awt.Dimension(400, 260));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,31 +57,31 @@ public class VCrearRetencion extends javax.swing.JFrame {
         lbTituloCrear.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbTituloCrear.setForeground(new java.awt.Color(255, 255, 255));
         lbTituloCrear.setText("Crear Retención");
-        jPanel1.add(lbTituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 50));
+        jPanel1.add(lbTituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 220, 50));
 
-        lbIdRetencion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbIdRetencion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbIdRetencion.setForeground(new java.awt.Color(255, 255, 255));
         lbIdRetencion.setText("Id Retención");
-        jPanel1.add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        jPanel1.add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
-        Porcentaje.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Porcentaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Porcentaje.setForeground(new java.awt.Color(255, 255, 255));
         Porcentaje.setText("Porcentaje");
-        jPanel1.add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        jPanel1.add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         tfIdRetencion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIdRetencionActionPerformed(evt);
             }
         });
-        jPanel1.add(tfIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 190, -1));
+        jPanel1.add(tfIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 190, -1));
 
         tfPorcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPorcentajeActionPerformed(evt);
             }
         });
-        jPanel1.add(tfPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 190, -1));
+        jPanel1.add(tfPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 190, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +89,7 @@ public class VCrearRetencion extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -96,23 +97,23 @@ public class VCrearRetencion extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, -1));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Valor Retenido");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        jPanel1.add(tfValorRetenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 190, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        jPanel1.add(tfValorRetenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 190, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Id Factura");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
-        jPanel1.add(tfIdFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 190, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        jPanel1.add(tfIdFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 190, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 490));
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 426, 519);
+        setBounds(0, 0, 416, 299);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfIdRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdRetencionActionPerformed

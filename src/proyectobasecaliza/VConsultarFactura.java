@@ -41,7 +41,6 @@ public class VConsultarFactura extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 1000));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpContent.setBackground(new java.awt.Color(102, 153, 255));
         jpContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,7 +48,7 @@ public class VConsultarFactura extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Facturas Existentes");
-        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -57,14 +56,14 @@ public class VConsultarFactura extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 420, -1, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 60, 160, -1));
+        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 50, 160, -1));
 
         ResultSet rs=null;
         try{
@@ -88,11 +87,11 @@ public class VConsultarFactura extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tbFactura);
 
-        jpContent.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 920, 320));
+        jpContent.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 920, 320));
 
-        getContentPane().add(jpContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        getContentPane().add(jpContent, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 1016, 504);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed

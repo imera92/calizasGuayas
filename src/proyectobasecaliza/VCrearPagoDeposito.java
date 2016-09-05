@@ -53,9 +53,9 @@ public class VCrearPagoDeposito extends javax.swing.JFrame {
         jcFormasPago = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(370, 525));
+        setMinimumSize(new java.awt.Dimension(370, 330));
+        setPreferredSize(new java.awt.Dimension(370, 330));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpContent.setBackground(new java.awt.Color(102, 153, 255));
         jpContent.setMinimumSize(new java.awt.Dimension(370, 525));
@@ -65,31 +65,31 @@ public class VCrearPagoDeposito extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Crear Pago");
-        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Numero Comprobante:");
-        jpContent.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        jpContent.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha de pago:");
-        jpContent.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jpContent.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Banco Deposito");
-        jpContent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-        jpContent.add(tfNumComprobante, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 120, -1));
-        jpContent.add(tfFechaEmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 120, -1));
+        jpContent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jpContent.add(tfNumComprobante, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 120, -1));
+        jpContent.add(tfFechaEmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 120, -1));
 
         tfbcoDeposito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfbcoDepositoActionPerformed(evt);
             }
         });
-        jpContent.add(tfbcoDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 150, 120, -1));
+        jpContent.add(tfbcoDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 120, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -97,30 +97,30 @@ public class VCrearPagoDeposito extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, -1, -1));
+        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cuenta Deposito");
-        jpContent.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        jpContent.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Valor cancelado");
-        jpContent.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        jpContent.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Num Factura");
-        jpContent.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+        jpContent.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Id forma de pago");
-        jpContent.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
-        jpContent.add(tfCtaDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 180, 120, -1));
-        jpContent.add(tfValorCancelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 120, -1));
-        jpContent.add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 120, -1));
+        jpContent.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        jpContent.add(tfCtaDeposito, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 120, -1));
+        jpContent.add(tfValorCancelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 120, -1));
+        jpContent.add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 120, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +128,7 @@ public class VCrearPagoDeposito extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        jpContent.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
+        jpContent.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
 
         jcFormasPago.setModel(new DefaultComboBoxModel(Sistema.getFormasPago().toArray()));
         jcFormasPago.addActionListener(new java.awt.event.ActionListener() {
@@ -136,11 +136,11 @@ public class VCrearPagoDeposito extends javax.swing.JFrame {
                 jcFormasPagoActionPerformed(evt);
             }
         });
-        jpContent.add(jcFormasPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 120, -1));
+        jpContent.add(jcFormasPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 120, -1));
 
-        getContentPane().add(jpContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jpContent, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 386, 369);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfbcoDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfbcoDepositoActionPerformed

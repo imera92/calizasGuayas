@@ -42,6 +42,9 @@ public class VEliminarRetencion extends javax.swing.JFrame {
         tfFilter = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1020, 485));
+        setPreferredSize(new java.awt.Dimension(1020, 485));
+        setSize(new java.awt.Dimension(1020, 485));
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1020, 500));
@@ -50,7 +53,7 @@ public class VEliminarRetencion extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Eliminar Retención");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
 
         ResultSet rs=null;
         try{
@@ -74,21 +77,23 @@ public class VEliminarRetencion extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbRetencion);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 930, 310));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 930, 320));
 
         btEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btEliminar.setText("Eliminar");
+        btEliminar.setMaximumSize(new java.awt.Dimension(110, 30));
+        btEliminar.setMinimumSize(new java.awt.Dimension(110, 30));
+        btEliminar.setPreferredSize(new java.awt.Dimension(110, 30));
         btEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 120, -1));
+        jPanel1.add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, -1, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Seleccione retencion a eliminar:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 220, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 220, 10));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -96,18 +101,23 @@ public class VEliminarRetencion extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 430, -1, 20));
 
+        tfFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFilterActionPerformed(evt);
+            }
+        });
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        jPanel1.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(789, 100, 180, -1));
+        jPanel1.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 60, 160, 20));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 1036, 539);
+        setBounds(0, 0, 1036, 524);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
@@ -140,6 +150,10 @@ public class VEliminarRetencion extends javax.swing.JFrame {
         String query=tfFilter.getText();
         Sistema.filter(query, tbRetencion, dfm);
     }//GEN-LAST:event_tfFilterKeyReleased
+
+    private void tfFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfFilterActionPerformed
 
     /**
      * @param args the command line arguments

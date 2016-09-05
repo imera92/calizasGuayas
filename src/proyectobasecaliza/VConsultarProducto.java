@@ -38,7 +38,6 @@ public class VConsultarProducto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultar Producto");
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpContent.setBackground(new java.awt.Color(102, 153, 255));
         jpContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,7 +45,7 @@ public class VConsultarProducto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Productos Existentes");
-        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         ResultSet rs=null;
         try{
@@ -65,7 +64,7 @@ public class VConsultarProducto extends javax.swing.JFrame {
         }
         jScrollPane1.setViewportView(tbProducto);
 
-        jpContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 930, 350));
+        jpContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 930, 350));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +79,11 @@ public class VConsultarProducto extends javax.swing.JFrame {
                 tfFilterKeyReleased(evt);
             }
         });
-        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 60, 200, -1));
+        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 50, 200, -1));
 
-        getContentPane().add(jpContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        getContentPane().add(jpContent, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 1016, 539);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed

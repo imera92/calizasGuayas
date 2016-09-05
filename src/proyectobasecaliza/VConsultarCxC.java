@@ -41,9 +41,7 @@ public class VConsultarCxC extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(1040, 500));
-        setPreferredSize(new java.awt.Dimension(1040, 500));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpContent.setBackground(new java.awt.Color(102, 153, 255));
         jpContent.setMinimumSize(new java.awt.Dimension(1040, 500));
@@ -81,18 +79,18 @@ public class VConsultarCxC extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 430, -1, -1));
+        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 420, -1, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 40, 180, -1));
+        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 40, 180, -1));
 
-        getContentPane().add(jpContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jpContent, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 1036, 504);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed

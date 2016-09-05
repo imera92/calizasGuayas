@@ -53,7 +53,6 @@ public class VCrearCliente extends javax.swing.JFrame {
         setIconImage(getIconImage());
         setResizable(false);
         setSize(new java.awt.Dimension(1020, 500));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(370, 525));
@@ -63,49 +62,49 @@ public class VCrearCliente extends javax.swing.JFrame {
         lbTituloCrear.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbTituloCrear.setForeground(new java.awt.Color(255, 255, 255));
         lbTituloCrear.setText("Crear Cliente");
-        jPanel1.add(lbTituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 50));
+        jPanel1.add(lbTituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 220, 50));
 
         lbRUC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbRUC.setForeground(new java.awt.Color(255, 255, 255));
         lbRUC.setText("RUC:");
-        jPanel1.add(lbRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        jPanel1.add(lbRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         tfRUC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfRUCActionPerformed(evt);
             }
         });
-        jPanel1.add(tfRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 190, -1));
+        jPanel1.add(tfRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 190, -1));
 
         lbNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbNombre.setForeground(new java.awt.Color(255, 255, 255));
         lbNombre.setText("Nombre:");
-        jPanel1.add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel1.add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 190, -1));
+        jPanel1.add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 190, -1));
 
         lbDirección.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbDirección.setForeground(new java.awt.Color(255, 255, 255));
         lbDirección.setText("Dirección:");
-        jPanel1.add(lbDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-        jPanel1.add(tfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 190, -1));
+        jPanel1.add(lbDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel1.add(tfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 190, -1));
 
         lbTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lbTelefono.setText("Teléfono:");
-        jPanel1.add(lbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-        jPanel1.add(tfTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, -1));
+        jPanel1.add(lbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        jPanel1.add(tfTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 190, -1));
 
         lbEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbEmail.setForeground(new java.awt.Color(255, 255, 255));
         lbEmail.setText("E-mail:");
-        jPanel1.add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
-        jPanel1.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 190, -1));
+        jPanel1.add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        jPanel1.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 190, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +112,7 @@ public class VCrearCliente extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -121,11 +120,11 @@ public class VCrearCliente extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, -1, -1));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 376, 314);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed

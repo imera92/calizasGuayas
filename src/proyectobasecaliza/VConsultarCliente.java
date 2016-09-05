@@ -46,7 +46,6 @@ public class VConsultarCliente extends javax.swing.JFrame {
         setTitle("Consultar Clientes");
         setIconImage(getIconImage());
         setResizable(false);
-        getContentPane().setLayout(null);
 
         jpContent.setBackground(new java.awt.Color(102, 153, 255));
         jpContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,7 +53,7 @@ public class VConsultarCliente extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Clientes Existentes");
-        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         ResultSet rs = null;
         try{
@@ -73,7 +72,7 @@ public class VConsultarCliente extends javax.swing.JFrame {
         }
         jScrollPane1.setViewportView(tbCliente);
 
-        jpContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 930, 340));
+        jpContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 930, 340));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -81,19 +80,18 @@ public class VConsultarCliente extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 440, -1, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(789, 70, 180, -1));
+        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, 180, -1));
 
-        getContentPane().add(jpContent);
-        jpContent.setBounds(0, 0, 970, 473);
+        getContentPane().add(jpContent, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 1016, 519);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
