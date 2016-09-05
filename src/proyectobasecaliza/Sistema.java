@@ -93,7 +93,7 @@ public class Sistema {
         }
     }
     
-    private static void cargarClientes(){
+    public static void cargarClientes(){
         ResultSet rs;
         try{
             rs = Sistema.newAccess.query2("{call allClients ()}");

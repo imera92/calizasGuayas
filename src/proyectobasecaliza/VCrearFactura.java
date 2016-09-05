@@ -130,6 +130,12 @@ public class VCrearFactura extends javax.swing.JFrame {
             }
         });
         jPanel1.add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 110, -1));
+
+        tfTotalSacosVendidos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfTotalSacosVendidosFocusLost(evt);
+            }
+        });
         jPanel1.add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 110, -1));
 
         tfTotalFactura.setEditable(false);
@@ -176,11 +182,9 @@ public class VCrearFactura extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
 
         jcRUC.setModel(new DefaultComboBoxModel(Sistema.getClientes().toArray()));
-        jcRUC.setSelectedIndex(-1);
         jPanel1.add(jcRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 210, -1));
 
         jcProduct.setModel(new DefaultComboBoxModel(Sistema.getProductos().toArray()));
-        jcProduct.setSelectedIndex(-1);
         jPanel1.add(jcProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 210, -1));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -238,6 +242,16 @@ public class VCrearFactura extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         this.tfRucEmple.setText(Sistema.getSession().getUser());
     }//GEN-LAST:event_formWindowActivated
+
+    private void tfTotalSacosVendidosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfTotalSacosVendidosFocusLost
+        float sacos, precio, total;
+        if(this.tfTotalSacosVendidos.getText()!=null && this.tfPrecioUnitario.getText()!=null){
+            sacos = Float.parseFloat(this.tfTotalSacosVendidos.getText());
+            precio = Float.parseFloat(this.tfPrecioUnitario.getText());
+            total = sacos*precio;
+            this.tfTotalFactura.setText(Float.toString(total));
+        }
+    }//GEN-LAST:event_tfTotalSacosVendidosFocusLost
     
     @Override
     public Image getIconImage() {
