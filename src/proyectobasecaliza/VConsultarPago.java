@@ -15,10 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Monica
  */
 public class VConsultarPago extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VConsultarPago
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VConsultarPago() {
         initComponents();
     }
@@ -36,6 +33,7 @@ public class VConsultarPago extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbPago = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
+        tfFilter = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,7 +51,6 @@ public class VConsultarPago extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbPago.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Num comprobante","Feccha Pago","Num Cheque","Banco Cheque","Banco Deposito","Cuenta Deposito","Valor Cancelado","Id factura", "Id Forma pago"});
         try{
@@ -75,6 +72,13 @@ public class VConsultarPago extends javax.swing.JFrame {
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 130, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -88,6 +92,11 @@ public class VConsultarPago extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbPago, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
 
     /**
      * @param args the command line arguments
@@ -130,5 +139,6 @@ public class VConsultarPago extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbPago;
+    private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables
 }

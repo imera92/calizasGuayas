@@ -19,9 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VModificarCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VModificarCliente
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VModificarCliente() {
         initComponents();
     }
@@ -51,6 +49,7 @@ public class VModificarCliente extends javax.swing.JFrame {
         tfTelefono = new javax.swing.JTextField();
         lbEmail = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,7 +75,6 @@ public class VModificarCliente extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbCliente.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Ruc","Nombre","Dirección","Teléfono","E-mail"});
         try{
@@ -153,6 +151,13 @@ public class VModificarCliente extends javax.swing.JFrame {
         getContentPane().add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 340, -1, -1));
         getContentPane().add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 190, -1));
 
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 100, 150, -1));
+
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
         getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -198,6 +203,11 @@ public class VModificarCliente extends javax.swing.JFrame {
             System.out.println("se produjo una excepcion");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbCliente, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
     
     @Override
     public Image getIconImage() {
@@ -256,6 +266,7 @@ public class VModificarCliente extends javax.swing.JFrame {
     private javax.swing.JTable tbCliente;
     private javax.swing.JTextField tfDireccion;
     private javax.swing.JTextField tfEmail;
+    private javax.swing.JTextField tfFilter;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfRUC;
     private javax.swing.JTextField tfTelefono;

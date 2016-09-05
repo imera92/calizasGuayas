@@ -6,7 +6,6 @@
 package proyectobasecaliza;
 
 import java.sql.CallableStatement;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -33,10 +32,10 @@ public class VConsultarFactura extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbFactura = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
         tfFilter = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbFactura = new javax.swing.JTable();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,8 +47,22 @@ public class VConsultarFactura extends javax.swing.JFrame {
         jLabel2.setText("Facturas Existentes");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 60, 160, -1));
+
         ResultSet rs=null;
-        CallableStatement mycall= null;
         try{
             rs=Sistema.getNewAccess().query2("{call allFact ()}");
         }catch(Exception e){
@@ -64,23 +77,14 @@ public class VConsultarFactura extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        tbFactura.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tbFacturaKeyReleased(evt);
+        tbFactura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbFacturaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tbFactura);
+        jScrollPane2.setViewportView(tbFactura);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 920, 350));
-
-        btnAtras.setText("Atras");
-        btnAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtrasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
-        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 60, 160, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 920, 320));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
@@ -96,16 +100,18 @@ public class VConsultarFactura extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
-    private void tbFacturaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFacturaKeyReleased
-        String query=tfFilter.getText();
-        filter(query);
-    }//GEN-LAST:event_tbFacturaKeyReleased
+    private void tbFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFacturaMouseClicked
 
-    private void filter(String query) {
-        TableRowSorter<DefaultTableModel> tr =new TableRowSorter<DefaultTableModel>(dfm);
-        tbFactura.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(query));
-    }
+    }//GEN-LAST:event_tbFacturaMouseClicked
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbFactura, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
+
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -144,7 +150,7 @@ public class VConsultarFactura extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JTable tbFactura;
     private javax.swing.JTextField tfFilter;

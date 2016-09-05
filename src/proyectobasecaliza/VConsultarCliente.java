@@ -104,14 +104,10 @@ public class VConsultarCliente extends javax.swing.JFrame {
 
     private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
         String query=tfFilter.getText();
-        filter(query);
+        Sistema.filter(query, tbCliente, dfm);
     }//GEN-LAST:event_tfFilterKeyReleased
     
-    private void filter(String query) {
-        TableRowSorter<DefaultTableModel> tr =new TableRowSorter<DefaultTableModel>(dfm);
-        tbCliente.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(query));
-    }
+    
     
     @Override
     public Image getIconImage() {

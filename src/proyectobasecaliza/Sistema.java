@@ -3,7 +3,11 @@ package proyectobasecaliza;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import proyectobasecaliza.sistema.FormaPago;
 import proyectobasecaliza.sistema.Usuario;
 
@@ -72,4 +76,10 @@ public class Sistema {
         }
         return false;
     } 
+    
+    public static void filter(String query, JTable tabla, DefaultTableModel dfm) {
+        TableRowSorter<DefaultTableModel> tr =new TableRowSorter<DefaultTableModel>(dfm);
+        tabla.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(query));
+    }
 }
