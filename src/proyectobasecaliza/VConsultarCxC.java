@@ -61,10 +61,10 @@ public class VConsultarCxC extends javax.swing.JFrame {
 
         }
         tbFactura.setModel(dfm);
-        dfm.setColumnIdentifiers(new Object[]{"Cliente","Factura","Fecha Emision","Fecha Vencimiento","Sacos Vendidos","Producto","Subtotal","V.Retencion","Total por Cobrar"});
+        dfm.setColumnIdentifiers(new Object[]{"Cliente","Factura","Fecha Emision","Fecha Vencimiento","Sacos Vendidos","Producto","Subtotal","V.Retencion"});
         try{
             while(rs.next()){
-                dfm.addRow(new Object[]{rs.getString("C.Nombre"),rs.getString("F.IdFactura"),rs.getDate("Fecha_Emision"),rs.getDate("Fecha_Vencimiento"),rs.getInt("F.Sacos_Vendidos"),rs.getString("P.Nombre"),rs.getFloat("F.Precio_Total"),rs.getFloat("R.Valor_Retenido"),rs.getFloat("F.Precio_Total - R.Valor_retenido")});
+                dfm.addRow(new Object[]{rs.getString("C.Nombre"),rs.getString("F.IdFactura"),rs.getDate("Fecha_Emision"),rs.getDate("Fecha_Vencimiento"),rs.getInt("F.Sacos_Vendidos"),rs.getString("P.Nombre"),rs.getFloat("F.Precio_Total"),rs.getFloat("R.Valor_Retenido")});
             }
         }catch(Exception e){
 
