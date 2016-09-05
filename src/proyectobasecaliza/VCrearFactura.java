@@ -13,7 +13,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import proyectobasecaliza.sistema.Cliente;
 
 /**
  *
@@ -58,10 +60,10 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         tfIdProducto = new javax.swing.JTextField();
-        tfRucCliente = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         tfRucEmple = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jcRUC = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crear Factura");
@@ -166,13 +168,6 @@ public class VCrearFactura extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
         jPanel1.add(tfIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 110, -1));
 
-        tfRucCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfRucClienteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(tfRucCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 110, -1));
-
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Ruc Empleado");
@@ -183,6 +178,10 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel10.setText("(Año-Mes-Dia)");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
 
+        jcRUC.setModel(new DefaultComboBoxModel(Sistema.getClientes().toArray()));
+        jcRUC.setSelectedIndex(-1);
+        jPanel1.add(jcRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 210, -1));
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         setBounds(0, 0, 436, 459);
@@ -190,9 +189,13 @@ public class VCrearFactura extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
        Connection cn = Sistema.getNewAccess().getConn();
+       Cliente clie = null;
        CallableStatement mycall;
         try{
-           Sistema.getNewAccess().write2("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+tfRucCliente.getText()+"', '"+tfRucEmple.getText()+"')}");
+            for(Cliente c : Sistema.getClientes()){
+                if(c.toString().equals(jcRUC.getSelectedItem().toString())) clie=c;
+            }
+           Sistema.getNewAccess().write2("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+clie.getId()+"', '"+tfRucEmple.getText()+"')}");
            JOptionPane notificacion = new JOptionPane();
            notificacion.showMessageDialog(rootPane, "Factura creada exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
         }catch(SQLException se){
@@ -214,10 +217,6 @@ public class VCrearFactura extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
-
-    private void tfRucClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfRucClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfRucClienteActionPerformed
 
     private void tfFechaEmisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaEmisionActionPerformed
         // TODO add your handling code here:
@@ -282,6 +281,7 @@ public class VCrearFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> jcRUC;
     private javax.swing.JLabel lbNumFactura;
     private javax.swing.JTextField tfEstado;
     private javax.swing.JTextField tfFechaEmision;
@@ -289,7 +289,6 @@ public class VCrearFactura extends javax.swing.JFrame {
     private javax.swing.JTextField tfIdProducto;
     private javax.swing.JTextField tfNumFactura;
     private javax.swing.JTextField tfPrecioUnitario;
-    private javax.swing.JTextField tfRucCliente;
     private javax.swing.JTextField tfRucEmple;
     private javax.swing.JTextField tfTotalFactura;
     private javax.swing.JTextField tfTotalSacosVendidos;

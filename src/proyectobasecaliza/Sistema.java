@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import proyectobasecaliza.sistema.Cliente;
 import proyectobasecaliza.sistema.FormaPago;
 import proyectobasecaliza.sistema.Usuario;
 
@@ -15,14 +16,17 @@ public class Sistema {
     private static MySqlAccess newAccess;
     private static ArrayList<Usuario> usuarios;
     private static ArrayList<FormaPago> formasPago;
+    private static ArrayList<Cliente> clientes;
         
     public static void incializarSistema(){
         Sistema.newAccess = new MySqlAccess();
         Sistema.newAccess.connection();
         Sistema.usuarios = new ArrayList<Usuario>();
         Sistema.formasPago = new ArrayList<FormaPago>();
+        Sistema.clientes = new ArrayList<Cliente>();
         Sistema.cargarUsuarios();
         Sistema.cargarFormasPago();
+        Sistema.cargarClientes();
     }
     
     public static void cerrar(){
@@ -35,6 +39,10 @@ public class Sistema {
 
     public static ArrayList<FormaPago> getFormasPago() {
         return Sistema.formasPago;
+    }
+
+    public static ArrayList<Cliente> getClientes() {
+        return Sistema.clientes;
     }
     
     private static void cargarUsuarios(){
@@ -61,6 +69,21 @@ public class Sistema {
                 p.setId(rs.getString("Idforma_pago"));
                 p.setDescripcion(rs.getString("Descripcion"));
                 Sistema.formasPago.add(p);
+            }
+        }catch(SQLException se){
+            se.printStackTrace();
+        }
+    }
+    
+    private static void cargarClientes(){
+        ResultSet rs;
+        try{
+            rs = Sistema.newAccess.query2("{call allClients ()}");
+            while(rs.next()){
+                Cliente c = new Cliente();
+                c.setId(rs.getString("RUC_Cliente"));
+                c.setNombre(rs.getString("Nombre"));
+                Sistema.clientes.add(c);
             }
         }catch(SQLException se){
             se.printStackTrace();

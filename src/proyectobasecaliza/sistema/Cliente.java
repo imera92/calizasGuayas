@@ -31,4 +31,8 @@ public class Cliente {
         return facturas;
     }
     
+    @Override
+    public String toString() {
+        return id + " - " + nombre;
+    }
 }
