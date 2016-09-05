@@ -16,9 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VConsultarRetencion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VConsultarRetencion
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VConsultarRetencion() {
         initComponents();
     }
@@ -36,6 +34,7 @@ public class VConsultarRetencion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbRetencion = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,7 +51,6 @@ public class VConsultarRetencion extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbRetencion.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Id Retencion","Porcentaje","Valor Retenido","Id Factura"});
         try{
@@ -74,6 +72,13 @@ public class VConsultarRetencion extends javax.swing.JFrame {
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(779, 60, 190, -1));
+
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
         getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -87,6 +92,11 @@ public class VConsultarRetencion extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbRetencion, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
 
     /**
      * @param args the command line arguments
@@ -129,5 +139,6 @@ public class VConsultarRetencion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JTable tbRetencion;
+    private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables
 }

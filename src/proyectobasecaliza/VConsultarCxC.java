@@ -15,9 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VConsultarCxC extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VConsultarCxC
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     
     
     public VConsultarCxC() {
@@ -37,17 +35,19 @@ public class VConsultarCxC extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbFactura = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(1040, 520));
-        setPreferredSize(new java.awt.Dimension(1040, 520));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cuentas por Cobrar");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 60, -1, -1));
 
         ResultSet rs=null;
         CallableStatement mycall= null;
@@ -56,7 +56,6 @@ public class VConsultarCxC extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbFactura.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Num Factura","Fecha Emision","Fecha Vencimiento","Estado","Sacos Vendidos","Precio unitario","Precio total","Id Producto","Ruc Cliente","Cedula empleado"});
         try{
@@ -68,54 +67,26 @@ public class VConsultarCxC extends javax.swing.JFrame {
         }
         jScrollPane1.setViewportView(tbFactura);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 117, 945, 319));
+
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtrasActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(939, 466, -1, -1));
+
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 80, 180, -1));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAtras)
-                        .addGap(42, 42, 42))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(54, Short.MAX_VALUE))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel2)
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btnAtras)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbFondo)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,6 +97,11 @@ public class VConsultarCxC extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbFactura, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
 
     /**
      * @param args the command line arguments
@@ -168,5 +144,6 @@ public class VConsultarCxC extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JTable tbFactura;
+    private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables
 }

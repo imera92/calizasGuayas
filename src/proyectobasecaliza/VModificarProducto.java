@@ -14,13 +14,11 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Monica
+ * @author Jorge García
  */
 public class VModificarProducto extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VModificarProducto
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VModificarProducto() {
         initComponents();
     }
@@ -48,6 +46,7 @@ public class VModificarProducto extends javax.swing.JFrame {
         tfNombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         tfPrecioUni = new javax.swing.JTextField();
+        tfFilter = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,7 +68,6 @@ public class VModificarProducto extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbProducto.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Id producto","Stock","Nombre","Precio"});
         try{
@@ -128,6 +126,13 @@ public class VModificarProducto extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, -1, -1));
         getContentPane().add(tfPrecioUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 260, 120, -1));
 
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(579, 90, 130, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -164,6 +169,11 @@ public class VModificarProducto extends javax.swing.JFrame {
             se.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbProducto, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
 
     /**
      * @param args the command line arguments
@@ -212,6 +222,7 @@ public class VModificarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbProducto;
+    private javax.swing.JTextField tfFilter;
     private javax.swing.JTextField tfIdProducto;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfPrecioUni;

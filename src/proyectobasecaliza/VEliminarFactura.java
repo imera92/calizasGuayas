@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class VEliminarFactura extends javax.swing.JFrame {
 
     String factId;
-    
+    DefaultTableModel dfm = new DefaultTableModel();
     public VEliminarFactura() {
         initComponents();
     }
@@ -38,6 +38,7 @@ public class VEliminarFactura extends javax.swing.JFrame {
         tbFactura = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +61,6 @@ public class VEliminarFactura extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbFactura.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Num Factura","Fecha Emision","Fecha Vencimiento","Estado","Sacos Vendidos","Precio unitario","Precio total","Id Producto","Ruc Cliente","Cedula empleado"});
         try{
@@ -94,6 +94,13 @@ public class VEliminarFactura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 90, 160, -1));
 
         lbFondo.setForeground(new java.awt.Color(255, 255, 255));
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
@@ -129,6 +136,11 @@ public class VEliminarFactura extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbFactura, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
 
     /**
      * @param args the command line arguments
@@ -174,5 +186,6 @@ public class VEliminarFactura extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JTable tbFactura;
+    private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables
 }

@@ -58,7 +58,7 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="dfm.setColumnIdentifiers(new Object[]{&quot;Id Retencion&quot;,&quot;Porcentaje&quot;,&quot;Valor Retenido&quot;,&quot;Id Factura&quot;});&#xa;    try{&#xa;        while(rs.next()){&#xa;            dfm.addRow(new Object[]{rs.getString(1),rs.getFloat(2),rs.getFloat(3),rs.getString(4)});&#xa;        }&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ResultSet rs=null;&#xa;    try{&#xa;        rs=Sistema.getNewAccess().query2(&quot;{call allReten ()}&quot;);&#xa;    }catch(Exception e){&#xa;&#xa;    }&#xa;    DefaultTableModel dfm = new DefaultTableModel();"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ResultSet rs=null;&#xa;    try{&#xa;        rs=Sistema.getNewAccess().query2(&quot;{call allReten ()}&quot;);&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -73,6 +73,16 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="910" y="450" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfFilter">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfFilterKeyReleased"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="779" y="60" width="190" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -17,9 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VModificarRetencion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VModificarRetencion
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VModificarRetencion() {
         initComponents();
     }
@@ -46,6 +44,7 @@ public class VModificarRetencion extends javax.swing.JFrame {
         btnAtras = new javax.swing.JButton();
         jpRetencion = new javax.swing.JScrollPane();
         tbRetencion = new javax.swing.JTable();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,7 +113,6 @@ public class VModificarRetencion extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbRetencion.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Id Retencion","Porcentaje","Valor Retenido","Id Factura"});
         try{
@@ -132,6 +130,13 @@ public class VModificarRetencion extends javax.swing.JFrame {
         jpRetencion.setViewportView(tbRetencion);
 
         getContentPane().add(jpRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 540, 360));
+
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 80, 170, -1));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
@@ -177,6 +182,11 @@ public class VModificarRetencion extends javax.swing.JFrame {
         tfValorRetenido.setText(tbRetencion.getValueAt(fila,2).toString());
         tfIdFactura.setText(tbRetencion.getValueAt(fila,3).toString());        
     }//GEN-LAST:event_tbRetencionMouseClicked
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbRetencion, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
 
     /**
      * @param args the command line arguments
@@ -224,6 +234,7 @@ public class VModificarRetencion extends javax.swing.JFrame {
     private javax.swing.JLabel lbIdRetencion;
     private javax.swing.JLabel lbTituloModificar;
     private javax.swing.JTable tbRetencion;
+    private javax.swing.JTextField tfFilter;
     private javax.swing.JTextField tfIdFactura;
     private javax.swing.JTextField tfIdRetencion;
     private javax.swing.JTextField tfPorcentaje;

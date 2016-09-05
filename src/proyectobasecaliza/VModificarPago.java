@@ -18,9 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VModificarPago extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VModificarPago
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VModificarPago() {
         initComponents();
     }
@@ -58,6 +56,7 @@ public class VModificarPago extends javax.swing.JFrame {
         tfNumFactura = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         tfIDFormaPago = new javax.swing.JTextField();
+        tfFilter = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,7 +78,6 @@ public class VModificarPago extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbPago.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Num comprobante","Feccha Pago","Num Cheque","Banco Cheque","Banco Deposito","Cuenta Deposito","Valor Cancelado","Id factura", "Id Forma pago"});
         try{
@@ -174,6 +172,13 @@ public class VModificarPago extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, -1, -1));
         getContentPane().add(tfIDFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 380, 120, -1));
 
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 110, 150, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -234,6 +239,11 @@ public class VModificarPago extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbPago, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -290,6 +300,7 @@ public class VModificarPago extends javax.swing.JFrame {
     private javax.swing.JTextField tfBancoDeposito;
     private javax.swing.JTextField tfCuentaDeposito;
     private javax.swing.JTextField tfFechaEmi;
+    private javax.swing.JTextField tfFilter;
     private javax.swing.JTextField tfIDFormaPago;
     private javax.swing.JTextField tfNumCheque;
     private javax.swing.JTextField tfNumComprobante;

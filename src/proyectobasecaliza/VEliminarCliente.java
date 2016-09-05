@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class VEliminarCliente extends javax.swing.JFrame {
 
     String rucCLiente;
-    
+    DefaultTableModel dfm = new DefaultTableModel();
     public VEliminarCliente() {
         initComponents();
     }
@@ -40,6 +40,7 @@ public class VEliminarCliente extends javax.swing.JFrame {
         btEliminar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +61,6 @@ public class VEliminarCliente extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbCliente.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Ruc","Nombre","Dirección","Teléfono","E-mail"});
         try{
@@ -101,6 +101,13 @@ public class VEliminarCliente extends javax.swing.JFrame {
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(819, 100, 150, -1));
+
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
         getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -133,6 +140,11 @@ public class VEliminarCliente extends javax.swing.JFrame {
             System.out.println("se produjo una excepcion");
         }
     }//GEN-LAST:event_btEliminarActionPerformed
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbCliente, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
     
     @Override
     public Image getIconImage() {
@@ -183,5 +195,6 @@ public class VEliminarCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JTable tbCliente;
+    private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,9 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VModificarFactura extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VModificarFactura
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VModificarFactura() {
         initComponents();
     }
@@ -60,6 +58,7 @@ public class VModificarFactura extends javax.swing.JFrame {
         tfTotalFactura = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         tfRucEmple = new javax.swing.JTextField();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,7 +80,6 @@ public class VModificarFactura extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbFactura.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Num Factura","Fecha Emision","Fecha Vencimiento","Estado","Sacos Vendidos","Precio unitario","Precio total","Id Producto","Ruc Cliente","Cedula empleado"});
         try{
@@ -197,6 +195,13 @@ public class VModificarFactura extends javax.swing.JFrame {
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
         getContentPane().add(tfRucEmple, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 110, -1));
 
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 90, 170, -1));
+
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
         getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -255,6 +260,11 @@ public class VModificarFactura extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        Sistema.filter(query, tbFactura, dfm);
+    }//GEN-LAST:event_tfFilterKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -312,6 +322,7 @@ public class VModificarFactura extends javax.swing.JFrame {
     private javax.swing.JTextField tfEstado;
     private javax.swing.JTextField tfFechaEmision;
     private javax.swing.JTextField tfFechaVencimiento;
+    private javax.swing.JTextField tfFilter;
     private javax.swing.JTextField tfIdProducto;
     private javax.swing.JTextField tfNumFactura;
     private javax.swing.JTextField tfPrecioUnitario;
