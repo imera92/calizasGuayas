@@ -351,6 +351,7 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiEliminarActionPerformed
 
     private void jmiLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiLogOutActionPerformed
+        Sistema.closeSession();
         VLogin ventana= new VLogin();
         ventana.setLocationRelativeTo(null);
         this.dispose();

@@ -33,6 +33,6 @@ public class Cliente {
     
     @Override
     public String toString() {
-        return id + " - " + nombre;
+        return this.id + " - " + this.nombre;
     }
 }

@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import proyectobasecaliza.sistema.Cliente;
 import proyectobasecaliza.sistema.FormaPago;
+import proyectobasecaliza.sistema.Producto;
 import proyectobasecaliza.sistema.Usuario;
 
 public class Sistema {
@@ -17,6 +18,7 @@ public class Sistema {
     private static ArrayList<Usuario> usuarios;
     private static ArrayList<FormaPago> formasPago;
     private static ArrayList<Cliente> clientes;
+    private static ArrayList<Producto> productos;
     private static Usuario session;
         
     public static void incializarSistema(){
@@ -25,9 +27,11 @@ public class Sistema {
         Sistema.usuarios = new ArrayList<Usuario>();
         Sistema.formasPago = new ArrayList<FormaPago>();
         Sistema.clientes = new ArrayList<Cliente>();
+        Sistema.productos = new ArrayList<Producto>();
         Sistema.cargarUsuarios();
         Sistema.cargarFormasPago();
         Sistema.cargarClientes();
+        Sistema.cargarProductos();
     }
     
     public static void cerrar(){
@@ -46,10 +50,18 @@ public class Sistema {
         return Sistema.clientes;
     }
     
+     public static ArrayList<Producto> getProductos() {
+        return productos;
+    }
+    
     public static Usuario getSession(){
         return Sistema.session;
     }
     
+    public static void closeSession(){
+       Sistema.session=null;
+    }
+
     private static void cargarUsuarios(){
         ResultSet rs;
         try{
@@ -89,6 +101,21 @@ public class Sistema {
                 c.setId(rs.getString("RUC_Cliente"));
                 c.setNombre(rs.getString("Nombre"));
                 Sistema.clientes.add(c);
+            }
+        }catch(SQLException se){
+            se.printStackTrace();
+        }
+    }
+    
+    private static void cargarProductos(){
+        ResultSet rs;
+        try{
+            rs = Sistema.newAccess.query2("{call allProduct ()}");
+            while(rs.next()){
+                Producto p = new Producto();
+                p.setId(rs.getString("IdProducto"));
+                p.setNombre(rs.getString("Nombre"));
+                Sistema.productos.add(p);
             }
         }catch(SQLException se){
             se.printStackTrace();

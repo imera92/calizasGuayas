@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import proyectobasecaliza.sistema.Cliente;
+import proyectobasecaliza.sistema.Producto;
 
 /**
  *
@@ -59,11 +60,11 @@ public class VCrearFactura extends javax.swing.JFrame {
         btnAtras = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        tfIdProducto = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         tfRucEmple = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jcRUC = new javax.swing.JComboBox<>();
+        jcProduct = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crear Factura");
@@ -161,7 +162,6 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Ruc Cliente");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
-        jPanel1.add(tfIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 110, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,6 +179,10 @@ public class VCrearFactura extends javax.swing.JFrame {
         jcRUC.setSelectedIndex(-1);
         jPanel1.add(jcRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 210, -1));
 
+        jcProduct.setModel(new DefaultComboBoxModel(Sistema.getProductos().toArray()));
+        jcProduct.setSelectedIndex(-1);
+        jPanel1.add(jcProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 210, -1));
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         setBounds(0, 0, 436, 459);
@@ -187,12 +191,16 @@ public class VCrearFactura extends javax.swing.JFrame {
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
        Connection cn = Sistema.getNewAccess().getConn();
        Cliente clie = null;
+       Producto prod = null;
        CallableStatement mycall;
         try{
             for(Cliente c : Sistema.getClientes()){
                 if(c.toString().equals(jcRUC.getSelectedItem().toString())) clie=c;
             }
-           Sistema.getNewAccess().write2("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+clie.getId()+"', '"+tfRucEmple.getText()+"')}");
+            for(Producto p : Sistema.getProductos()){
+                if(p.toString().equals(jcProduct.getSelectedItem().toString())) prod=p;
+            }
+           Sistema.getNewAccess().write2("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+prod.getId()+"', '"+clie.getId()+"', '"+tfRucEmple.getText()+"')}");
            JOptionPane notificacion = new JOptionPane();
            this.tfNumFactura.setText("");
            this.tfFechaEmision.setText("");
@@ -200,7 +208,7 @@ public class VCrearFactura extends javax.swing.JFrame {
            this.tfEstado.setText("");
            this.tfTotalSacosVendidos.setText("");
            this.tfPrecioUnitario.setText("");
-           this.tfIdProducto.setText("");
+           this.jcProduct.setSelectedIndex(-1);
            this.jcRUC.setSelectedIndex(-1);
            this.tfRucEmple.setText("");
            this.tfTotalFactura.setText("");
@@ -290,12 +298,12 @@ public class VCrearFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> jcProduct;
     private javax.swing.JComboBox<String> jcRUC;
     private javax.swing.JLabel lbNumFactura;
     private javax.swing.JTextField tfEstado;
     private javax.swing.JTextField tfFechaEmision;
     private javax.swing.JTextField tfFechaVencimiento;
-    private javax.swing.JTextField tfIdProducto;
     private javax.swing.JTextField tfNumFactura;
     private javax.swing.JTextField tfPrecioUnitario;
     private javax.swing.JTextField tfRucEmple;
