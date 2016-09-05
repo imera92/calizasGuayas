@@ -33,6 +33,7 @@ public class VModificarCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -50,24 +51,26 @@ public class VModificarCliente extends javax.swing.JFrame {
         lbEmail = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
         tfFilter = new javax.swing.JTextField();
-        lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Modificar Cliente");
         setIconImage(getIconImage());
         setResizable(false);
         setSize(new java.awt.Dimension(1020, 500));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1020, 500));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Modificar Cliente");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Seleccione cliente a modificar:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         ResultSet rs=null;
         try{
@@ -91,7 +94,7 @@ public class VModificarCliente extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbCliente);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 640, 330));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 640, 330));
 
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +102,7 @@ public class VModificarCliente extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 400, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -107,62 +110,60 @@ public class VModificarCliente extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 370, -1, -1));
 
-        lbRUC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbRUC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbRUC.setForeground(new java.awt.Color(255, 255, 255));
         lbRUC.setText("RUC:");
-        getContentPane().add(lbRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, -1, -1));
+        jPanel1.add(lbRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, -1, -1));
 
         tfRUC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfRUCActionPerformed(evt);
             }
         });
-        getContentPane().add(tfRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 190, 190, -1));
+        jPanel1.add(tfRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 190, 190, -1));
 
-        lbNombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbNombre.setForeground(new java.awt.Color(255, 255, 255));
         lbNombre.setText("Nombre:");
-        getContentPane().add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 220, -1, -1));
+        jPanel1.add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 220, -1, -1));
 
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 220, 190, -1));
+        jPanel1.add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 220, 190, -1));
 
-        lbDirección.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbDirección.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbDirección.setForeground(new java.awt.Color(255, 255, 255));
         lbDirección.setText("Dirección:");
-        getContentPane().add(lbDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, -1, -1));
-        getContentPane().add(tfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 260, 190, -1));
+        jPanel1.add(lbDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, -1, -1));
+        jPanel1.add(tfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 250, 190, -1));
 
-        lbTelefono.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lbTelefono.setText("Teléfono:");
-        getContentPane().add(lbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, -1, -1));
-        getContentPane().add(tfTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, 190, -1));
+        jPanel1.add(lbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, -1, -1));
+        jPanel1.add(tfTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, 190, -1));
 
-        lbEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbEmail.setForeground(new java.awt.Color(255, 255, 255));
         lbEmail.setText("e-mail:");
-        getContentPane().add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 340, -1, -1));
-        getContentPane().add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 190, -1));
+        jPanel1.add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, -1, -1));
+        jPanel1.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 310, 190, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 100, 150, -1));
+        jPanel1.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 100, 150, -1));
 
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
-        lbFondo.setText("jLabel1");
-        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 1036, 539);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
@@ -256,10 +257,10 @@ public class VModificarCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbDirección;
     private javax.swing.JLabel lbEmail;
-    private javax.swing.JLabel lbFondo;
     private javax.swing.JLabel lbNombre;
     private javax.swing.JLabel lbRUC;
     private javax.swing.JLabel lbTelefono;

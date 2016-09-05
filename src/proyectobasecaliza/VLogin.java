@@ -64,7 +64,7 @@ public class VLogin extends javax.swing.JFrame {
         lbIniciarSesion.setText("Iniciar Sesion:");
 
         lbNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lbNombreUsuario.setText("Nombre de Usuario:");
+        lbNombreUsuario.setText("No. de Cédula:");
 
         lbContraseña.setForeground(new java.awt.Color(255, 255, 255));
         lbContraseña.setText("Contraseña:");

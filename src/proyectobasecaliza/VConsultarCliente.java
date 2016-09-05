@@ -35,24 +35,26 @@ public class VConsultarCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpContent = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbCliente = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
         tfFilter = new javax.swing.JTextField();
-        lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultar Clientes");
         setIconImage(getIconImage());
         setResizable(false);
-        setSize(new java.awt.Dimension(1020, 500));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
+
+        jpContent.setBackground(new java.awt.Color(102, 153, 255));
+        jpContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Clientes Existentes");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        jpContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         ResultSet rs = null;
         try{
@@ -71,7 +73,7 @@ public class VConsultarCliente extends javax.swing.JFrame {
         }
         jScrollPane1.setViewportView(tbCliente);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 930, 340));
+        jpContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 930, 340));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -79,18 +81,17 @@ public class VConsultarCliente extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jpContent.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfFilterKeyReleased(evt);
             }
         });
-        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(789, 70, 180, -1));
+        jpContent.add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(789, 70, 180, -1));
 
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
-        lbFondo.setText("jLabel1");
-        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        getContentPane().add(jpContent);
+        jpContent.setBounds(0, 0, 970, 473);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,7 +160,7 @@ public class VConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnAtras;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbFondo;
+    private javax.swing.JPanel jpContent;
     private javax.swing.JTable tbCliente;
     private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables

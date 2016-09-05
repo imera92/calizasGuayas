@@ -32,6 +32,7 @@ public class VCrearRetencion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         lbTituloCrear = new javax.swing.JLabel();
         lbIdRetencion = new javax.swing.JLabel();
         Porcentaje = new javax.swing.JLabel();
@@ -43,40 +44,43 @@ public class VCrearRetencion extends javax.swing.JFrame {
         tfValorRetenido = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         tfIdFactura = new javax.swing.JTextField();
-        lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crear Retención");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTituloCrear.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbTituloCrear.setForeground(new java.awt.Color(255, 255, 255));
         lbTituloCrear.setText("Crear Retención");
-        getContentPane().add(lbTituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 50));
+        jPanel1.add(lbTituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, 50));
 
         lbIdRetencion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbIdRetencion.setForeground(new java.awt.Color(255, 255, 255));
         lbIdRetencion.setText("Id Retención");
-        getContentPane().add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        jPanel1.add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         Porcentaje.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Porcentaje.setForeground(new java.awt.Color(255, 255, 255));
         Porcentaje.setText("Porcentaje");
-        getContentPane().add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        jPanel1.add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         tfIdRetencion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIdRetencionActionPerformed(evt);
             }
         });
-        getContentPane().add(tfIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 190, -1));
+        jPanel1.add(tfIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 190, -1));
 
         tfPorcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPorcentajeActionPerformed(evt);
             }
         });
-        getContentPane().add(tfPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 190, -1));
+        jPanel1.add(tfPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 190, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +88,7 @@ public class VCrearRetencion extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -92,25 +96,23 @@ public class VCrearRetencion extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Valor Retenido");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        getContentPane().add(tfValorRetenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 190, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        jPanel1.add(tfValorRetenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 190, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Id Factura");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
-        getContentPane().add(tfIdFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 190, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+        jPanel1.add(tfIdFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 190, -1));
 
-        lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
-        lbFondo.setText("jLabel1");
-        getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 490));
 
-        pack();
+        setBounds(0, 0, 426, 519);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfIdRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdRetencionActionPerformed
@@ -186,7 +188,7 @@ public class VCrearRetencion extends javax.swing.JFrame {
     private javax.swing.JButton btnCrear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lbFondo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbIdRetencion;
     private javax.swing.JLabel lbTituloCrear;
     private javax.swing.JTextField tfIdFactura;
