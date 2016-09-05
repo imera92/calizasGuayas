@@ -116,28 +116,18 @@ public class VCrearFactura extends javax.swing.JFrame {
         jLabel7.setText("Estado:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
         jPanel1.add(tfNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 110, -1));
+        jPanel1.add(tfFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 110, 20));
 
-        tfFechaEmision.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFechaEmisionActionPerformed(evt);
+        tfPrecioUnitario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfPrecioUnitarioFocusLost(evt);
             }
         });
-        jPanel1.add(tfFechaEmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 110, 20));
         jPanel1.add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 110, -1));
         jPanel1.add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 110, -1));
 
-        tfTotalFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfTotalFacturaActionPerformed(evt);
-            }
-        });
+        tfTotalFactura.setEditable(false);
         jPanel1.add(tfTotalFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, -1));
-
-        tfFechaVencimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFechaVencimientoActionPerformed(evt);
-            }
-        });
         jPanel1.add(tfFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 110, -1));
         jPanel1.add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 110, -1));
 
@@ -197,19 +187,21 @@ public class VCrearFactura extends javax.swing.JFrame {
             }
            Sistema.getNewAccess().write2("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+tfIdProducto.getText()+"', '"+clie.getId()+"', '"+tfRucEmple.getText()+"')}");
            JOptionPane notificacion = new JOptionPane();
+           this.tfNumFactura.setText("");
+           this.tfFechaEmision.setText("");
+           this.tfFechaVencimiento.setText("");
+           this.tfEstado.setText("");
+           this.tfTotalSacosVendidos.setText("");
+           this.tfPrecioUnitario.setText("");
+           this.tfIdProducto.setText("");
+           this.jcRUC.setSelectedIndex(-1);
+           this.tfRucEmple.setText("");
+           this.tfTotalFactura.setText("");
            notificacion.showMessageDialog(rootPane, "Factura creada exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
         }catch(SQLException se){
             se.printStackTrace();
         }
     }//GEN-LAST:event_btnCrearActionPerformed
-
-    private void tfTotalFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTotalFacturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfTotalFacturaActionPerformed
-
-    private void tfFechaVencimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaVencimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFechaVencimientoActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         VPrincipal ventana= new VPrincipal();
@@ -218,9 +210,15 @@ public class VCrearFactura extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
-    private void tfFechaEmisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaEmisionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFechaEmisionActionPerformed
+    private void tfPrecioUnitarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPrecioUnitarioFocusLost
+        float sacos, precio, total;
+        if(this.tfTotalSacosVendidos.getText()!=null && this.tfPrecioUnitario.getText()!=null){
+            sacos = Float.parseFloat(this.tfTotalSacosVendidos.getText());
+            precio = Float.parseFloat(this.tfPrecioUnitario.getText());
+            total = sacos*precio;
+            this.tfTotalFactura.setText(Float.toString(total));
+        }
+    }//GEN-LAST:event_tfPrecioUnitarioFocusLost
     
     @Override
     public Image getIconImage() {
