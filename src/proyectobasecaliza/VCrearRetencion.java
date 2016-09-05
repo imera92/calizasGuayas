@@ -8,7 +8,10 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import proyectobasecaliza.sistema.Cliente;
+import proyectobasecaliza.sistema.Factura;
 
 /**
  *
@@ -43,7 +46,7 @@ public class VCrearRetencion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tfValorRetenido = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        tfIdFactura = new javax.swing.JTextField();
+        jcFact = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crear Retención");
@@ -62,26 +65,31 @@ public class VCrearRetencion extends javax.swing.JFrame {
         lbIdRetencion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbIdRetencion.setForeground(new java.awt.Color(255, 255, 255));
         lbIdRetencion.setText("Id Retención");
-        jPanel1.add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        jPanel1.add(lbIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         Porcentaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Porcentaje.setForeground(new java.awt.Color(255, 255, 255));
         Porcentaje.setText("Porcentaje");
-        jPanel1.add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jPanel1.add(Porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         tfIdRetencion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIdRetencionActionPerformed(evt);
             }
         });
-        jPanel1.add(tfIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 190, -1));
+        jPanel1.add(tfIdRetencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 190, -1));
 
+        tfPorcentaje.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfPorcentajeFocusLost(evt);
+            }
+        });
         tfPorcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPorcentajeActionPerformed(evt);
             }
         });
-        jPanel1.add(tfPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 190, -1));
+        jPanel1.add(tfPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 190, -1));
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -102,14 +110,19 @@ public class VCrearRetencion extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Valor Retenido");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        jPanel1.add(tfValorRetenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 190, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        tfValorRetenido.setEditable(false);
+        jPanel1.add(tfValorRetenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 190, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Id Factura");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
-        jPanel1.add(tfIdFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 190, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        jcFact.setModel(new DefaultComboBoxModel(Sistema.getFacturas().toArray()));
+        jcFact.setSelectedIndex(-1);
+        jPanel1.add(jcFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 190, -1));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -125,13 +138,17 @@ public class VCrearRetencion extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPorcentajeActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        Factura fact = null;
         try {
-            Sistema.getNewAccess().write2("{call insertReten('"+tfIdRetencion.getText()+"', "+tfPorcentaje.getText()+", "+tfValorRetenido.getText()+", '"+tfIdFactura.getText()+"')}");
+            for(Factura f : Sistema.getFacturas()){
+                if(f.toString().equals(jcFact.getSelectedItem().toString())) fact=f;
+            }
+            Sistema.getNewAccess().write2("{call insertReten('"+tfIdRetencion.getText()+"', "+tfPorcentaje.getText()+", "+tfValorRetenido.getText()+", '"+fact.getId()+"')}");
             JOptionPane notificacion = new JOptionPane();
             this.tfIdRetencion.setText("");
             this.tfPorcentaje.setText("");
             this.tfValorRetenido.setText("");
-            this.tfIdFactura.setText("");
+            this.jcFact.setSelectedIndex(-1);
             notificacion.showMessageDialog(rootPane, "Retencion ingresada exitosamente", "Crear Retencion", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException se) {
             se.printStackTrace();
@@ -147,6 +164,19 @@ public class VCrearRetencion extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tfPorcentajeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPorcentajeFocusLost
+        if(this.jcFact.getSelectedItem()!=null){
+            Factura fact = null;
+            double porcentaje, retenido;
+            for(Factura f : Sistema.getFacturas()){
+                if(f.toString().equals(jcFact.getSelectedItem().toString())) fact=f;
+            }
+            porcentaje = Double.parseDouble(this.tfPorcentaje.getText());
+            retenido = porcentaje * fact.getTotal();
+            this.tfValorRetenido.setText(Double.toString(retenido));
+        }
+    }//GEN-LAST:event_tfPorcentajeFocusLost
 
     /**
      * @param args the command line arguments
@@ -190,9 +220,9 @@ public class VCrearRetencion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> jcFact;
     private javax.swing.JLabel lbIdRetencion;
     private javax.swing.JLabel lbTituloCrear;
-    private javax.swing.JTextField tfIdFactura;
     private javax.swing.JTextField tfIdRetencion;
     private javax.swing.JTextField tfPorcentaje;
     private javax.swing.JTextField tfValorRetenido;

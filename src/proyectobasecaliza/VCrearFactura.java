@@ -205,6 +205,8 @@ public class VCrearFactura extends javax.swing.JFrame {
                 if(p.toString().equals(jcProduct.getSelectedItem().toString())) prod=p;
             }
            Sistema.getNewAccess().write2("{call insertFact('"+tfNumFactura.getText()+"', '"+tfFechaEmision.getText()+"', '"+tfFechaVencimiento.getText()+"', '"+tfEstado.getText()+"', "+tfTotalSacosVendidos.getText()+", "+tfPrecioUnitario.getText()+", "+tfTotalFactura.getText()+",'"+prod.getId()+"', '"+clie.getId()+"', '"+tfRucEmple.getText()+"')}");
+           Sistema.getFacturas().clear();
+           Sistema.cargarFacturas();
            JOptionPane notificacion = new JOptionPane();
            this.tfNumFactura.setText("");
            this.tfFechaEmision.setText("");

@@ -10,6 +10,7 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import proyectobasecaliza.sistema.Cliente;
+import proyectobasecaliza.sistema.Factura;
 import proyectobasecaliza.sistema.FormaPago;
 import proyectobasecaliza.sistema.Producto;
 import proyectobasecaliza.sistema.Usuario;
@@ -20,6 +21,7 @@ public class Sistema {
     private static ArrayList<FormaPago> formasPago;
     private static ArrayList<Cliente> clientes;
     private static ArrayList<Producto> productos;
+    private static ArrayList<Factura> facturas;
     private static Usuario session;
         
     public static void incializarSistema(){
@@ -29,10 +31,12 @@ public class Sistema {
         Sistema.formasPago = new ArrayList<FormaPago>();
         Sistema.clientes = new ArrayList<Cliente>();
         Sistema.productos = new ArrayList<Producto>();
+        Sistema.facturas = new ArrayList<Factura>();
         Sistema.cargarUsuarios();
         Sistema.cargarFormasPago();
         Sistema.cargarClientes();
         Sistema.cargarProductos();
+        Sistema.cargarFacturas();
     }
     
     public static void cerrar(){
@@ -54,7 +58,11 @@ public class Sistema {
      public static ArrayList<Producto> getProductos() {
         return productos;
     }
-    
+
+    public static ArrayList<Factura> getFacturas() {
+        return facturas;
+    }
+     
     public static Usuario getSession(){
         return Sistema.session;
     }
@@ -117,6 +125,21 @@ public class Sistema {
                 p.setId(rs.getString("IdProducto"));
                 p.setNombre(rs.getString("Nombre"));
                 Sistema.productos.add(p);
+            }
+        }catch(SQLException se){
+            se.printStackTrace();
+        }
+    }
+    
+    public static void cargarFacturas(){
+        ResultSet rs;
+        try{
+            rs = Sistema.newAccess.query2("{call allFact ()}");
+            while(rs.next()){
+                Factura f = new Factura();
+                f.setId(rs.getString("IdFactura"));
+                f.setTotal(Double.parseDouble(rs.getString("Precio_Total")));
+                Sistema.facturas.add(f);
             }
         }catch(SQLException se){
             se.printStackTrace();

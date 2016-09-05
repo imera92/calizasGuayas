@@ -82,4 +82,8 @@ public class Factura {
         return pagos;
     }
     
+    @Override
+    public String toString() {
+        return this.id + " - " + this.total;
+    }
 }
