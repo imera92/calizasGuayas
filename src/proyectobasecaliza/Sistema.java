@@ -3,6 +3,7 @@ package proyectobasecaliza;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
@@ -122,10 +123,10 @@ public class Sistema {
         }
     }
     
-    public static boolean validarUsuario(JTextField user, JTextField pass){
+    public static boolean validarUsuario(JTextField user, JPasswordField pass){
         Usuario uTemp = new Usuario();
         uTemp.setUser(user.getText());
-        uTemp.setPass(pass.getText());
+        uTemp.setPass(new String(pass.getPassword()));
         for(Usuario u : Sistema.usuarios){
             if(u.compareTo(uTemp) == 1){
                 Sistema.session=u;

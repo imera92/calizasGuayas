@@ -35,10 +35,10 @@ public class VLogin extends javax.swing.JFrame {
         lbNombreUsuario = new javax.swing.JLabel();
         lbContraseña = new javax.swing.JLabel();
         txtNombreUsuario = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 204));
@@ -75,12 +75,6 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
 
-        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraseñaActionPerformed(evt);
-            }
-        });
-
         btnLogin.setText("Iniciar Sesion");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,10 +103,12 @@ public class VLogin extends javax.swing.JFrame {
                     .addComponent(lbNombreUsuario)
                     .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbContraseña)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogin)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PInicioLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jPass, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PInicioLayout.setVerticalGroup(
@@ -130,13 +126,13 @@ public class VLogin extends javax.swing.JFrame {
                 .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(lbContraseña)
-                .addGap(6, 6, 6)
-                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(8, 8, 8)
+                .addComponent(jPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnLogin)
                 .addGap(20, 20, 20)
                 .addComponent(btnSalir)
-                .addGap(37, 37, 37))
+                .addGap(59, 59, 59))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,13 +153,9 @@ public class VLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraseñaActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         
-        if(Sistema.validarUsuario(txtNombreUsuario, txtContraseña)){
+        if(Sistema.validarUsuario(txtNombreUsuario, jPass)){
             VPrincipal ventana= new VPrincipal();
             ventana.setLocationRelativeTo(null);
             this.dispose();
@@ -228,11 +220,11 @@ public class VLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPasswordField jPass;
     private javax.swing.JLabel lbContraseña;
     private javax.swing.JLabel lbIniciarSesion;
     private javax.swing.JLabel lbNombreEmpresa;
     private javax.swing.JLabel lbNombreUsuario;
-    private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtNombreUsuario;
     // End of variables declaration//GEN-END:variables
 }
