@@ -138,12 +138,14 @@ public class VCrearCliente extends javax.swing.JFrame {
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         try{
             Sistema.getNewAccess().write2("{call insertClient('"+tfRUC.getText()+"', '"+tfNombre.getText()+"', '"+tfDireccion.getText()+"', '"+tfTelefono.getText()+"', '"+tfEmail.getText()+"')}");
-            JOptionPane notificacion = new JOptionPane();
+            Sistema.getClientes().clear();
+            Sistema.cargarClientes();
             this.tfRUC.setText("");
             this.tfNombre.setText("");
             this.tfDireccion.setText("");
             this.tfTelefono.setText("");
             this.tfEmail.setText("");
+            JOptionPane notificacion = new JOptionPane();
             notificacion.showMessageDialog(rootPane, "Cliente creado exitosamente", "Crear cliente", JOptionPane.INFORMATION_MESSAGE);
         }catch(Exception e){
             System.out.println("se produjo una excepcion");

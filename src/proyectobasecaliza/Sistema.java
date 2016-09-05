@@ -3,12 +3,14 @@ package proyectobasecaliza;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import proyectobasecaliza.sistema.Cliente;
+import proyectobasecaliza.sistema.Factura;
 import proyectobasecaliza.sistema.FormaPago;
 import proyectobasecaliza.sistema.Producto;
 import proyectobasecaliza.sistema.Usuario;
@@ -19,6 +21,7 @@ public class Sistema {
     private static ArrayList<FormaPago> formasPago;
     private static ArrayList<Cliente> clientes;
     private static ArrayList<Producto> productos;
+    private static ArrayList<Factura> facturas;
     private static Usuario session;
         
     public static void incializarSistema(){
@@ -28,10 +31,12 @@ public class Sistema {
         Sistema.formasPago = new ArrayList<FormaPago>();
         Sistema.clientes = new ArrayList<Cliente>();
         Sistema.productos = new ArrayList<Producto>();
+        Sistema.facturas = new ArrayList<Factura>();
         Sistema.cargarUsuarios();
         Sistema.cargarFormasPago();
         Sistema.cargarClientes();
         Sistema.cargarProductos();
+        Sistema.cargarFacturas();
     }
     
     public static void cerrar(){
@@ -53,7 +58,11 @@ public class Sistema {
      public static ArrayList<Producto> getProductos() {
         return productos;
     }
-    
+
+    public static ArrayList<Factura> getFacturas() {
+        return facturas;
+    }
+     
     public static Usuario getSession(){
         return Sistema.session;
     }
@@ -92,7 +101,7 @@ public class Sistema {
         }
     }
     
-    private static void cargarClientes(){
+    public static void cargarClientes(){
         ResultSet rs;
         try{
             rs = Sistema.newAccess.query2("{call allClients ()}");
@@ -122,10 +131,25 @@ public class Sistema {
         }
     }
     
-    public static boolean validarUsuario(JTextField user, JTextField pass){
+    public static void cargarFacturas(){
+        ResultSet rs;
+        try{
+            rs = Sistema.newAccess.query2("{call allFact ()}");
+            while(rs.next()){
+                Factura f = new Factura();
+                f.setId(rs.getString("IdFactura"));
+                f.setTotal(Double.parseDouble(rs.getString("Precio_Total")));
+                Sistema.facturas.add(f);
+            }
+        }catch(SQLException se){
+            se.printStackTrace();
+        }
+    }
+    
+    public static boolean validarUsuario(JTextField user, JPasswordField pass){
         Usuario uTemp = new Usuario();
         uTemp.setUser(user.getText());
-        uTemp.setPass(pass.getText());
+        uTemp.setPass(new String(pass.getPassword()));
         for(Usuario u : Sistema.usuarios){
             if(u.compareTo(uTemp) == 1){
                 Sistema.session=u;

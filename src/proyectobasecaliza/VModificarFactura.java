@@ -37,7 +37,6 @@ public class VModificarFactura extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbFactura = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         lbNumFactura = new javax.swing.JLabel();
         tfNumFactura = new javax.swing.JTextField();
@@ -63,6 +62,11 @@ public class VModificarFactura extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,9 +112,6 @@ public class VModificarFactura extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 400, -1, -1));
 
-        jButton2.setText("Cancelar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 400, -1, -1));
-
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,12 +154,24 @@ public class VModificarFactura extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Total Sacos Vendidos:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, -1, -1));
+
+        tfTotalSacosVendidos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfTotalSacosVendidosFocusLost(evt);
+            }
+        });
         jPanel1.add(tfTotalSacosVendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 190, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Precio Unitario:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 220, -1, -1));
+
+        tfPrecioUnitario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfPrecioUnitarioFocusLost(evt);
+            }
+        });
         jPanel1.add(tfPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, 110, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -184,6 +197,7 @@ public class VModificarFactura extends javax.swing.JFrame {
         jLabel5.setText("Total Factura:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, -1));
 
+        tfTotalFactura.setEditable(false);
         tfTotalFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfTotalFacturaActionPerformed(evt);
@@ -195,6 +209,8 @@ public class VModificarFactura extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Ruc Empleado");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
+
+        tfRucEmple.setEditable(false);
         jPanel1.add(tfRucEmple, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 320, 110, -1));
 
         tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -265,6 +281,30 @@ public class VModificarFactura extends javax.swing.JFrame {
         Sistema.filter(query, tbFactura, dfm);
     }//GEN-LAST:event_tfFilterKeyReleased
 
+    private void tfPrecioUnitarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPrecioUnitarioFocusLost
+        float sacos, precio, total;
+        if(this.tfTotalSacosVendidos.getText()!=null && this.tfPrecioUnitario.getText()!=null){
+            sacos = Float.parseFloat(this.tfTotalSacosVendidos.getText());
+            precio = Float.parseFloat(this.tfPrecioUnitario.getText());
+            total = sacos*precio;
+            this.tfTotalFactura.setText(Float.toString(total));
+        }
+    }//GEN-LAST:event_tfPrecioUnitarioFocusLost
+
+    private void tfTotalSacosVendidosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfTotalSacosVendidosFocusLost
+        float sacos, precio, total;
+        if(this.tfTotalSacosVendidos.getText()!=null && this.tfPrecioUnitario.getText()!=null){
+            sacos = Float.parseFloat(this.tfTotalSacosVendidos.getText());
+            precio = Float.parseFloat(this.tfPrecioUnitario.getText());
+            total = sacos*precio;
+            this.tfTotalFactura.setText(Float.toString(total));
+        }
+    }//GEN-LAST:event_tfTotalSacosVendidosFocusLost
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        this.tfRucEmple.setText(Sistema.getSession().getUser());
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -303,7 +343,6 @@ public class VModificarFactura extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
