@@ -233,7 +233,7 @@ public class VCrearFactura extends javax.swing.JFrame {
 
     private void tfPrecioUnitarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPrecioUnitarioFocusLost
         float sacos, precio, total;
-        if(this.tfTotalSacosVendidos.getText()!=null && this.tfPrecioUnitario.getText()!=null){
+        if(this.tfTotalSacosVendidos.getText().isEmpty()==false && this.tfPrecioUnitario.getText().isEmpty()==false){
             sacos = Float.parseFloat(this.tfTotalSacosVendidos.getText());
             precio = Float.parseFloat(this.tfPrecioUnitario.getText());
             total = sacos*precio;
@@ -247,7 +247,7 @@ public class VCrearFactura extends javax.swing.JFrame {
 
     private void tfTotalSacosVendidosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfTotalSacosVendidosFocusLost
         float sacos, precio, total;
-        if(this.tfTotalSacosVendidos.getText()!=null && this.tfPrecioUnitario.getText()!=null){
+        if(this.tfTotalSacosVendidos.getText().isEmpty()==false && this.tfPrecioUnitario.getText().isEmpty()==false){
             sacos = Float.parseFloat(this.tfTotalSacosVendidos.getText());
             precio = Float.parseFloat(this.tfPrecioUnitario.getText());
             total = sacos*precio;
