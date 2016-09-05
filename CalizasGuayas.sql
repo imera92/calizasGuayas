@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `calizasguayas` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `calizasguayas`;
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: calizasguayas
 -- ------------------------------------------------------
--- Server version	5.7.13-log
+-- Server version	5.7.12-0ubuntu1.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -406,13 +406,32 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `allCxC`()
 begin 
 SELECT C.Nombre, F.IdFactura, F.Fecha_Emision, F.Fecha_Vencimiento, F.Sacos_Vendidos, P.Nombre, F.Precio_Total, R.Valor_retenido, F.Precio_Total - R.Valor_retenido
 FROM cliente C, factura F, producto P, retencion R
-WHERE c.RUC_Cliente=F.RUC_Cliente and F.IdProducto=P.IdProducto and F.IdFactura=R.IdFactura and F.Fecha_Vencimiento<=(select curdate())and F.Estado='no pagado';
+WHERE C.RUC_Cliente=F.RUC_Cliente and F.IdProducto=P.IdProducto and F.Estado='no pagado' and F.IdFactura=R.IdFactura;# and F.Fecha_Vencimiento <= curdate() ;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `allEmpl` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `allEmpl`()
+begin 
+SELECT * FROM empleados;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -432,6 +451,25 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `allFact`()
 begin 
 SELECT * FROM factura;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `allPayForm` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `allPayForm`()
+begin 
+SELECT * FROM forma_pago;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -823,18 +861,5 @@ DELIMITER ;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `allEmpl`()
-begin 
-SELECT * FROM empleados;
-end ;;
-DELIMITER ;
 
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `allPayForm`()
-begin 
-SELECT * FROM forma_pago;
-end ;;
-DELIMITER ;
-
--- Dump completed on 2016-09-05  1:41:33
+-- Dump completed on 2016-09-05  8:48:52
