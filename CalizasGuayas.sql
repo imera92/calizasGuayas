@@ -828,4 +828,11 @@ SELECT * FROM empleados;
 end ;;
 DELIMITER ;
 
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `allPayForm`()
+begin 
+SELECT * FROM forma_pago;
+end ;;
+DELIMITER ;
+
 -- Dump completed on 2016-09-05  1:41:33
