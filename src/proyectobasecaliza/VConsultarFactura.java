@@ -8,7 +8,9 @@ package proyectobasecaliza;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -16,13 +18,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VConsultarFactura extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VConsultarFactura
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VConsultarFactura() {
         initComponents();
-        
-        
     }
 
     /**
@@ -38,6 +36,7 @@ public class VConsultarFactura extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbFactura = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,7 +55,6 @@ public class VConsultarFactura extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbFactura.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Num Factura","Fecha Emision","Fecha Vencimiento","Estado","Sacos Vendidos","Precio unitario","Precio total","Id Producto","Ruc Cliente","Cedula empleado"});
         try{
@@ -66,6 +64,11 @@ public class VConsultarFactura extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
+        tbFactura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbFacturaKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbFactura);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 920, 350));
@@ -77,6 +80,7 @@ public class VConsultarFactura extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(809, 60, 160, -1));
 
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
@@ -92,6 +96,16 @@ public class VConsultarFactura extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
+    private void tbFacturaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFacturaKeyReleased
+        String query=tfFilter.getText();
+        filter(query);
+    }//GEN-LAST:event_tbFacturaKeyReleased
+
+    private void filter(String query) {
+        TableRowSorter<DefaultTableModel> tr =new TableRowSorter<DefaultTableModel>(dfm);
+        tbFactura.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(query));
+    }
     /**
      * @param args the command line arguments
      */
@@ -133,5 +147,6 @@ public class VConsultarFactura extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JTable tbFactura;
+    private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables
 }
