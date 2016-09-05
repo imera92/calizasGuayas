@@ -56,15 +56,15 @@ public class VConsultarCxC extends javax.swing.JFrame {
         ResultSet rs=null;
         CallableStatement mycall= null;
         try{
-            rs=Sistema.getNewAccess().query2("{call allFact ()}");
+            rs=Sistema.getNewAccess().query2("{call allCxC ()}");
         }catch(Exception e){
 
         }
         tbFactura.setModel(dfm);
-        dfm.setColumnIdentifiers(new Object[]{"Num Factura","Fecha Emision","Fecha Vencimiento","Estado","Sacos Vendidos","Precio unitario","Precio total","Id Producto","Ruc Cliente","Cedula empleado"});
+        dfm.setColumnIdentifiers(new Object[]{"Cliente","Factura","Fecha Emision","Fecha Vencimiento","Sacos Vendidos","Producto","Subtotal","V.Retencion","Total por Cobrar"});
         try{
             while(rs.next()){
-                dfm.addRow(new Object[]{rs.getString("IdFactura"),rs.getDate("Fecha_Emision"),rs.getDate("Fecha_Vencimiento"),rs.getString("Estado"),rs.getInt("Sacos_Vendidos"),rs.getFloat("Precio_Unitario"),rs.getFloat("Precio_Total"),rs.getString("IdProducto"),rs.getString("RUC_Cliente"),rs.getString("Cedula_Empleados")});
+                dfm.addRow(new Object[]{rs.getString("C.Nombre"),rs.getString("F.IdFactura"),rs.getDate("Fecha_Emision"),rs.getDate("Fecha_Vencimiento"),rs.getInt("F.Sacos_Vendidos"),rs.getString("P.Nombre"),rs.getFloat("F.Precio_Total"),rs.getFloat("R.Valor_Retenido"),rs.getFloat("F.Precio_Total - R.Valor_retenido")});
             }
         }catch(Exception e){
 

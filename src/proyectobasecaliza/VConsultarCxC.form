@@ -4,7 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-      <Color id="Cursor Por defecto"/>
+      <Color id="Default Cursor"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1040, 500]"/>
@@ -87,8 +87,8 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="dfm.setColumnIdentifiers(new Object[]{&quot;Num Factura&quot;,&quot;Fecha Emision&quot;,&quot;Fecha Vencimiento&quot;,&quot;Estado&quot;,&quot;Sacos Vendidos&quot;,&quot;Precio unitario&quot;,&quot;Precio total&quot;,&quot;Id Producto&quot;,&quot;Ruc Cliente&quot;,&quot;Cedula empleado&quot;});&#xa;    try{&#xa;        while(rs.next()){&#xa;            dfm.addRow(new Object[]{rs.getString(&quot;IdFactura&quot;),rs.getDate(&quot;Fecha_Emision&quot;),rs.getDate(&quot;Fecha_Vencimiento&quot;),rs.getString(&quot;Estado&quot;),rs.getInt(&quot;Sacos_Vendidos&quot;),rs.getFloat(&quot;Precio_Unitario&quot;),rs.getFloat(&quot;Precio_Total&quot;),rs.getString(&quot;IdProducto&quot;),rs.getString(&quot;RUC_Cliente&quot;),rs.getString(&quot;Cedula_Empleados&quot;)});&#xa;        }&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ResultSet rs=null;&#xa;CallableStatement mycall= null;&#xa;    try{&#xa;        rs=Sistema.getNewAccess().query2(&quot;{call allFact ()}&quot;);&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="dfm.setColumnIdentifiers(new Object[]{&quot;Cliente&quot;,&quot;Factura&quot;,&quot;Fecha Emision&quot;,&quot;Fecha Vencimiento&quot;,&quot;Sacos Vendidos&quot;,&quot;Producto&quot;,&quot;Subtotal&quot;,&quot;V.Retencion&quot;,&quot;Total por Cobrar&quot;});&#xa;    try{&#xa;        while(rs.next()){&#xa;            dfm.addRow(new Object[]{rs.getString(&quot;C.Nombre&quot;),rs.getString(&quot;F.IdFactura&quot;),rs.getDate(&quot;Fecha_Emision&quot;),rs.getDate(&quot;Fecha_Vencimiento&quot;),rs.getInt(&quot;F.Sacos_Vendidos&quot;),rs.getString(&quot;P.Nombre&quot;),rs.getFloat(&quot;F.Precio_Total&quot;),rs.getFloat(&quot;R.Valor_Retenido&quot;),rs.getFloat(&quot;F.Precio_Total - R.Valor_retenido&quot;)});&#xa;        }&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ResultSet rs=null;&#xa;CallableStatement mycall= null;&#xa;    try{&#xa;        rs=Sistema.getNewAccess().query2(&quot;{call allCxC ()}&quot;);&#xa;    }catch(Exception e){&#xa;&#xa;    }"/>
               </AuxValues>
             </Component>
           </SubComponents>

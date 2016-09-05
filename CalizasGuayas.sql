@@ -368,7 +368,7 @@ CREATE TABLE `retencion` (
 
 LOCK TABLES `retencion` WRITE;
 /*!40000 ALTER TABLE `retencion` DISABLE KEYS */;
-INSERT INTO `retencion` VALUES ('001-001-000004028',1,24.9,'7584');
+INSERT INTO `retencion` VALUES ('001-001-000004028',1,24.9,'7584'),('001-001-555',0.01,7.92,'7219');
 /*!40000 ALTER TABLE `retencion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,7 +412,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `allCxC`()
 begin 
 SELECT C.Nombre, F.IdFactura, F.Fecha_Emision, F.Fecha_Vencimiento, F.Sacos_Vendidos, P.Nombre, F.Precio_Total, R.Valor_retenido, F.Precio_Total - R.Valor_retenido
 FROM cliente C, factura F, producto P, retencion R
-WHERE C.RUC_Cliente=F.RUC_Cliente and F.IdProducto=P.IdProducto and F.IdFactura=R.IdFactura and (F.Estado='no pagado' or F.Fecha_Vencimiento <= curdate());
+WHERE C.RUC_Cliente=F.RUC_Cliente and F.IdProducto=P.IdProducto and F.IdFactura=R.IdFactura and F.Estado='no pagado';
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -862,4 +862,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-05  9:10:37
+-- Dump completed on 2016-09-05  9:31:31
