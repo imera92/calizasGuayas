@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `calizasguayas` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `calizasguayas`;
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: calizasguayas
 -- ------------------------------------------------------
--- Server version	5.7.13-log
+-- Server version	5.7.14-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -45,6 +45,26 @@ LOCK TABLES `asociacion_descuento` WRITE;
 /*!40000 ALTER TABLE `asociacion_descuento` DISABLE KEYS */;
 /*!40000 ALTER TABLE `asociacion_descuento` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger ElimiAsoDesc before delete on asociacion_descuento
+for each row begin 
+
+delete from descuento
+where IdDescuento= old.IdDescuento;
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `cliente`
@@ -188,6 +208,29 @@ LOCK TABLES `factura` WRITE;
 INSERT INTO `factura` VALUES ('7584','2016-07-31','2016-08-31','pagado',1500,1.66,2490,'CC001','0702996422001','0924193790');
 /*!40000 ALTER TABLE `factura` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger ElimiFact before delete on factura
+for each row begin 
+delete from pago
+where IdFactura = old.IdFactura;
+
+delete from retencion
+where IdFactura = old.IdFactura;
+
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `forma_pago`
@@ -275,6 +318,30 @@ LOCK TABLES `producto` WRITE;
 INSERT INTO `producto` VALUES ('CC001',5000,'Carbonato de Calcio',2),('ZEO001',300,'Zeolita',2.5);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger ElimiProd before delete on producto
+for each row begin 
+
+delete from asociacion_descuento
+where IdProducto = old.IdProducto;
+
+delete from factura
+where IdProducto = old.IdProducto;
+
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `retencion`
@@ -757,4 +824,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-04 18:54:49
+-- Dump completed on 2016-09-04 19:09:54
