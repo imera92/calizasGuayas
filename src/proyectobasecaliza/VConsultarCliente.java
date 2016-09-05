@@ -13,7 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -21,9 +23,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VConsultarCliente extends javax.swing.JFrame {
     
-    /**
-     * Creates new form VConsultarCliente
-     */
+    DefaultTableModel dfm = new DefaultTableModel();
     public VConsultarCliente() throws SQLException {
         initComponents();
     }
@@ -41,6 +41,7 @@ public class VConsultarCliente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbCliente = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
+        tfFilter = new javax.swing.JTextField();
         lbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,7 +62,6 @@ public class VConsultarCliente extends javax.swing.JFrame {
         }catch(Exception e){
 
         }
-        DefaultTableModel dfm = new DefaultTableModel();
         tbCliente.setModel(dfm);
         dfm.setColumnIdentifiers(new Object[]{"Ruc","Nombre","Dirección","Teléfono","E-mail"});
         try{
@@ -83,6 +83,13 @@ public class VConsultarCliente extends javax.swing.JFrame {
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
+        tfFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFilterKeyReleased(evt);
+            }
+        });
+        getContentPane().add(tfFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(789, 70, 180, -1));
+
         lbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectobasecaliza/Fondo 1.jpg"))); // NOI18N
         lbFondo.setText("jLabel1");
         getContentPane().add(lbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 500));
@@ -96,6 +103,17 @@ public class VConsultarCliente extends javax.swing.JFrame {
         this.dispose();
         ventana.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void tfFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFilterKeyReleased
+        String query=tfFilter.getText();
+        filter(query);
+    }//GEN-LAST:event_tfFilterKeyReleased
+    
+    private void filter(String query) {
+        TableRowSorter<DefaultTableModel> tr =new TableRowSorter<DefaultTableModel>(dfm);
+        tbCliente.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(query));
+    }
     
     @Override
     public Image getIconImage() {
@@ -149,5 +167,6 @@ public class VConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JTable tbCliente;
+    private javax.swing.JTextField tfFilter;
     // End of variables declaration//GEN-END:variables
 }
